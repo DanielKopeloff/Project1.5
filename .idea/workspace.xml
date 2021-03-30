@@ -12,7 +12,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/HibernateUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestCreateHibernate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestCreateHibernate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestCreateHibernate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestCreateHibernate.java" afterDir="false" />/>
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +97,14 @@
       <option name="presentableId" value="Default" />
       <updated>1617067175997</updated>
     </task>
+    <task id="LOCAL-00001" summary="Made userID autoincrement">
+      <created>1617136339251</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617136339251</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -110,5 +118,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Made userID autoincrement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made userID autoincrement" />
   </component>
 </project>
