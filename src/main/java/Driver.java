@@ -5,6 +5,7 @@ import StoneKopeloffProject.service.HibernateUtil;
 import StoneKopeloffProject.service.ReimbursementService;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,7 +47,9 @@ public class Driver {
             System.out.println(reimbursement);
         }
 
-        System.out.println(reimbursementService.getReimbursementsByUserID(10));
+
+
+//        System.out.println(reimbursementService.getReimbursementsByUserID(10));
 
 
     }
