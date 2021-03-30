@@ -1,14 +1,33 @@
 package StoneKopeloffProject.model;
 
+import org.hibernate.annotations.DynamicUpdate;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+
+@DynamicUpdate
 public class User {
+	@Id
+	@Column(name = "id")
 	private int user_id;
+
+	@Column(name = "username")
 	private String username;
+
+	@Column(name = "password")
 	private String password;
+	@Column(name = "firstname")
 	private String firstname;
+
+	@Column(name = "lastname")
 	private String lastname;
+
+	@Column(name = "email")
 	private String email;
+
+	@Column(name = "role_id")
 	private int role_id;
-	
+
 	public User() {
 		//No-arg constructor
 	}
