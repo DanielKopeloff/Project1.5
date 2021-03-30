@@ -1,4 +1,4 @@
-package com.project1.dao;
+package StoneKopeloffProject.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import StoneKopeloffProject.dao.GenericDao;
 import StoneKopeloffProject.model.User;
 import StoneKopeloffProject.service.ConnectionUtil;
 import org.apache.log4j.Logger;
@@ -31,7 +30,7 @@ public class UserDao implements GenericDao<User> {
 	public List<User> getList() {
 		List<User> l = new ArrayList<User>();
 		
-		try (Connection c = ConnectionUtil.getInstance().getConnection()) {
+		try (Connection c = ConnectionUtil.getConn()) {
 			String qSql = "SELECT * FROM ers_users";
 			Statement s = c.createStatement();
 			ResultSet rs = s.executeQuery(qSql);
@@ -40,7 +39,7 @@ public class UserDao implements GenericDao<User> {
 				l.add(objectConstructor(rs));
 			}
 			LOGGER.debug("A list of users was retrieved from the database.");
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 			LOGGER.error("An attempt to get all users from the database failed.");
 		}
@@ -51,7 +50,7 @@ public class UserDao implements GenericDao<User> {
 	public User getById(int id) {
 		User u = null;
 		
-		try(Connection c = ConnectionUtil.getInstance().getConnection()) {
+		try(Connection c = ConnectionUtil.getConn()) {
 			String qSql = "SELECT * FROM ers_users WHERE ers_users_id = ?";
 			PreparedStatement ps = c.prepareStatement(qSql);
 			ps.setInt(1, id);
@@ -61,7 +60,7 @@ public class UserDao implements GenericDao<User> {
 				u = objectConstructor(rs);
 			
 			LOGGER.debug("Information about user ID " + id + " was retrieved from the database.");
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 			LOGGER.error("An attempt to get info about user ID " + id + " from the database failed.");
 		}
@@ -78,7 +77,7 @@ public class UserDao implements GenericDao<User> {
 	public User getByUsername(String username) {
 		User u = null;
 		
-		try(Connection c = ConnectionUtil.getInstance().getConnection()) {
+		try(Connection c = ConnectionUtil.getConn()) {
 			String qSql = "SELECT * FROM ers_users WHERE ers_username = ?";
 			PreparedStatement ps = c.prepareStatement(qSql);
 			ps.setString(1, username.toLowerCase());
@@ -90,7 +89,7 @@ public class UserDao implements GenericDao<User> {
 			}
 			
 			LOGGER.debug("Information about username " + username + " was retrieved from the database.");
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 			LOGGER.error("An attempt to get info about username " + username + " from the database failed.");
 		}

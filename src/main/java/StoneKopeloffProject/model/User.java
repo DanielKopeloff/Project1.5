@@ -1,5 +1,10 @@
 package StoneKopeloffProject.model;
 
+import org.hibernate.annotations.Table;
+
+import javax.persistence.Entity;
+
+
 public class User {
 	private int user_id;
 	private String username;
@@ -12,7 +17,7 @@ public class User {
 	public User() {
 		//No-arg constructor
 	}
-	
+
 	public User(int user_id, String username, String password, String firstname, String lastname, String email,
 			int role_id) {
 		this.user_id = user_id;

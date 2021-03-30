@@ -1,41 +1,42 @@
 package StoneKopeloffProject.service;
 
+import org.hibernate.Session;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 public class ConnectionUtil {
 
-
-    static String jdbcUrl = "jdbc:h2:tcp://localhost/~/test";
+    //    jdbc:driver://hostname:port/dbName?user=userName&password=password
+    static String jdbcUrl = "jdbc:postgresql://project1-5.cbo6usfmqg0y.us-east-2.rds.amazonaws.com:5432/Project1-5?user=postgres&password=Project1.5";
     //    static String jdbcUrl = "jdbc:h2:~/test-user=sa" jdbc:h2:mem:tcp://localhost/`/test;
     static Connection conn = null;
-    public static Statement getInstance() throws SQLException {
+
+    public static Session getInstance() throws SQLException {
+        return HibernateUtil.getSessionFactory().getCurrentSession();
+
+    }
+
+//
+public static Connection getConn() throws SQLException, ClassNotFoundException {
 
 
 
+return createConnection();
+}
 
 
-            if (conn == null) {
-                try {
-                    Class.forName("org.h2.Driver");
-                } catch (ClassNotFoundException e) {
-                    System.out.println("Could not register driver!");
-                    e.printStackTrace();
-                }
-//            conn = DriverManager.getConnection("jdbc:h2:"+"./Database/my","sa", "");
-                conn = DriverManager.getConnection(jdbcUrl,"sa" ,"");
-            }
+    public static Connection createConnection() throws SQLException, ClassNotFoundException {
+        String url = "jdbc:postgresql://localhost:5432/CarDealerShip";
+        String user = "postgres";
+        String password ="root";
+        String db = "org.postgresql.Driver";
+        Class.forName(db);
+        return DriverManager.getConnection(url, user, password);
 
-
-            //If connection was closed then retrieve a new connection
-            if (conn.isClosed()) {
-                System.out.println("Opening new connection...");
-                conn = DriverManager.getConnection(jdbcUrl,"sa" ,"");
-            }
-            return (Statement) conn;
-        }
-
-
+    }
 }
