@@ -6,7 +6,7 @@
     <session-factory>
 
         <property name="connection.url">project1-5.cbo6usfmqg0y.us-east-2.rds.amazonaws.com</property>
-        <property name="connection.driver_class">org.postgresql.Driver</property> <!-- DB Driver -->
+        <property name="connection.driver_class">org.postgresql.Driver</property> <!-- DB JohnDriver -->
         <property name="connection.username">postgres</property> <!-- DB User -->
         <property name="connection.password">Project1.5</property> <!-- DB Password -->
 

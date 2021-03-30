@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="Made userID autoincrement">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_agroal_agroal_api_1_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_agroal_agroal_pool_1_9.xml" beforeDir="false" />
+    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StoneKopeloffProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StoneKopeloffProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/StoneKopeloff" beforeDir="false" afterPath="$PROJECT_DIR$/logs/StoneKopeloff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JohnDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/HibernateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestCreateHibernate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestCreateHibernate.java" afterDir="false" />/>
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +63,14 @@
       <recent name="C:\d drive\data\revature documents\gitrepos\project 1-5\Project1.5" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.JohnDriver">
+    <configuration name="JohnDriver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JohnDriver" />
+      <module name="StoneKopeloffProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestCreateHibernate.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StoneKopeloffProject" />
       <option name="PACKAGE_NAME" value="" />
@@ -72,6 +83,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.JohnDriver" />
         <item itemvalue="JUnit.TestCreateHibernate.create" />
       </list>
     </recent_temporary>

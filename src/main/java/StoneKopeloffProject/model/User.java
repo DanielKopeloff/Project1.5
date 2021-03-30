@@ -1,14 +1,10 @@
 package StoneKopeloffProject.model;
 
 
-import org.hibernate.annotations.DynamicUpdate;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@DynamicUpdate
-
+@Entity
+@Table(name = "Users")
 public class User {
 	@Id @GeneratedValue
 	@Column(name = "id")
