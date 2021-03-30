@@ -1,9 +1,6 @@
 package StoneKopeloffProject.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 
@@ -11,10 +8,12 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "Reimbursement")
 public class Reimbursement {
+	@GeneratedValue
 	@Id
 	private int id;
 	@Column
 	private float amount;
+	@Column
 	private Timestamp submitted;
 	private Timestamp resolved;
 	private String description;
@@ -30,6 +29,17 @@ public class Reimbursement {
 	public Reimbursement(int id, float amount, Timestamp submitted, Timestamp resolved, String description, int author,
 			int resolver, int status_id, int type_id) {
 		this.id = id;
+		this.amount = amount;
+		this.submitted = submitted;
+		this.resolved = resolved;
+		this.description = description;
+		this.author = author;
+		this.resolver = resolver;
+		this.status_id = status_id;
+		this.type_id = type_id;
+	}
+
+	public Reimbursement(float amount, Timestamp submitted, Timestamp resolved, String description, int author, int resolver, int status_id, int type_id) {
 		this.amount = amount;
 		this.submitted = submitted;
 		this.resolved = resolved;

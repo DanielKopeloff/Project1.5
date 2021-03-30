@@ -15,8 +15,10 @@ import java.util.List;
 
 import StoneKopeloffProject.model.Reimbursement;
 import StoneKopeloffProject.service.ConnectionUtil;
+import StoneKopeloffProject.service.HibernateUtil;
 import org.apache.log4j.Logger;
-
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 
 /*
@@ -26,6 +28,8 @@ import org.apache.log4j.Logger;
 public class ReimbursementDao implements GenericDao<Reimbursement> {
 	private static final Logger LOGGER = Logger.getLogger(ReimbursementDao.class);
 
+	private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+
 	private Reimbursement objectConstructor(ResultSet rs) throws SQLException {
 		return new Reimbursement(rs.getInt(1), rs.getFloat(2), rs.getTimestamp(3), rs.getTimestamp(4),
 							rs.getString(5), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10));
@@ -33,72 +37,122 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 
 	@Override
 	public List<Reimbursement> getList() {
-		List<Reimbursement> l = new ArrayList<Reimbursement>();
-		
-		try (Connection c = ConnectionUtil.getConn()) {
-			String qSql = "SELECT * FROM ers_reimbursement";
-			Statement s = c.createStatement();
-			ResultSet rs = s.executeQuery(qSql);
-			
-			while(rs.next()) {
-				l.add(objectConstructor(rs));
-			}
-			
-			rs.close();
-			s.closeOnCompletion();
-			LOGGER.debug("All reimbursements were retrieved from the database.");
-		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
-			LOGGER.error("An attempt to get all reimbursements failed.");
-		}
-		return l;
+		// start the transaction
+
+
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+
+
+		List<Reimbursement> hqlResult = session.createQuery(
+				"from Reimbursement",
+				Reimbursement.class
+		).list();
+
+		session.getTransaction().commit();
+		return hqlResult;
 	}
+//		List<Reimbursement> l = new ArrayList<Reimbursement>();
+//
+//		try (Connection c = ConnectionUtil.getConn()) {
+//			String qSql = "SELECT * FROM ers_reimbursement";
+//			Statement s = c.createStatement();
+//			ResultSet rs = s.executeQuery(qSql);
+//
+//			while(rs.next()) {
+//				l.add(objectConstructor(rs));
+//			}
+//
+//			rs.close();
+//			s.closeOnCompletion();
+//			LOGGER.debug("All reimbursements were retrieved from the database.");
+//		} catch (SQLException | ClassNotFoundException e) {
+//			e.printStackTrace();
+//			LOGGER.error("An attempt to get all reimbursements failed.");
+//		}
+//		return l;
+
 
 	@Override
 	public Reimbursement getById(int id) {
-		Reimbursement r = null;
-		
-		try(Connection c = ConnectionUtil.getConn()) {
-			String qSql = "SELECT * FROM ers_reimbursement WHERE reimb_id = ?";
-			PreparedStatement ps = c.prepareStatement(qSql);
-			ps.setInt(1, id);
-			ResultSet rs = ps.executeQuery();
-			
-			if(rs.next())
-				r = objectConstructor(rs);
-			
-			rs.close();
-			ps.closeOnCompletion();
-			LOGGER.debug("A reimbursement by ID " + id + " was retrieved from the database.");
-		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
-			LOGGER.error("An attempt to get a reimbursement by ID" + id + " from the database failed.");
-		}
-		return r;
+
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+
+		Reimbursement temp = session.find(Reimbursement.class, id);
+		session.getTransaction().commit();
+
+		return temp;
+
 	}
-	
+
+
+//		Reimbursement r = null;
+//
+//		try(Connection c = ConnectionUtil.getConn()) {
+//			String qSql = "SELECT * FROM ers_reimbursement WHERE reimb_id = ?";
+//			PreparedStatement ps = c.prepareStatement(qSql);
+//			ps.setInt(1, id);
+//			ResultSet rs = ps.executeQuery();
+//
+//			if(rs.next())
+//				r = objectConstructor(rs);
+//
+//			rs.close();
+//			ps.closeOnCompletion();
+//			LOGGER.debug("A reimbursement by ID " + id + " was retrieved from the database.");
+//		} catch (SQLException | ClassNotFoundException e) {
+//			e.printStackTrace();
+//			LOGGER.error("An attempt to get a reimbursement by ID" + id + " from the database failed.");
+//		}
+//		return r;
+
+	/**
+	 *Method that goes through the table looking up all the records that have the authorID
+	 * @param id
+	 * @return
+	 */
+
 	@Override
 	public List<Reimbursement> getByUserId(int id) {
-		List<Reimbursement> l = new ArrayList<Reimbursement>();
-		
-		try(Connection c = ConnectionUtil.getConn()) {
-			String qSql = "SELECT * FROM ers_reimbursement WHERE reimb_author = ?";
-			PreparedStatement ps = c.prepareStatement(qSql);
-			ps.setInt(1, id);
-			ResultSet rs = ps.executeQuery();
-			
-			while(rs.next()) {
-				l.add(objectConstructor(rs));
-			}
-			rs.close();
-			ps.closeOnCompletion();
-			LOGGER.debug("A list of reimbursements made by user ID " + id + " was retrieved from the database.");
-		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
-			LOGGER.error("An attempt to get all reimbursements made by user ID " + id + " fron the database failed.");
-		}
-		System.out.println(l.toString());
-		return l;
+
+
+
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+
+		String hql = "from Reimbursement where author = " + Integer.toString(id);
+
+		List<Reimbursement> hqlResult = session.createQuery(
+				hql,
+				Reimbursement.class
+		).list();
+
+		session.getTransaction().commit();
+		return hqlResult;
+
+
+//
+//		List<Reimbursement> l = new ArrayList<Reimbursement>();
+//
+//		try(Connection c = ConnectionUtil.getConn()) {
+//			String qSql = "SELECT * FROM ers_reimbursement WHERE reimb_author = ?";
+//			PreparedStatement ps = c.prepareStatement(qSql);
+//			ps.setInt(1, id);
+//			ResultSet rs = ps.executeQuery();
+//
+//			while(rs.next()) {
+//				l.add(objectConstructor(rs));
+//			}
+//			rs.close();
+//			ps.closeOnCompletion();
+//			LOGGER.debug("A list of reimbursements made by user ID " + id + " was retrieved from the database.");
+//		} catch (SQLException | ClassNotFoundException e) {
+//			e.printStackTrace();
+//			LOGGER.error("An attempt to get all reimbursements made by user ID " + id + " fron the database failed.");
+//		}
+//		System.out.println(l.toString());
+//		return l;
 	}
 	
 	public Reimbursement getByUsername(String username) {
@@ -108,25 +162,36 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 
 	@Override
 	public void insert(Reimbursement r) {
-		try(Connection c = ConnectionUtil.getConn()) {
-			String sql = "INSERT INTO ers_reimbursement(reimb_amount, reimb_submitted, reimb_description, "
-					   + "reimb_author, reimb_status_id, reimb_type_id) VALUES(?, ?, ?, ?, ?, ?)";
-			PreparedStatement ps = c.prepareStatement(sql);
-			ps.setFloat(1, r.getAmount());
-			Calendar cal = Calendar.getInstance();
-			ps.setTimestamp(2, new Timestamp(cal.getTime().getTime()));
-			ps.setString(3, r.getDescription());
-			ps.setInt(4, r.getAuthor());
-			ps.setInt(5, r.getStatus_id());
-			ps.setInt(6, r.getType_id());
-			
-			ps.executeUpdate();
-			ps.closeOnCompletion();
-			LOGGER.debug("A new reimbursement was successfully added to the database.");
-		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
-			LOGGER.error("An attempt to insert a reimbursement to the database failed.");
-		}
+
+		//Inserting a reimbursement into the DB
+
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+
+		session.persist(r);
+
+		session.getTransaction().commit();
+
+
+//		try(Connection c = ConnectionUtil.getConn()) {
+//			String sql = "INSERT INTO ers_reimbursement(reimb_amount, reimb_submitted, reimb_description, "
+//					   + "reimb_author, reimb_status_id, reimb_type_id) VALUES(?, ?, ?, ?, ?, ?)";
+//			PreparedStatement ps = c.prepareStatement(sql);
+//			ps.setFloat(1, r.getAmount());
+//			Calendar cal = Calendar.getInstance();
+//			ps.setTimestamp(2, new Timestamp(cal.getTime().getTime()));
+//			ps.setString(3, r.getDescription());
+//			ps.setInt(4, r.getAuthor());
+//			ps.setInt(5, r.getStatus_id());
+//			ps.setInt(6, r.getType_id());
+//
+//			ps.executeUpdate();
+//			ps.closeOnCompletion();
+//			LOGGER.debug("A new reimbursement was successfully added to the database.");
+//		} catch (SQLException | ClassNotFoundException e) {
+//			e.printStackTrace();
+//			LOGGER.error("An attempt to insert a reimbursement to the database failed.");
+//		}
 	}
 	
 	public void updateList(int[][] i, int resolver) {
@@ -174,7 +239,15 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 	
 	@Override
 	public void delete(Reimbursement r) {
-		
+
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+
+		session.delete(r);
+
+		session.getTransaction().commit();
+
+
 	}
 	
 }
