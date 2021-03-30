@@ -1,11 +1,13 @@
 package StoneKopeloffProject.model;
 
+
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
 
 @DynamicUpdate
+
 public class User {
 	@Id
 	@Column(name = "id")
@@ -31,7 +33,7 @@ public class User {
 	public User() {
 		//No-arg constructor
 	}
-	
+
 	public User(int user_id, String username, String password, String firstname, String lastname, String email,
 			int role_id) {
 		this.user_id = user_id;
