@@ -12,7 +12,7 @@
         <property name="connection.password">Project1.5</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
 
-        <mapping class="com.javatpoint.mypackage.User"/>
+        <mapping class="StoneKopeloffProject.model.User"/>
     </session-factory>
 </hibernate-configuration>
 
