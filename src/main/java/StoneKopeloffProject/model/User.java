@@ -3,11 +3,12 @@ package StoneKopeloffProject.model;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @DynamicUpdate
 public class User {
-	@Id
+	@Id @GeneratedValue
 	@Column(name = "id")
 	private int user_id;
 
