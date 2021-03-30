@@ -5,10 +5,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+import StoneKopeloffProject.dao.UserDao;
 import StoneKopeloffProject.model.User;
 import org.apache.log4j.Logger;
 
-import com.project1.dao.UserDao;
+
 
 
 public class UserService {

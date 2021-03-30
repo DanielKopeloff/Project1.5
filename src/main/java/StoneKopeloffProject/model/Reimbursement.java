@@ -1,9 +1,19 @@
 package StoneKopeloffProject.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 
+
+
+@Entity
+@Table(name = "Reimbursement")
 public class Reimbursement {
+	@Id
 	private int id;
+	@Column
 	private float amount;
 	private Timestamp submitted;
 	private Timestamp resolved;
