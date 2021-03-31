@@ -28,6 +28,38 @@ public class UserDao implements GenericDao<User> {
 	}
 
 	@Override
+	public List<User> getByUserId(int id) {
+		return null;
+	}
+
+	@Override
+	public User getByUsername(String username) {
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+
+		String hql = "from User where username = :username";
+		List<User> hqlResult = session.createQuery(
+				hql,
+				User.class
+		).setParameter("username",username).list();
+		session.getTransaction().commit();
+		//if (hqlResult.size() == 0) {
+		//	return null;
+		//}
+		return hqlResult.get(0);
+	}
+
+	@Override
+	public void insert(User user) {
+
+	}
+
+	@Override
+	public void delete(User user) {
+
+	}
+
+	@Override
 	public List<User> getList() {
 
 		Session session = sessionFactory.openSession();
@@ -93,133 +125,4 @@ public class UserDao implements GenericDao<User> {
 		}
 		return u;*/
 	}
-	
-	@Override
-	public List<User> getByUserId(int id) {
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
-
-		String hql = "from users where id = " + id;
-
-		List<User> hqlResult = session.createQuery(
-				hql,
-				User.class
-		).list();
-
-		session.getTransaction().commit();
-		return hqlResult;
-	}
-	
-	@Override
-	public User getByUsername(String username) {
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
-
-		String hql = "from users where username = " + username;
-
-		List<User> hqlResult = session.createQuery(
-				hql,
-				User.class
-		).list();
-
-		session.getTransaction().commit();
-		return hqlResult.get(0);
-		/*User u = null;
-		
-		try(Connection c = ConnectionUtil.getConn()) {
-			String qSql = "SELECT * FROM ers_users WHERE ers_username = ?";
-			PreparedStatement ps = c.prepareStatement(qSql);
-			ps.setString(1, username.toLowerCase());
-			ResultSet rs = ps.executeQuery();
-			
-			if(rs.next()) {
-				//System.out.println("User object was created!");
-				u = objectConstructor(rs);
-			}
-			
-			LOGGER.debug("Information about username " + username + " was retrieved from the database.");
-		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
-			LOGGER.error("An attempt to get info about username " + username + " from the database failed.");
-		}
-		return u;*/
-	}
-
-	@Override
-	public void insert(User t) {
-
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
-
-		session.persist(t);
-
-		session.getTransaction().commit();
-		
-	}
-
-	@Override
-	public void delete(User t) {
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
-
-		session.delete(t);
-
-		session.getTransaction().commit();
-		
-	}
-
-    @Override
-    public List<User> getByUserId(int id) {
-        Session session = sessionFactory.openSession();
-        session.getTransaction().begin();
-
-        String hql = "from User where userId = " + id;
-
-        List<User> hqlResult = session.createQuery(
-                hql,
-                User.class
-        ).list();
-
-        return hqlResult;
     }
-
-    @Override
-    public User getByUsername(String username) {
-
-        Session session = sessionFactory.openSession();
-        session.getTransaction().begin();
-
-        String hql = "from User where username = " + username;
-
-        return session.createQuery(
-                hql,
-                User.class
-        ).getSingleResult();
-
-    }
-
-    @Override
-    public void insert(User t) {
-
-        Session session = sessionFactory.openSession();
-        session.getTransaction().begin();
-
-        session.saveOrUpdate(t);
-
-        session.getTransaction().commit();
-
-    }
-
-    @Override
-    public void delete(User t) {
-        Session session = sessionFactory.openSession();
-        session.getTransaction().begin();
-
-        session.remove(t);
-        session.flush();
-
-        session.getTransaction().commit();
-
-
-    }
-}

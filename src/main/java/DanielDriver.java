@@ -13,7 +13,7 @@ public class DanielDriver {
     public static void main(String[] args) {
 
 
-        User u1 = new User("John", "Yoko", "john", "lenon", "Nohead@beatles.com", User.Role.AUTHOR.ordinal());
+        /*User u1 = new User("John", "Yoko", "john", "lenon", "Nohead@beatles.com", User.Role.AUTHOR.ordinal());
 
         User u2 = new User("George", "guitar", "George", "Harrison", "fan@beatles.com", User.Role.AUTHOR.ordinal());
 
@@ -30,7 +30,7 @@ public class DanielDriver {
         Reimbursement r5 = new Reimbursement(100f, "Wanted to impress the cilent", u4, Reimbursement.expenseType.GIFT);
 
 
-        ReimbursementService reimbursementService = new ReimbursementService();
+        //ReimbursementService reimbursementService = new ReimbursementService();
 //        reimbursementService.addReimbursement(r2);
 //        reimbursementService.addReimbursement(r3);
 //        reimbursementService.addReimbursement(r4);
@@ -45,6 +45,6 @@ public class DanielDriver {
 //        userService.createNewUser(u4);
 
 
-//        reimbursementService.fetchAllReimbursements();
+//        reimbursementService.fetchAllReimbursements();*/
     }
 }

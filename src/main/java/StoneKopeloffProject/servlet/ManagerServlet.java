@@ -15,22 +15,21 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(value = "/manager")
+@WebServlet(urlPatterns = "/manager")
 public class ManagerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Map m = req.getParameterMap();
         PrintWriter writer = resp.getWriter();
-        User u = UserService.getInstance().getUserByLogin((String) m.get("username"), (String) m.get("password"));
+        if (req.getParameter("username") == null || req.getParameter("password")  == null) {
+            writer.println("Invalid user credentials");
+            return;
+        }
+        User u = UserService.getInstance().getUserByLogin(req.getParameter("username"),req.getParameter("password"));
         if (u == null) {
             writer.println("Invalid user credentials");
-        } else if (u.getRole_id() == 0) {
-            writer.println("You do not have permission to perform this action");
         } else {
             List<Reimbursement> returnList = ReimbursementService.getInstance().fetchAllReimbursements();
-            //for (Reimbursement r : printList) {
-            //    writer.println(UserFriendlyPrint.printReimbursement(r, true));
-            //}
             ObjectMapper objectMapper = new ObjectMapper();
             String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(returnList);
             resp.setContentType("application/json");
@@ -97,7 +96,7 @@ public class ManagerServlet extends HttpServlet {
                 writer.println("Invalid reimbursement status");
                 return;
             }
-            ReimbursementService.getInstance().updateReimbursement(u.getUser_id(),(int) m.get("newstatus"));
+            ReimbursementService.getInstance().updateReimbursement(u.getUserIDPK(),(int) m.get("newstatus"));
         }
         writer.flush();
     }

@@ -17,5 +17,6 @@
         <property name="format_sql">false</property>
 
         <mapping class="StoneKopeloffProject.model.User"/>
+        <mapping class="StoneKopeloffProject.model.Reimbursement"/>
     </session-factory>
 </hibernate-configuration>

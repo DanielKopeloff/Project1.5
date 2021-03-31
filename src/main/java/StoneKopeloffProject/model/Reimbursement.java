@@ -7,7 +7,7 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "Reimbursement")
+@Table(name = "reimbursement")
 public class Reimbursement {
     @GeneratedValue
     @Id
