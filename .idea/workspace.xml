@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/ui/UserFriendlyPrint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestUserFriendlyPrint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/StoneKopeloff" beforeDir="false" afterPath="$PROJECT_DIR$/logs/StoneKopeloff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JohnDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/HibernateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestCreateHibernate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestCreateHibernate.java" afterDir="false" />/>
+      <change beforePath="$PROJECT_DIR$/src/main/java/JohnDriver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/ReimbursementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/ReimbursementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestCreateHibernate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestCreateHibernate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Driver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestCreateHibernate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestCreateHibernate.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +57,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../intelij protects/Project0JS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Enterprise-StudyCards/Flashcards" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -62,8 +69,11 @@
       <recent name="C:\d drive\data\revature documents\gitrepos\project 1-5\Project1.5\src\main" />
       <recent name="C:\d drive\data\revature documents\gitrepos\project 1-5\Project1.5" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.JohnDriver">
+  <component name="RunManager" selected="JUnit.TestUserFriendlyPrint.TestUserFriendlyPrint">
     <configuration name="JohnDriver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JohnDriver" />
       <module name="StoneKopeloffProject" />
@@ -81,10 +91,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestUserFriendlyPrint.TestUserFriendlyPrint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StoneKopeloffProject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestUserFriendlyPrint" />
+      <option name="METHOD_NAME" value="TestUserFriendlyPrint" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.JohnDriver" />
+        <item itemvalue="JUnit.TestUserFriendlyPrint.TestUserFriendlyPrint" />
         <item itemvalue="JUnit.TestCreateHibernate.create" />
+        <item itemvalue="Application.JohnDriver" />
       </list>
     </recent_temporary>
   </component>
