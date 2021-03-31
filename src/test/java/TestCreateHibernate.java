@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TestCreateHibernate {
-@Test
+//@Test
     public void create() {
 
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();

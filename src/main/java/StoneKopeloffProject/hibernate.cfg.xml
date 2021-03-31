@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 5.3//EN"
+        "hibernate.org/dtd/hibernate-configuration.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="hbm2ddl.auto">create</property>
+        <property name="dialect">org.hibernate.dialect.PostgresPlusDialect</property>
+        <property name="connection.url">jdbc:postgres://project1-5.cbo6usfmqg0y.us-east-2.rds.amazonaws.com:5432/Project1-5</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">Project1.5</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+
+        <mapping class="StoneKopeloffProject.model.User"/>
+        <mapping class="StoneKopeloffProject.model.Reimbursement"/>
+    </session-factory>
+</hibernate-configuration>
+
+
