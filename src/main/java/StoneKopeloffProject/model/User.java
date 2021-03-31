@@ -4,7 +4,7 @@ package StoneKopeloffProject.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class User {
 
 	// Main primary Key used by the DB

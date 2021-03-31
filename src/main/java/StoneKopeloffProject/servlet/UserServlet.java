@@ -15,17 +15,21 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(value = "/user")
+@WebServlet(urlPatterns = "/user")
 public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Map m = req.getParameterMap();
         PrintWriter writer = resp.getWriter();
-        User u = UserService.getInstance().getUserByLogin((String) m.get("username"),(String) m.get("password"));
+        if (req.getParameter("username") == null || req.getParameter("password")  == null) {
+            writer.println("Invalid user credentials");
+            return;
+        }
+        User u = UserService.getInstance().getUserByLogin(req.getParameter("username"),req.getParameter("password"));
         if (u == null) {
             writer.println("Invalid user credentials");
         } else {
-            List<Reimbursement> returnList = ReimbursementService.getInstance().getReimbursementsByUserID(u.getUser_id());
+            List<Reimbursement> returnList = ReimbursementService.getInstance().getReimbursementsByUserID(u.getUserIDPK());
             ObjectMapper objectMapper = new ObjectMapper();
             String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(returnList);
             resp.setContentType("application/json");
@@ -56,7 +60,7 @@ public class UserServlet extends HttpServlet {
             writer.println("Invalid reimbursement description");
             return;
         }
-        ReimbursementService.getInstance().createReimbursement((float) m.get("amount"),(String) m.get("description"),u.getUser_id(),(int) m.get("type_id"));
+        ReimbursementService.getInstance().createReimbursement((float) m.get("amount"),(String) m.get("description"),u.getUserIDPK(),(int) m.get("type_id"));
         writer.println("Successfully submitted");
         writer.flush();
     }

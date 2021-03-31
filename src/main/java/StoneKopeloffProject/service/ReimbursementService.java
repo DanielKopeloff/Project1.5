@@ -68,11 +68,12 @@ public class ReimbursementService {
 
 
 		rd.update(rd.getById(r.getId()));
+	}
 	
 /*	public void updateReimbursements(int[][] i, int r) {
 		rd.updateList(i, r);
 	}*/
-	public void updateReimbursement (int resolverid,int newstatus) {
+	public void updateReimbursement (int resolverid, int newstatus) {
 		//TODO call DAO
 	}
 
