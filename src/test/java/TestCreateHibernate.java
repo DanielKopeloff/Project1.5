@@ -20,16 +20,16 @@ public class TestCreateHibernate {
 
     tx.begin();
 
-    User u1=new User();
-    //u1.setUser_id(101);
-    u1.setUsername("user");
-    u1.setPassword("pass");
-    u1.setFirstname("Bob");
-    u1.setLastname("Smith");
-    u1.setEmail("bob_smith@mail.com");
-    u1.setRole_id(0);
+//    User u1=new User();
+//    //u1.setUser_id(101);
+//    u1.setUsername("user");
+//    u1.setPassword("pass");
+//    u1.setFirstname("Bob");
+//    u1.setLastname("Smith");
+//    u1.setEmail("bob_smith@mail.com");
+//    u1.setRole_id(0);
 
-    session.persist(u1);
+   // session.persist(u1);
     tx.commit();
     System.out.println("successfully saved");
     //Hibernate methods do not return a success or failure value so the DB is checked manually

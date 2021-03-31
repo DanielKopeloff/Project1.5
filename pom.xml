@@ -60,6 +60,12 @@
             <version>42.2.19</version>
 
         </dependency>
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot</artifactId>
+            <version>1.15.2-R0.1-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
 

@@ -1,0 +1,21 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(†éÂ³øÿÿÿÿ
+q
+java:S2095r"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(×Êı‰ÿÿÿÿÿ8íŒÆ¬ˆ/
+m
+java:S2095’"OUse try-with-resources or close this "CallableStatement" in a "finally" clause.(†Æö‰8íŒÆ¬ˆ/
+i
+java:S2095("GUse try-with-resources or close this "Statement" in a "finally" clause.(œ©ûÿÿÿÿ8íŒÆ¬ˆ/
+l
+java:S2095V"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ì®å8íŒÆ¬ˆ/
+l
+java:S2095?"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ì®å8íŒÆ¬ˆ/
+r
+java:S2095˜"OUse try-with-resources or close this "CallableStatement" in a "finally" clause.(Æõ±Ğøÿÿÿÿ8íŒÆ¬ˆ/
+¤
+java:S1186°"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Äİİæşÿÿÿÿ8íŒÆ¬ˆ/
+{
+java:S2293$"YReplace the type specification in this constructor call with the diamond operator ("<>").(ä°Ô¬üÿÿÿÿ8íŒÆ¬ˆ/
+{
+java:S2293R"YReplace the type specification in this constructor call with the diamond operator ("<>").(ä°Ô¬üÿÿÿÿ8íŒÆ¬ˆ/
+Z	java:S106d"9Replace this use of System.out or System.err by a logger.(‚Ğæúÿÿÿÿ8íŒÆ¬ˆ/

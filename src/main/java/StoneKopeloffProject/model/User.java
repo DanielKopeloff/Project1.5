@@ -6,9 +6,22 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Users")
 public class User {
-	@Id @GeneratedValue
+
+	// Main primary Key used by the DB
+	@Id
+	@GeneratedValue
 	@Column(name = "id")
-	private int user_id;
+	private int userIDPK;
+	/**
+	 * Right now this is not being used but i would like to abstract this in the future but for right now
+	 * it works by using the Pk of the object since it is a One to One relationship
+	 * In hibernate it always uses the Pk so it makes this field irrelevant
+	 */
+	// This will be the user Name given to the user if they want to look themselves up by the ID
+	// Will have the properties of a Pk but not actually be the PK
+
+//	@Column(nullable = false,columnDefinition="serial")
+//	private int user_id;
 
 	@Column(name = "username")
 	private String username;
@@ -24,7 +37,7 @@ public class User {
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "role_id")
+	@Column(name = "roleId")
 	private int role_id;
 
 	public User() {
@@ -33,22 +46,24 @@ public class User {
 
 	public User(int user_id, String username, String password, String firstname, String lastname, String email,
 			int role_id) {
-		this.user_id = user_id;
 		this.username = username;
 		this.password = password;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
-		this.role_id = role_id;
+
 	}
 
-	public int getUser_id() {
-		return user_id;
+
+	public User(String username, String password, String firstname, String lastname, String email, int Role) {
+		this.username = username;
+		this.password = password;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}
 
 	public String getUsername() {
 		return username;
@@ -90,6 +105,14 @@ public class User {
 		this.email = email;
 	}
 
+	public int getUserIDPK() {
+		return userIDPK;
+	}
+
+	public void setUserIDPK(int userIDPK) {
+		this.userIDPK = userIDPK;
+	}
+
 	public int getRole_id() {
 		return role_id;
 	}
@@ -97,6 +120,30 @@ public class User {
 	public void setRole_id(int role_id) {
 		this.role_id = role_id;
 	}
+
+	public void setRole_Value(Role roleName){
+		switch (roleName){
+			case AUTHOR:
+				this.role_id = Role.AUTHOR.ordinal();
+				break;
+			case RESOLVER:
+				this.role_id = Role.RESOLVER.ordinal();
+			default:
+				System.out.println("Not a valid role");
+				this.role_id =-1;
+				break;
+
+		}
+	}
+
+
+
+	 public enum Role {
+		AUTHOR,
+		RESOLVER
+	}
+
+
 
 	@Override
 	public int hashCode() {
@@ -107,7 +154,6 @@ public class User {
 		result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + role_id;
-		result = prime * result + user_id;
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -143,8 +189,6 @@ public class User {
 			return false;
 		if (role_id != other.role_id)
 			return false;
-		if (user_id != other.user_id)
-			return false;
 		if (username == null) {
 			if (other.username != null)
 				return false;
@@ -155,7 +199,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [user_id=" + user_id + ", username=" + username + ", password=" + password + ", firstname="
+		return "User [ username=" + username + ", password=" + password + ", firstname="
 				+ firstname + ", lastname=" + lastname + ", email=" + email + ", role_id=" + role_id + "]";
 	}
 }
