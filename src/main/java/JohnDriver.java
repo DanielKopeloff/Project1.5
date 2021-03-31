@@ -5,6 +5,7 @@ import StoneKopeloffProject.service.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -13,17 +14,6 @@ public class JohnDriver {
 
 
     public static void main(String[] args) {
-
-//        Connection c ;
-//
-//        try {
-//             c=  ConnectionUtil.getConn();
-//            PreparedStatement pr = c.prepareStatement("Create Table Computer (id int)");
-//             pr.executeUpdate();
-//        } catch (SQLException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-
 
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
@@ -38,7 +28,7 @@ public class JohnDriver {
         u1.setFirstname("Bob");
         u1.setLastname("Smith");
         u1.setEmail("bob_smith@mail.com");
-        u1.setRole_id(0);
+
 
 
         session.persist(u1);

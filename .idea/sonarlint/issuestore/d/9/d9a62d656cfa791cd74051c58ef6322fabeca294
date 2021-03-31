@@ -1,0 +1,18 @@
+
+b
+java:S2095#"GUse try-with-resources or close this "Statement" in a "finally" clause.(œ©ûÿÿÿÿ
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(üàèÉüÿÿÿÿ
+M
+java:S1135H"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+e
+java:S20957"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ì®å
+e
+java:S2095R"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ì®å
+M
+java:S1135e"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+M
+java:S1135k"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+A
+java:S1168I"+Return an empty collection instead of null.(¥¹ï
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(†éÂ³øÿÿÿÿ

@@ -1,0 +1,13 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(üºüÓ
+Z
+java:S1128	"DRemove this unused import 'java.util.concurrent.ExecutionException'.(¡£ØÍ
+S
+java:S1128
+"8Remove this unused import 'java.util.concurrent.Future'.(á¬øíıÿÿÿÿ
+U
+java:S1128":Remove this unused import 'java.util.concurrent.Callable'.(¾×¶îûÿÿÿÿ
+P
+java:S1118":Add a private constructor to hide the implicit public one.(ò°ª
+„
+java:S1130"nRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from method's body.(Î·ôÔ
