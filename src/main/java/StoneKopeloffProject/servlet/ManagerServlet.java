@@ -4,7 +4,7 @@ import StoneKopeloffProject.model.Reimbursement;
 import StoneKopeloffProject.model.User;
 import StoneKopeloffProject.service.ReimbursementService;
 import StoneKopeloffProject.service.UserService;
-import StoneKopeloffProject.ui.UserFriendlyPrint;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,11 +27,17 @@ public class ManagerServlet extends HttpServlet {
         } else if (u.getRole_id() == 0) {
             writer.println("You do not have permission to perform this action");
         } else {
-            List<Reimbursement> printList = ReimbursementService.getInstance().fetchAllReimbursements();
-            for (Reimbursement r : printList) {
-                writer.println(UserFriendlyPrint.printReimbursement(r, true));
-            }
+            List<Reimbursement> returnList = ReimbursementService.getInstance().fetchAllReimbursements();
+            //for (Reimbursement r : printList) {
+            //    writer.println(UserFriendlyPrint.printReimbursement(r, true));
+            //}
+            ObjectMapper objectMapper = new ObjectMapper();
+            String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(returnList);
+            resp.setContentType("application/json");
+            resp.setCharacterEncoding("UTF-8");
+            writer.print(json);
         }
+        writer.flush();
     }
 
     @Override
@@ -70,6 +76,7 @@ public class ManagerServlet extends HttpServlet {
                     (String) m.get("firstname"), (String) m.get("lastname"), (String) m.get("email"));
             writer.println("Successfully created user");
         }
+        writer.flush();
     }
 
     @Override
@@ -92,5 +99,12 @@ public class ManagerServlet extends HttpServlet {
             }
             ReimbursementService.getInstance().updateReimbursement(u.getUser_id(),(int) m.get("newstatus"));
         }
+        writer.flush();
+    }
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        PrintWriter writer = resp.getWriter();
+        writer.println("Unsupported Operation");
+        writer.flush();
     }
 }

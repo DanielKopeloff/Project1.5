@@ -4,7 +4,7 @@ import StoneKopeloffProject.model.Reimbursement;
 import StoneKopeloffProject.model.User;
 import StoneKopeloffProject.service.ReimbursementService;
 import StoneKopeloffProject.service.UserService;
-import StoneKopeloffProject.ui.UserFriendlyPrint;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,11 +25,14 @@ public class UserServlet extends HttpServlet {
         if (u == null) {
             writer.println("Invalid user credentials");
         } else {
-            List<Reimbursement> printList = ReimbursementService.getInstance().getReimbursementsByUserID(u.getUser_id());
-            for (Reimbursement r : printList) {
-                writer.println(UserFriendlyPrint.printReimbursement(r, false));
-            }
+            List<Reimbursement> returnList = ReimbursementService.getInstance().getReimbursementsByUserID(u.getUser_id());
+            ObjectMapper objectMapper = new ObjectMapper();
+            String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(returnList);
+            resp.setContentType("application/json");
+            resp.setCharacterEncoding("UTF-8");
+            writer.print(json);
         }
+        writer.flush();
     }
 
     @Override
@@ -55,5 +58,20 @@ public class UserServlet extends HttpServlet {
         }
         ReimbursementService.getInstance().createReimbursement((float) m.get("amount"),(String) m.get("description"),u.getUser_id(),(int) m.get("type_id"));
         writer.println("Successfully submitted");
+        writer.flush();
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        PrintWriter writer = resp.getWriter();
+        writer.println("Unsupported Operation");
+        writer.flush();
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        PrintWriter writer = resp.getWriter();
+        writer.println("Unsupported Operation");
+        writer.flush();
     }
 }

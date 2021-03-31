@@ -8,9 +8,6 @@ import StoneKopeloffProject.dao.ReimbursementDao;
 import StoneKopeloffProject.model.Reimbursement;
 import org.apache.log4j.Logger;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-
 public class ReimbursementService {
 	private ReimbursementDao rd = new ReimbursementDao();
 	private static final Logger LOGGER = Logger.getLogger(ReimbursementService.class);

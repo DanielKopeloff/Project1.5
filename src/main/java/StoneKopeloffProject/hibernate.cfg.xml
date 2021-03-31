@@ -13,6 +13,7 @@
         <property name="connection.driver_class">org.postgresql.Driver</property>
 
         <mapping class="StoneKopeloffProject.model.User"/>
+        <mapping class="StoneKopeloffProject.model.Reimbursement"/>
     </session-factory>
 </hibernate-configuration>
 

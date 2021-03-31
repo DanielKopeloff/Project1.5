@@ -1,9 +1,9 @@
 package StoneKopeloffProject.ui;
 
 import StoneKopeloffProject.model.Reimbursement;
-import StoneKopeloffProject.model.User;
 import StoneKopeloffProject.service.UserService;
 
+@Deprecated
 public class UserFriendlyPrint {
     public static String printReimbursement(Reimbursement r, boolean showauthor) {
         StringBuilder returnvalue = new StringBuilder();
