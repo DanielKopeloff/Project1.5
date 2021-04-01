@@ -1,18 +1,18 @@
 
-b
-java:S2095#"GUse try-with-resources or close this "Statement" in a "finally" clause.(œ©ûÿÿÿÿ
-t
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(üàèÉüÿÿÿÿ
-M
-java:S1135H"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
-e
-java:S20957"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ì®å
-e
-java:S2095R"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ì®å
-M
-java:S1135e"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
-M
-java:S1135k"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
-A
-java:S1168I"+Return an empty collection instead of null.(¥¹ï
+£
+java:S1186:"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…·Ëéúÿÿÿÿ8øâ€Ôˆ/
+H
+java:S1168 "+Return an empty collection instead of null.(¥¹ï8øâ€Ôˆ/
+g
+java:S2095A"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8øâ€Ôˆ/
+G
+java:S1068"*Remove this unused "LOGGER" private field.(‘íéš8øâ€Ôˆ/
+g
+java:S2095%"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8øâ€Ôˆ/
+
+java:S11865"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ÿºj8øâ€Ôˆ/
+X
+java:S1144"6Remove this unused private "objectConstructor" method.(‰˜ğÚşÿÿÿÿ8øâ€Ôˆ/
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(†éÂ³øÿÿÿÿ
+g
+java:S2095b"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8øâ€Ôˆ/

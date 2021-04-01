@@ -1,2 +1,15 @@
 
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(üºüÓ
+G
+java:S1068"*Remove this unused "LOGGER" private field.(õŠİ¡8»â€Ôˆ/
+=
+java:S36269"Remove this redundant jump.(Í¡†Óøÿÿÿÿ8»â€Ôˆ/
+J
+java:S1123D"(Add the missing @deprecated Javadoc tag.(¸×Òûÿÿÿÿ8»â€Ôˆ/
+I
+java:S1481+"'Remove this unused "ts" local variable.(òŠàşÿÿÿÿ8»â€Ôˆ/
+m	java:S117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆÎÑ…8»â€Ôˆ/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(‘õÇéûÿÿÿÿ8»â€Ôˆ/
+W
+java:S1133D"5Do not forget to remove this deprecated code someday.(¸×Òûÿÿÿÿ8»â€Ôˆ/

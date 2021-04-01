@@ -135,6 +135,8 @@ public class Reimbursement {
                 return expenseType.GIFT.ordinal();
             case CAR:
                 return expenseType.CAR.ordinal();
+            case OTHER:
+                return expenseType.OTHER.ordinal();
             default:
                 System.out.println("Not a valid expense");
                 return -1;
@@ -146,7 +148,8 @@ public class Reimbursement {
         TRAINING,
         ENTERTAINMENT,
         GIFT,
-        CAR
+        CAR,
+        OTHER
 
     }
 

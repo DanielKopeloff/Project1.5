@@ -52,6 +52,13 @@ public class UserDao implements GenericDao<User> {
 	@Override
 	public void insert(User user) {
 
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+
+		session.persist(user);
+
+		session.getTransaction().commit();
+
 	}
 
 	@Override
@@ -67,7 +74,7 @@ public class UserDao implements GenericDao<User> {
 
 
 		List<User> hqlResult = session.createQuery(
-				"from users",
+				"from User",
 				User.class
 		).list();
 
@@ -96,17 +103,19 @@ public class UserDao implements GenericDao<User> {
 	@Override
 	public User getById(int id) {
 		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
+//		session.getTransaction().begin();
 
-		String hql = "from users where id = " + Integer.toString(id);
+		String hql = "from User where id = " + (id);
 
-		List<User> hqlResult = session.createQuery(
+
+		return session.createQuery(
 				hql,
 				User.class
-		).list();
+		).getSingleResult();
 
-		session.getTransaction().commit();
-		return hqlResult.get(0);
+//		session.getTransaction().commit();
+
+
 		/*User u = null;
 		
 		try(Connection c = ConnectionUtil.getConn()) {
