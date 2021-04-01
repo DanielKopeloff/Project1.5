@@ -6,12 +6,14 @@ import java.time.LocalDate;
 import java.util.List;
 
 import StoneKopeloffProject.dao.ReimbursementDao;
+import StoneKopeloffProject.dao.UserDao;
 import StoneKopeloffProject.model.Reimbursement;
 import StoneKopeloffProject.model.User;
 import org.apache.log4j.Logger;
 
 public class ReimbursementService {
 	private ReimbursementDao rd = new ReimbursementDao();
+	private UserDao ud = new UserDao();
 	private static final Logger LOGGER = Logger.getLogger(ReimbursementService.class);
 
 	private static ReimbursementService instance;
@@ -37,9 +39,11 @@ public class ReimbursementService {
 		}
 	}*/
 
-	public void createReimbursement (float amount, String description, int author, int type_id) {
+	public void createReimbursement (float amount, String description, int author, Reimbursement.expenseType type_id) {
 		Timestamp ts = new Timestamp(LocalDate.now().toEpochDay());
-		//TODO add reimbursement to DB
+		Reimbursement r = new Reimbursement(amount ,description,ud.getById(author) , type_id);
+
+		rd.insert(r);
 	}
 	
 	public List<Reimbursement> fetchAllReimbursements() {
@@ -50,43 +54,27 @@ public class ReimbursementService {
 		return rd.getByUserId(id);
 	}
 
-	public void  addReimbursement(Reimbursement r){rd.insert(r);return;}
 
-
-	/**
-	 * This wont work becuase the r we get doesnt have the id field yet
-	 *
-	 * @param r
-	 * @param resolver
-	 * @param decision
-	 */
-	@Deprecated
-	public void updateReimbursement(Reimbursement r , User resolver , Reimbursement.Status decision){
-		r.setResolver(resolver);
-		r.setType_id(decision.ordinal());
-		r.setResolved(Timestamp.from(Instant.now()));
-
-
-		rd.update(rd.getById(r.getId()));
-	}
-	
 /*	public void updateReimbursements(int[][] i, int r) {
 		rd.updateList(i, r);
 	}*/
-	public void updateReimbursement (int resolverid, int newstatus) {
-		//TODO call DAO
+
+//	public void updateReimbursement(int id, User resolver , Reimbursement.Status decision){
+//
+//		Reimbursement temp = rd.getById(id);
+//		temp.setResolver(resolver);
+//		temp.setType_id(decision.ordinal());
+//		temp.setResolved(Timestamp.from(Instant.now()));
+//
+//		rd.update(temp);
+//	}
+
+	public void updateReimbursement(int id, int userIDPK, int newstatus) {
+
+
+		rd.update(id ,userIDPK ,newstatus);
 	}
 
-	public void updateReimbursement(int id, User resolver , Reimbursement.Status decision){
-
-		Reimbursement temp = rd.getById(id);
-		temp.setResolver(resolver);
-		temp.setType_id(decision.ordinal());
-		temp.setResolved(Timestamp.from(Instant.now()));
-
-		rd.update(temp);
-	}
-	
 //	public void updateReimbursements(int[][] i, int r) {
 //		rd.updateList(i, r);
 //	}

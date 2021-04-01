@@ -1,13 +1,6 @@
 package StoneKopeloffProject.dao;
 
-import java.sql.Array;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,6 +8,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import StoneKopeloffProject.model.Reimbursement;
+import StoneKopeloffProject.model.User;
 import StoneKopeloffProject.service.ConnectionUtil;
 import StoneKopeloffProject.service.HibernateUtil;
 import org.apache.log4j.Logger;
@@ -29,6 +23,7 @@ import org.hibernate.SessionFactory;
 public class ReimbursementDao implements GenericDao<Reimbursement> {
 	private static final Logger LOGGER = Logger.getLogger(ReimbursementDao.class);
 
+	private UserDao ud = new UserDao();
 	private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
 	//private Reimbursement objectConstructor(ResultSet rs) throws SQLException {
@@ -36,6 +31,10 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 //				rs.getString(5), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10));
 //	}
 
+	/**
+	 * Get a list of all reimbursements
+	 * @return List
+	 */
 	@Override
 	public List<Reimbursement> getList() {
 		// start the transaction
@@ -55,6 +54,11 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 	}
 
 
+	/**
+	 * Get a Reimbursement by its ID
+	 * @param id
+	 * @return Reimbursement
+	 */
 
 	@Override
 	public Reimbursement getById(int id) {
@@ -73,7 +77,7 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 	/**
 	 *Method that goes through the table looking up all the records that have the authorID
 	 * @param id
-	 * @return
+	 * @return List<Reimbursement>
 	 */
 
 	@Override
@@ -84,7 +88,7 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 		Session session = sessionFactory.openSession();
 		session.getTransaction().begin();
 
-		String hql = "from Reimbursement where author = " + Integer.toString(id);
+		String hql = "from Reimbursement where author = " + id;
 
 		List<Reimbursement> hqlResult = session.createQuery(
 				hql,
@@ -101,6 +105,10 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 		return null;
 	}
 
+	/**
+	 * Insert a new Reimbursement
+	 * @param r
+	 */
 	@Override
 	public void insert(Reimbursement r) {
 
@@ -117,55 +125,7 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 	}
 
 
-	/**
-	 * Not sure if we need to implment this or not
-	 *
-	 *
-	 * @param result
-	 */
 
-//	public void updateList(int[][] i, int resolver) {
-//		try(Connection c = ConnectionUtil.getConn()) {
-//			String aSql = "SELECT acceptarray(?, ?)";
-//			String dSql = "SELECT denyarray(?, ?)";
-//
-//			//Convert both of our int arrays to an Integer object
-//			Integer[] a = Arrays.stream(i[0]).boxed().toArray(Integer[]::new);
-//			Integer[] d = Arrays.stream(i[1]).boxed().toArray(Integer[]::new);
-//
-//			//Convert both of our Integer arrays into something useful for SQL.
-//			Array aArray = c.createArrayOf("INTEGER", a);
-//			Array dArray = c.createArrayOf("INTEGER", d);
-//
-//			//Perform our SQL calls
-//			CallableStatement cs = c.prepareCall(aSql);
-//			cs.setArray(1, aArray);
-//			cs.setInt(2, resolver);
-//			cs.execute();
-//			cs.closeOnCompletion();
-//
-//			cs = c.prepareCall(dSql);
-//			cs.setArray(1, dArray);
-//			cs.setInt(2, resolver);
-//			cs.execute();
-//			cs.closeOnCompletion();
-//
-//			//This section is just for the sake of logging.
-//			int totalCount = 0;
-//			for(int co = 0; co < a.length; co++) {
-//				if (a[co] != -1) {
-//					totalCount++;
-//				}
-//				if (d[co] != -1) {
-//					totalCount++;
-//				}
-//			}
-//			LOGGER.debug(totalCount + " reimbursement" + ((totalCount != 1) ? "s" : "") + " modified by user ID " + resolver + ".");
-//		} catch (SQLException | ClassNotFoundException e) {
-//			LOGGER.error("An attempt to accept/deny reimbursements by user ID " + resolver + " from the database failed.");
-//			e.printStackTrace();
-//		}
-//	}
 
 	/**
 	 * My thinking with this method is that the user will use find by Id or some search
@@ -173,12 +133,20 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 	 * @param r
 	 * @return
 	 */
-	public void update(Reimbursement r){
+	public void update(int id, int userIDPK, int newstatus){
 
 		Session session = sessionFactory.openSession();
 		session.getTransaction().begin();
 
-		session.saveOrUpdate(r);
+//		session.close();
+//
+//		session = sessionFactory.openSession();
+//		session.getTransaction().begin();
+		Reimbursement r1 = session.get(Reimbursement.class ,id);
+		r1.setResolver(session.get(User.class ,userIDPK));
+		r1.setStatus_id(newstatus);
+		r1.setResolved(Timestamp.from(Instant.now()));
+		session.saveOrUpdate(r1);
 
 //		String hql = "from Reimbursement where author = " + Integer.toString(id);
 //
@@ -187,6 +155,7 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 //				Reimbursement.class
 //		).list();
 
+		session.flush();
 		session.getTransaction().commit();
 
 	}
@@ -195,6 +164,10 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 
 	}
 
+	/**
+	 * Delete a Reimbursement
+	 * @param r
+	 */
 	@Override
 	public void delete(Reimbursement r) {
 

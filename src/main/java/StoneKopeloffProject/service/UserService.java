@@ -80,6 +80,9 @@ public class UserService {
 			return false;
 		}
 		//TODO: Call DAO
+		ud.insert(new User(userName, password ,firstName ,lastName, email,0));
 		return true;
 	}
 }
+
+

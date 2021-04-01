@@ -17,15 +17,15 @@ import java.util.Map;
 
 @WebServlet(urlPatterns = "/user")
 public class UserServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        Map m = req.getParameterMap();
         PrintWriter writer = resp.getWriter();
-        if (req.getParameter("username") == null || req.getParameter("password")  == null) {
+        if (req.getParameter("username") == null || req.getParameter("password") == null) {
             writer.println("Invalid user credentials");
             return;
         }
-        User u = UserService.getInstance().getUserByLogin(req.getParameter("username"),req.getParameter("password"));
+        User u = UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password"));
         if (u == null) {
             writer.println("Invalid user credentials");
         } else {
@@ -41,26 +41,29 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        Map m = req.getParameterMap();
         PrintWriter writer = resp.getWriter();
-        User u = UserService.getInstance().getUserByUsername((String) m.get("username"));
-        if (u == null || u.getPassword() != m.get("password")) {
+        if (req.getParameter("username") == null || req.getParameter("password") == null) {
             writer.println("Invalid user credentials");
             return;
         }
-        if (m.get("amount") == null || (float) m.get("amount") <= 0.0) {
+        User u = UserService.getInstance().getUserByLogin(req.getParameter("username") , req.getParameter("password"));
+        if (u == null ) {
+            writer.println("Invalid user credentials");
+            return;
+        }
+        if (req.getParameter("amount") == null || Float.parseFloat(req.getParameter("amount")) <= 0.0) {
             writer.println("Invalid reimbursement amount");
             return;
         }
-        if (m.get("type_id") == null || (int) m.get("type_id") < 0 ||  (int) m.get("type_id") > 2) {
+        if (req.getParameter("type_id") == null || Integer.parseInt(req.getParameter("type_id")) < 0 || Integer.parseInt(req.getParameter("type_id")) > 2) {
             writer.println("Invalid reimbursement type");
             return;
         }
-        if (m.get("description") == null || ((String) m.get("description")).length() < 1) {
+        if (req.getParameter("description") == null || (req.getParameter(("description")).length() < 1)) {
             writer.println("Invalid reimbursement description");
             return;
         }
-        ReimbursementService.getInstance().createReimbursement((float) m.get("amount"),(String) m.get("description"),u.getUserIDPK(),(int) m.get("type_id"));
+        ReimbursementService.getInstance().createReimbursement(Float.parseFloat(req.getParameter("amount")), req.getParameter("description"), u.getUserIDPK(), Reimbursement.expenseType.TRAVEL);
         writer.println("Successfully submitted");
         writer.flush();
     }

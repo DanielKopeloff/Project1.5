@@ -1,8 +1,6 @@
 
 H
 StoneKopeloffProject.iml,1\f\1f604348592c700a6cad8bd847ab86b6c18d6bf8
-d
-4src/main/java/StoneKopeloffProject/hibernate.cfg.xml,a\a\aaebf1bae254d4238a92ea218f4f86e4d8d29f47
 t
 Dsrc/main/java/StoneKopeloffProject/service/ReimbursementService.java,d\c\dc9f0e67c5b5ecd3a476871e01d7c146de1033ca
 n
@@ -21,5 +19,15 @@ k
 ;src/main/java/StoneKopeloffProject/model/Reimbursement.java,2\1\217c0f1fff43dca33b8bf37e847c9e205688738e
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-M
-src/main/java/JohnDriver.java,e\a\ea5cea4a7b8f7c7bb46f9f8b72065105f2087d24
+O
+src/main/java/DanielDriver.java,a\7\a7bb9100a43d14f1d1509b1ea6b85b3316098c14
+k
+;src/main/java/StoneKopeloffProject/servlet/UserServlet.java,3\3\3307cf2d32aabae7494e5aaae441764e286166f9
+k
+;src/main/java/StoneKopeloffProject/service/UserService.java,4\8\48bb45d87ffaef63674f681089e3a9314c7003fa
+O
+src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
+L
+src/main/webapp/welcome.html,1\f\1f4d3da39e8792c51e85dd003bdfd0c65f9857b0
+n
+>src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java,8\d\8d04d53b352c18e2e22ec505c89d8c266bd115b3

@@ -1,14 +1,20 @@
 
-h
-java:S3776t"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(ÜÑã
-c	java:S100]"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£×¯û
+m	java:S117/"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­’å¨8ÎÜÑˆ/
+m	java:S1170"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡óŠ8ÎÜÑˆ/
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄÀäÙúÿÿÿÿ
-c	java:S100-"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨şšş
-k	java:S117a"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ö—ºûÿÿÿÿ
-f	java:S117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­’å¨
-h	java:S1001"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãÅ®Šüÿÿÿÿ
-k	java:S1171"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãÅ®Šüÿÿÿÿ
-f	java:S117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡óŠ
-h	java:S100a"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ö—ºûÿÿÿÿ
-s	java:S116"RRename this field "user_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šÖïéÿÿÿÿÿ8æ‹Æ¬ˆ/
-s	java:S116"RRename this field "role_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßÊ…¥úÿÿÿÿ8æ‹Æ¬ˆ/
+o	java:S100x"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ö—ºûÿÿÿÿ8ÎÜÑˆ/
+s	java:S116)"RRename this field "role_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßÊ…¥úÿÿÿÿ8ÎÜÑˆ/
+j	java:S100t"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£×¯û8ÎÜÑˆ/
+p
+java:S3776¢"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ÜÑã8ÎÜÑˆ/
+[	java:S106„"9Replace this use of System.out or System.err by a logger.(æøııÿÿÿÿ8ÎÜÑˆ/
+M
+java:S1172:"+Remove this unused method parameter "Role".(‡ÜÖ½ûÿÿÿÿ8ÎÜÑˆ/
+o	java:S100|"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚ıçÕøÿÿÿÿ8ÎÜÑˆ/
+5
+java:S2757…"Was "-=" meant instead?(˜â÷Æ8ÎÜÑˆ/
+n	java:S128"LEnd this switch case with an unconditional break, return or throw statement.(Œà‘Çıÿÿÿÿ8ÎÜÑˆ/
+r	java:S117x"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ö—ºûÿÿÿÿ8ÎÜÑˆ/
+r	java:S117:"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ÜÖ½ûÿÿÿÿ8ÎÜÑˆ/
+C
+java:S1172/"&Remove these unused method parameters.(­’å¨8ÎÜÑˆ/
