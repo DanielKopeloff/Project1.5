@@ -20,6 +20,7 @@ public class ManagerServlet extends HttpServlet {
     /**
      * Have the manager login with url parameters
      * Then it will display all the reimbursements
+     *
      * @param req
      * @param resp
      * @throws IOException
@@ -27,13 +28,16 @@ public class ManagerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();
-        if (req.getParameter("username") == null || req.getParameter("password")  == null) {
+        if (req.getParameter("username") == null || req.getParameter("password") == null) {
             writer.println("Invalid user credentials");
             return;
         }
-        User u = UserService.getInstance().getUserByLogin(req.getParameter("username"),req.getParameter("password"));
+        User u = UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password"));
+
         if (u == null) {
             writer.println("Invalid user credentials");
+        } else if (u.getRole_id() == 0) {
+            writer.println("You do not have permission to perform this action");
         } else {
             List<Reimbursement> returnList = ReimbursementService.getInstance().fetchAllReimbursements();
             ObjectMapper objectMapper = new ObjectMapper();
@@ -47,27 +51,27 @@ public class ManagerServlet extends HttpServlet {
 
     /**
      * Create a new user
+     *
      * @param req
      * @param resp
      * @throws IOException
      */
-    //ToDo : check for duplicate users
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();
-        if (req.getParameter("username") == null || req.getParameter("password")  == null) {
+        if (req.getParameter("username") == null || req.getParameter("password") == null) {
             writer.println("Invalid user credentials");
             return;
         }
         // This is the manager
-        User u = UserService.getInstance().getUserByLogin(req.getParameter("username"),req.getParameter("password"));
+        User u = UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password"));
         if (u == null) {
             writer.println("Invalid user credentials");
         } else if (u.getRole_id() == 0) {
             writer.println("You do not have permission to perform this action");
         } else {
             // If the username is already linked to a user name then it is not unique and therefore can not be used
-            if(!(UserService.getInstance().getUserByUsername(req.getParameter("newusername")) == null)){
+            if (!(UserService.getInstance().getUserByUsername(req.getParameter("newusername")) == null)) {
                 writer.println("Username already taken");
                 return;
             }
@@ -97,7 +101,7 @@ public class ManagerServlet extends HttpServlet {
                 return;
             }
             UserService.getInstance().addUser((String) req.getParameter("newusername"), req.getParameter("newuserpassword"),
-                     req.getParameter("firstname"), req.getParameter("lastname"), (String) req.getParameter("email"));
+                    req.getParameter("firstname"), req.getParameter("lastname"), (String) req.getParameter("email"));
             writer.println("Successfully created user");
         }
         writer.flush();
@@ -105,6 +109,7 @@ public class ManagerServlet extends HttpServlet {
 
     /**
      * Update a reimbursement
+     *
      * @param req
      * @param resp
      * @throws IOException
@@ -112,7 +117,7 @@ public class ManagerServlet extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();
-        if (req.getParameter("username") == null || req.getParameter("password")  == null) {
+        if (req.getParameter("username") == null || req.getParameter("password") == null) {
             writer.println("Invalid user credentials");
             return;
         }
@@ -126,11 +131,11 @@ public class ManagerServlet extends HttpServlet {
                 writer.println("Invalid reimbursement Id");
                 return;
             }
-            if (req.getParameter("newstatus") == null || Integer.parseInt(req.getParameter("newstatus")) < 1 || Integer.parseInt(req.getParameter("newstatus")) > 2 ) {
+            if (req.getParameter("newstatus") == null || Integer.parseInt(req.getParameter("newstatus")) < 1 || Integer.parseInt(req.getParameter("newstatus")) > 2) {
                 writer.println("Invalid reimbursement status");
                 return;
             }
-            ReimbursementService.getInstance().updateReimbursement(Integer.parseInt(req.getParameter("id")) ,u.getUserIDPK(),(Integer.parseInt(req.getParameter("newstatus"))));
+            ReimbursementService.getInstance().updateReimbursement(Integer.parseInt(req.getParameter("id")), u.getUserIDPK(), (Integer.parseInt(req.getParameter("newstatus"))));
             writer.println("Reimbursement successfully updated");
         }
         writer.flush();
@@ -139,6 +144,7 @@ public class ManagerServlet extends HttpServlet {
     /**
      * Should delete a user
      * Should delete a reimbursement
+     *
      * @param req
      * @param resp
      * @throws IOException
@@ -148,5 +154,20 @@ public class ManagerServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         writer.println("Unsupported Operation");
         writer.flush();
+    }
+
+
+    /**
+     * Check to see if the user is a manager when they login
+     * Should true if the user is a manager false if they are not
+     *
+     * @param u
+     * @return
+     */
+    private boolean checkManger(User u) {
+        if (u.getRole_id() != 1) {
+            return false;
+        }
+        return true;
     }
 }
