@@ -17,6 +17,13 @@ import java.util.Map;
 
 @WebServlet(urlPatterns = "/manager")
 public class ManagerServlet extends HttpServlet {
+    /**
+     * Have the manager login with url parameters
+     * Then it will display all the reimbursements
+     * @param req
+     * @param resp
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();
@@ -38,6 +45,12 @@ public class ManagerServlet extends HttpServlet {
         writer.flush();
     }
 
+    /**
+     * Create a new user
+     * @param req
+     * @param resp
+     * @throws IOException
+     */
     //ToDo : check for duplicate users
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -46,13 +59,20 @@ public class ManagerServlet extends HttpServlet {
             writer.println("Invalid user credentials");
             return;
         }
+        // This is the manager
         User u = UserService.getInstance().getUserByLogin(req.getParameter("username"),req.getParameter("password"));
         if (u == null) {
             writer.println("Invalid user credentials");
         } else if (u.getRole_id() == 0) {
             writer.println("You do not have permission to perform this action");
         } else {
+            // If the username is already linked to a user name then it is not unique and therefore can not be used
+            if(!(UserService.getInstance().getUserByUsername(req.getParameter("newusername")) == null)){
+                writer.println("Username already taken");
+                return;
+            }
             if (req.getParameter("newusername") == null || req.getParameter("newusername").length() < 1) {
+                // If the get user by user name method returns null that means that the username does not exist
                 writer.println("Invalid username");
                 return;
             }
@@ -83,6 +103,12 @@ public class ManagerServlet extends HttpServlet {
         writer.flush();
     }
 
+    /**
+     * Update a reimbursement
+     * @param req
+     * @param resp
+     * @throws IOException
+     */
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();
@@ -109,6 +135,14 @@ public class ManagerServlet extends HttpServlet {
         }
         writer.flush();
     }
+
+    /**
+     * Should delete a user
+     * Should delete a reimbursement
+     * @param req
+     * @param resp
+     * @throws IOException
+     */
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();

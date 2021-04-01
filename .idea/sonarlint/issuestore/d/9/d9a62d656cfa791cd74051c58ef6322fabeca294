@@ -1,18 +1,18 @@
 
+g
+java:S2095i"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8øâ€Ôˆ/
 £
-java:S1186:"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…·Ëéúÿÿÿÿ8øâ€Ôˆ/
-H
-java:S1168 "+Return an empty collection instead of null.(¥¹ï8øâ€Ôˆ/
-g
-java:S2095A"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8øâ€Ôˆ/
-G
-java:S1068"*Remove this unused "LOGGER" private field.(‘íéš8øâ€Ôˆ/
-g
-java:S2095%"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8øâ€Ôˆ/
-
-java:S11865"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ÿºj8øâ€Ôˆ/
+java:S1186A"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…·Ëéúÿÿÿÿ8øâ€Ôˆ/
 X
 java:S1144"6Remove this unused private "objectConstructor" method.(‰˜ğÚşÿÿÿÿ8øâ€Ôˆ/
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(†éÂ³øÿÿÿÿ
 g
-java:S2095b"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8øâ€Ôˆ/
+java:S2095%"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8øâ€Ôˆ/
+H
+java:S1168 "+Return an empty collection instead of null.(¥¹ï8øâ€Ôˆ/
+g
+java:S20957"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8²ıŒ×ˆ/
+g
+java:S2095H"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8øâ€Ôˆ/
+G
+java:S1068"*Remove this unused "LOGGER" private field.(‘íéš8øâ€Ôˆ/

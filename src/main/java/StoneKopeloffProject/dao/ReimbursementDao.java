@@ -1,19 +1,15 @@
 package StoneKopeloffProject.dao;
 
-import java.sql.*;
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
-
 import StoneKopeloffProject.model.Reimbursement;
 import StoneKopeloffProject.model.User;
-import StoneKopeloffProject.service.ConnectionUtil;
 import StoneKopeloffProject.service.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.util.List;
 
 
 /*
@@ -125,13 +121,11 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 	}
 
 
-
-
 	/**
-	 * My thinking with this method is that the user will use find by Id or some search
-	 * Then will edit the object and then can call this method to update
-	 * @param r
-	 * @return
+	 * Update a reimbursement
+	 * @param id
+	 * @param userIDPK
+	 * @param newstatus
 	 */
 	public void update(int id, int userIDPK, int newstatus){
 
