@@ -42,7 +42,6 @@ public class ReimbursementService {
 	public void createReimbursement (float amount, String description, int author, Reimbursement.expenseType type_id) {
 		Timestamp ts = new Timestamp(LocalDate.now().toEpochDay());
 		Reimbursement r = new Reimbursement(amount ,description,ud.getById(author) , type_id);
-
 		rd.insert(r);
 	}
 	
@@ -55,10 +54,6 @@ public class ReimbursementService {
 	}
 
 
-/*	public void updateReimbursements(int[][] i, int r) {
-		rd.updateList(i, r);
-	}*/
-
 //	public void updateReimbursement(int id, User resolver , Reimbursement.Status decision){
 //
 //		Reimbursement temp = rd.getById(id);
@@ -70,8 +65,6 @@ public class ReimbursementService {
 //	}
 
 	public void updateReimbursement(int id, int userIDPK, int newstatus) {
-
-
 		rd.update(id ,userIDPK ,newstatus);
 	}
 

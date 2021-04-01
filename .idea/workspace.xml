@@ -4,31 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="Implemented Some of the DAO &#10;TODO implement the update List method not sure what that does">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/welcome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/049e784a64de43570dd75aecb900aeeddca9ecd0" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/049e784a64de43570dd75aecb900aeeddca9ecd0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/d/1d0392a3a3b846494dcf79be93db7287e132387a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/d/1d0392a3a3b846494dcf79be93db7287e132387a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/217c0f1fff43dca33b8bf37e847c9e205688738e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/217c0f1fff43dca33b8bf37e847c9e205688738e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3fe2c309229a8293dcad1a38cd59851b14989163" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3fe2c309229a8293dcad1a38cd59851b14989163" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/a/aaebf1bae254d4238a92ea218f4f86e4d8d29f47" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/9/d9a62d656cfa791cd74051c58ef6322fabeca294" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/9/d9a62d656cfa791cd74051c58ef6322fabeca294" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/c/dc9f0e67c5b5ecd3a476871e01d7c146de1033ca" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/c/dc9f0e67c5b5ecd3a476871e01d7c146de1033ca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/a/ea5cea4a7b8f7c7bb46f9f8b72065105f2087d24" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="fixed duplicate username bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/dao/ReimbursementDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/dao/ReimbursementDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/hibernate.cfg.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/model/Reimbursement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/model/Reimbursement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/ReimbursementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/ReimbursementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/ReimbursementDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/ReimbursementDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/ConnectionUtil.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/ReimbursementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/ReimbursementService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +60,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -169,6 +155,21 @@
       <option name="presentableId" value="Default" />
       <updated>1617231576931</updated>
     </task>
+    <task id="LOCAL-00001" summary="Add functionality to POST , PUT For manager &#10;Add functionality to PUT for user">
+      <created>1617238376546</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617238376546</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fixed duplicate username bug">
+      <created>1617297559743</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1617297559743</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -183,23 +184,18 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add functionality to POST , PUT For manager &#10;Add functionality to PUT for user" />
+    <MESSAGE value="fixed duplicate username bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed duplicate username bug" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/UserService.java</url>
-          <line>48</line>
+          <line>42</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/ReimbursementService.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/ReimbursementService.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

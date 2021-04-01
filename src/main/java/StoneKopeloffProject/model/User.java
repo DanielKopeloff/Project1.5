@@ -23,7 +23,7 @@ public class User {
 //	@Column(nullable = false,columnDefinition="serial")
 //	private int user_id;
 
-	@Column(name = "username")
+	@Column(name = "username" ,unique = true)
 	private String username;
 
 	@Column(name = "password")

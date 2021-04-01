@@ -1,16 +1,14 @@
 package StoneKopeloffProject.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
-import StoneKopeloffProject.model.Reimbursement;
 import StoneKopeloffProject.model.User;
-import StoneKopeloffProject.service.ConnectionUtil;
 import StoneKopeloffProject.service.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
 
 
 /*

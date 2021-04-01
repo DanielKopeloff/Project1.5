@@ -1,31 +1,31 @@
 
-S
-java:S2209…"5Change this instance-reference to a static reference.(òì”³8ÊÜÑˆ/
-X
-java:S2209‰"5Change this instance-reference to a static reference.(Ø¤·ˆúÿÿÿÿ8ÊÜÑˆ/
-V	java:S106"9Replace this use of System.out or System.err by a logger.( ½“ù8ÊÜÑˆ/
-]	java:S107"AConstructor has 9 parameters, which is greater than 7 authorized.(É€†®8ÊÜÑˆ/
-u	java:S116"TRename this field "status_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùÁ¨üÿÿÿÿ8ÊÜÑˆ/
-o	java:S100~"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†Ú‚ñøÿÿÿÿ8ÊÜÑˆ/
-[	java:S106¦"9Replace this use of System.out or System.err by a logger.(‡—Ç§øÿÿÿÿ8ÊÜÑˆ/
-o	java:S1005"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈúÌËşÿÿÿÿ8ÊÜÑˆ/
-S
-java:S2209ƒ"5Change this instance-reference to a static reference.(Û™°İ8ÊÜÑˆ/
 i	java:S100="NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Íè8ÊÜÑˆ/
+m	java:S1179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷Óî“8ÊÜÑˆ/
 m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É€†®8ÊÜÑˆ/
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É€†®8ÊÜÑˆ/
-s	java:S116"RRename this field "type_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”‚¬ÿüÿÿÿÿ8ÊÜÑˆ/
-j	java:S100A"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹øõ·8ÊÜÑˆ/
 S
 java:S2209‡"5Change this instance-reference to a static reference.(—âÁ8ÊÜÑˆ/
+o	java:S1005"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈúÌËşÿÿÿÿ8ÊÜÑˆ/
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄÀäÙúÿÿÿÿ
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É€†®8ÊÜÑˆ/
+u	java:S116"TRename this field "status_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùÁ¨üÿÿÿÿ8ÊÜÑˆ/
 S
 java:S2209"5Change this instance-reference to a static reference.(“ç˜—8ÊÜÑˆ/
 X
-java:S2209‹"5Change this instance-reference to a static reference.(şğÀñıÿÿÿÿ8¡¹ÇÕˆ/
-j	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷Óî“8ÊÜÑˆ/
-m	java:S117A"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹øõ·8ÊÜÑˆ/
+java:S2209‰"5Change this instance-reference to a static reference.(Ø¤·ˆúÿÿÿÿ8ÊÜÑˆ/
+S
+java:S2209ƒ"5Change this instance-reference to a static reference.(Û™°İ8ÊÜÑˆ/
+s	java:S116"RRename this field "type_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”‚¬ÿüÿÿÿÿ8ÊÜÑˆ/
+S
+java:S2209…"5Change this instance-reference to a static reference.(òì”³8ÊÜÑˆ/
 L
 java:S1128"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ8ÊÜÑˆ/
-m	java:S1179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷Óî“8ÊÜÑˆ/
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄÀäÙúÿÿÿÿ
+j	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷Óî“8ÊÜÑˆ/
+X
+java:S2209‹"5Change this instance-reference to a static reference.(şğÀñıÿÿÿÿ8¡¹ÇÕˆ/
+V	java:S106"9Replace this use of System.out or System.err by a logger.( ½“ù8ÊÜÑˆ/
+]	java:S107"AConstructor has 9 parameters, which is greater than 7 authorized.(É€†®8ÊÜÑˆ/
+m	java:S117A"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹øõ·8ÊÜÑˆ/
 r	java:S117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“×Ìûÿÿÿÿ8ÊÜÑˆ/
+j	java:S100A"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹øõ·8ÊÜÑˆ/
+o	java:S100~"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†Ú‚ñøÿÿÿÿ8ÊÜÑˆ/
+[	java:S106¦"9Replace this use of System.out or System.err by a logger.(‡—Ç§øÿÿÿÿ8ÊÜÑˆ/
