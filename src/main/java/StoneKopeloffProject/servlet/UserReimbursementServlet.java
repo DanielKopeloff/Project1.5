@@ -65,6 +65,10 @@ public class UserReimbursementServlet extends HttpServlet {
             }
 
             Reimbursement r = ReimbursementService.getInstance().getbyReimbursementID(id);
+            if(!r.getAuthor().equals(u)){
+                writer.println("Do not have access to this reimbursement ");
+                return;
+            }
             ObjectMapper objectMapper = new ObjectMapper();
             String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
             resp.setContentType("application/json");
