@@ -164,17 +164,17 @@ public class Reimbursement {
     }
 
 
-    public int getStatus(Status status) {
+    public Status getStatus(int status) {
         switch (status) {
-            case PENDING:
-                return Status.PENDING.ordinal();
-            case ACCEPTED:
-                return Status.ACCEPTED.ordinal();
-            case REJECTED:
-                return Status.REJECTED.ordinal();
+            case 0:
+                return Status.PENDING;
+            case 1:
+                return Status.ACCEPTED;
+            case 2:
+                return Status.REJECTED;
             default:
                 System.out.println("Not a valid Status");
-                return -1;
+                return null;
         }
     }
 
@@ -187,15 +187,15 @@ public class Reimbursement {
     @Override
     public String toString() {
         return "Reimbursement{" +
-                "id=" + id +
+                " ReimbursementID=" + ReimbursementID +
                 ", amount=" + amount +
                 ", submitted=" + submitted +
                 ", resolved=" + resolved +
                 ", description='" + description + '\'' +
                 ", author=" + author +
                 ", resolver=" + resolver +
-                ", status_id=" + status_id +
-                ", type_id=" + type_id +
+                ", status_id=" + getStatus(status_id) +
+                ", type_id=" + getExpense_Value(type_id) +
                 '}';
     }
 }

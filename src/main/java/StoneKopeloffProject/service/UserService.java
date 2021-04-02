@@ -50,6 +50,10 @@ public class UserService {
 		return true;
 	}
 
+	public void addUser(User u){
+		ud.update(u);
+	}
+
 	public boolean addManager (String userName, String password,String firstName, String lastName,String email) {
 		ud.insert(new User(userName, password ,firstName ,lastName, email,1));
 		return true;

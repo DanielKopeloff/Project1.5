@@ -6,6 +6,7 @@ import StoneKopeloffProject.service.ReimbursementService;
 import StoneKopeloffProject.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -95,6 +96,20 @@ public class ManagerReimbursementServlet extends HttpServlet {
         } else if (u.getRole_id() == 0) {
             writer.println("You do not have permission to perform this action");
         } else {
+
+            try{
+                Integer.parseInt(req.getParameter("newstatus"));
+            }catch (NumberFormatException e){
+                writer.println("Invalid new status");
+            }
+
+            try{
+                Integer.parseInt(req.getParameter("type_id"));
+            }catch (NumberFormatException e){
+                writer.println("Invalid new status");
+            }
+
+
             if (!(req.getParameter("amount") == null ) ) {
                 if(Float.parseFloat(req.getParameter("amount")) >= 0.0){
                     r.setAmount(Float.parseFloat(req.getParameter("amount")));
@@ -126,12 +141,13 @@ public class ManagerReimbursementServlet extends HttpServlet {
             }
 
             if(!(req.getParameter("newstatus") ==  null)){
-                int status = -1;
-                try{
-                    status = Integer.parseInt(req.getParameter("newstatus"));
-                }catch (NumberFormatException e){
-                    writer.println("Invalid new status");
+                if(r.getAuthor().equals(u)){
+                    writer.println("Not allowed to edit your own reimbursements");
+                    return;
                 }
+
+                int status = Integer.parseInt(req.getParameter("newstatus"));
+
                 if( status >= 0 || status <= 3 ){
                     r.setStatus_id(status);
                     // If it was updated to accepted or rejected
@@ -172,6 +188,24 @@ public class ManagerReimbursementServlet extends HttpServlet {
             writer.println("You do not have permission to perform this action");
             return;
         }
+
+
+        try{
+            Float.parseFloat(req.getParameter("amount"));
+        }catch (NumberFormatException e){
+            writer.println("Invalid amount");
+            return;
+        }
+
+        try{
+            Integer.parseInt(req.getParameter("type_id"));
+        }catch (NumberFormatException e){
+            writer.println("Invalid amount");
+            return;
+        }
+
+
+
         if (req.getParameter("amount") == null || Float.parseFloat(req.getParameter("amount")) <= 0.0) {
             writer.println("Invalid reimbursement amount");
             return;

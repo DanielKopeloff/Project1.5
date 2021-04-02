@@ -35,12 +35,11 @@ public class ManagerServlet extends HttpServlet {
         if (u == null) {
             writer.println("Invalid user credentials");
             return;
-        }
-        else if (u.getRole_id() == 0){
+        } else if (u.getRole_id() == 0) {
             writer.println("You do not have permission to perform this action");
             return;
 
-        }else {
+        } else {
             ObjectMapper objectMapper = new ObjectMapper();
             String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(u);
             resp.setContentType("application/json");
@@ -64,44 +63,44 @@ public class ManagerServlet extends HttpServlet {
             writer.println("Invalid user credentials");
             return;
         }
-        if(UserService.getInstance().getUserByLogin(req.getParameter("username"),req.getParameter("password")).getRole_id() != 1){
+        if (UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password")).getRole_id() != 1) {
             writer.println("You do not have permission to perform this action");
             return;
         }
 
-            // If the username is already linked to a user name then it is not unique and therefore can not be used
-            if (!(UserService.getInstance().getUserByUsername(req.getParameter("username")) == null)) {
-                writer.println("Username already taken");
-                return;
-            }
-            if (req.getParameter("username") == null || req.getParameter("username").length() < 1) {
-                // If the get user by user name method returns null that means that the username does not exist
-                writer.println("Invalid username");
-                return;
-            }
-            if (req.getParameter("password") == null || (req.getParameter("password")).length() < 1) {
-                writer.println("Invalid password");
-                return;
-            }
-            if (req.getParameter("firstname") == null || (req.getParameter("firstname")).length() < 1) {
-                writer.println("Invalid first name");
-                return;
-            }
-            if (req.getParameter("lastname") == null || (req.getParameter("lastname")).length() < 1) {
-                writer.println("Invalid last name");
-                return;
-            }
-            //credit http://emailregex.com/ for the regex used below
-            if (req.getParameter("email") == null || (req.getParameter("email")).length() < 1
-                    || !((String) req.getParameter("email")).matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@" +
-                    "(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:" +
-                    "(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")) {
-                writer.println("Invalid email");
-                return;
-            }
-            UserService.getInstance().addManager( req.getParameter("username"), req.getParameter("password"),
-                    req.getParameter("firstname"), req.getParameter("lastname"), req.getParameter("email"));
-            writer.println("Successfully created user");
+        // If the username is already linked to a user name then it is not unique and therefore can not be used
+        if (!(UserService.getInstance().getUserByUsername(req.getParameter("username")) == null)) {
+            writer.println("Username already taken");
+            return;
+        }
+        if (req.getParameter("username") == null || req.getParameter("username").length() < 1) {
+            // If the get user by user name method returns null that means that the username does not exist
+            writer.println("Invalid username");
+            return;
+        }
+        if (req.getParameter("password") == null || (req.getParameter("password")).length() < 1) {
+            writer.println("Invalid password");
+            return;
+        }
+        if (req.getParameter("firstname") == null || (req.getParameter("firstname")).length() < 1 || !(validtaeString(req.getParameter("firstname")))) {
+            writer.println("Invalid first name");
+            return;
+        }
+        if (req.getParameter("lastname") == null || (req.getParameter("lastname")).length() < 1 || !(validtaeString(req.getParameter("lastname")))) {
+            writer.println("Invalid last name");
+            return;
+        }
+        //credit http://emailregex.com/ for the regex used below
+        if (req.getParameter("email") == null || (req.getParameter("email")).length() < 1
+                || !((String) req.getParameter("email")).matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@" +
+                "(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:" +
+                "(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")) {
+            writer.println("Invalid email");
+            return;
+        }
+        UserService.getInstance().addManager(req.getParameter("username"), req.getParameter("password"),
+                req.getParameter("firstname"), req.getParameter("lastname"), req.getParameter("email"));
+        writer.println("Successfully created user");
         //}
         writer.flush();
     }
@@ -126,11 +125,12 @@ public class ManagerServlet extends HttpServlet {
         if (u == null) {
             writer.println("Unable to login");
             return;
-        }
-        else if(u.getRole_id() != 1) {
+        } else if (u.getRole_id() != 1) {
             writer.println("You do not have permission to perform this action");
             return;
         }
+
+
 
         if (!(UserService.getInstance().getUserByUsername(req.getParameter("newusername")) == null)) {
             writer.println("Username already taken");
@@ -154,7 +154,13 @@ public class ManagerServlet extends HttpServlet {
         if (!(req.getParameter("firstname") == null)) {
 
             if ((req.getParameter("firstname")).length() > 1) {
-                u.setFirstname(req.getParameter("firstname"));
+                if(validtaeString(req.getParameter("firstname"))){
+                    u.setLastname(req.getParameter("firstname"));
+                }
+                else{
+                    writer.println("Invalid first name");
+                    return;
+                }
             } else {
                 writer.println("Invalid first name");
                 return;
@@ -163,13 +169,26 @@ public class ManagerServlet extends HttpServlet {
         if (!(req.getParameter("lastname") == null)) {
 
             if ((req.getParameter("lastname")).length() > 1) {
-                u.setLastname(req.getParameter("lastname"));
+                if(validtaeString(req.getParameter("lastname"))){
+                    u.setLastname(req.getParameter("lastname"));
+                }
+                else{
+                    writer.println("Invalid Last name");
+                    return;
+                }
+
             } else {
                 writer.println("Invalid Last name");
                 return;
             }
         }
         if (!(req.getParameter("role") == null)) {
+            try {
+                Integer.parseInt(req.getParameter("role"));
+            } catch (NumberFormatException e) {
+                writer.println("Invalid role");
+                return;
+            }
 
             if (Integer.parseInt(req.getParameter("role")) == 0 || Integer.parseInt(req.getParameter("role")) == 0) {
                 u.setRole_id(Integer.parseInt(req.getParameter("role")));
@@ -198,14 +217,13 @@ public class ManagerServlet extends HttpServlet {
     }
 
 
-
-
     /**
      * Should delete a user
-     *
-     *
-     *  TODO: Decide if just to deactivate the user or actually casscade delete everything related to the user
-     *  TODO: Personally up to me id rather deactive the user this way we cant lose track of any reimbursements
+     * Manager has power to either de activate himself or a user
+     * <p>
+     * <p>
+     * TODO: Decide if just to deactivate the user or actually casscade delete everything related to the user
+     * TODO: Personally up to me id rather deactive the user this way we cant lose track of any reimbursements
      *
      * @param req
      * @param resp
@@ -214,9 +232,53 @@ public class ManagerServlet extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();
-        writer.println("Unsupported Operation");
+        if (req.getParameter("username") == null || req.getParameter("password") == null) {
+            writer.println("Invalid user credentials");
+            return;
+        } else {
+            // If the manager does input someone to deactivate then he will de activate himself
+            if (req.getParameter("userID") == null) {
+                User u = UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password"));
+                if (u == null) {
+                    writer.println("Invalid user credentials");
+                    return;
+                } else {
+                    u.setActive(false);
+                    UserService.getInstance().updateUser(u);
+                }
+            } else {
+                int id = -1;
+                try {
+                    id = Integer.parseInt(req.getParameter("userID"));
+                } catch (NumberFormatException e) {
+                    writer.println("Invalid ID");
+                    return;
+                }
+                if (id == -1) {
+                    writer.println("Invalid ID");
+                    writer.println("ID was not parsed");
+                    return;
+                } else {
+                    User u = UserService.getInstance().getUserById(id);
+                    u.setActive(false);
+                    UserService.getInstance().updateUser(u);
+                }
+            }
+        }
         writer.flush();
     }
 
+
+    public boolean validtaeString(String str) {
+        str = str.toLowerCase();
+        char[] charArray = str.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            char ch = charArray[i];
+            if (!(ch >= 'a' && ch <= 'z')) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 }

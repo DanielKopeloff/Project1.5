@@ -2,7 +2,6 @@ package StoneKopeloffProject.dao;
 
 import StoneKopeloffProject.model.Reimbursement;
 import StoneKopeloffProject.model.User;
-import StoneKopeloffProject.model.numgenerator;
 import StoneKopeloffProject.service.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
