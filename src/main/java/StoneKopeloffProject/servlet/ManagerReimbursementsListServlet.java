@@ -7,6 +7,7 @@ import StoneKopeloffProject.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+
+@WebServlet(urlPatterns = "manager/reimbursement/list")
 public class ManagerReimbursementsListServlet extends HttpServlet {
 
     @Override
@@ -51,9 +54,15 @@ public class ManagerReimbursementsListServlet extends HttpServlet {
                 writer.println("Invalid id");
                 return;
             }
+
             if (id == -1) {
-                writer.println("Id was not parsed ");
-                return;
+                List<Reimbursement> r = ReimbursementService.getInstance().fetchAllReimbursements();
+                ObjectMapper objectMapper = new ObjectMapper();
+                String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
+                resp.setContentType("application/json");
+                resp.setCharacterEncoding("UTF-8");
+                writer.print(json);
+
             }
 
             List<Reimbursement> r = ReimbursementService.getInstance().getReimbursementsByStatus(id, u.getUserIDPK());

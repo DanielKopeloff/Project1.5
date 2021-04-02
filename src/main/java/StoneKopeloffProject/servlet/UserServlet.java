@@ -21,7 +21,8 @@ public class UserServlet extends HttpServlet {
 
     /**
      * This method should be how the user can see their current account details
-     *TODO:Make it not display PK
+     * TODO:Make it not display PK
+     *
      * @param req
      * @param resp
      * @throws IOException
@@ -91,10 +92,9 @@ public class UserServlet extends HttpServlet {
         if (!(req.getParameter("firstname") == null)) {
 
             if ((req.getParameter("firstname")).length() > 1) {
-                if(validtaeString(req.getParameter("firstname"))){
+                if (validtaeString(req.getParameter("firstname"))) {
                     u.setFirstname(req.getParameter("firstname"));
-                }
-                else{
+                } else {
                     writer.println("Invalid first name");
                     return;
                 }
@@ -107,10 +107,9 @@ public class UserServlet extends HttpServlet {
         if (!(req.getParameter("lastname") == null)) {
 
             if ((req.getParameter("lastname")).length() > 1) {
-                if(validtaeString(req.getParameter("lastname"))){
+                if (validtaeString(req.getParameter("lastname"))) {
                     u.setFirstname(req.getParameter("lastname"));
-                }
-                else{
+                } else {
                     writer.println("Invalid last name");
                     return;
                 }
@@ -161,58 +160,53 @@ public class UserServlet extends HttpServlet {
         }
         User u = new User();
         if (req.getParameter("username") == null || req.getParameter("username").length() < 1) {
-            writer.println("Invalid username" );
+            writer.println("Invalid username");
             return;
-        }
-        else{
-            if(req.getParameter("username") != null){
+        } else {
+            if (req.getParameter("username") != null) {
                 u.setUsername(req.getParameter("username"));
-            }
-            else{
-                writer.println("Invalid username" );
+            } else {
+                writer.println("Invalid username");
                 return;
             }
         }
         if (req.getParameter("password") == null || (req.getParameter("password")).length() < 1) {
             writer.println("Invalid password");
             return;
-        }
-        else{
-            if(req.getParameter("password") != null){
-                u.setUsername(req.getParameter("password"));
-            }
-            else{
-                writer.println("Invalid password" );
+        } else {
+            if (req.getParameter("password") != null) {
+                u.setPassword(req.getParameter("password"));
+            } else {
+                writer.println("Invalid password");
                 return;
             }
         }
 
-        if (req.getParameter("firstname") == null  ) {
-            if((req.getParameter("firstname")).length() > 1){
-                if(validtaeString(req.getParameter("firstname"))){
+        if (req.getParameter("firstname") != null) {
+            if ((req.getParameter("firstname")).length() > 1) {
+                if (validtaeString(req.getParameter("firstname"))) {
                     u.setFirstname(req.getParameter("firstname"));
-                }
-                else{
+                } else {
                     writer.println("Invalid first name");
                     return;
                 }
-            }
-            else{
+            } else {
+
+                writer.println("Invalid first name");
+                return;
 
             }
 
         }
-        if (req.getParameter("lastname") == null  ){
-            if((req.getParameter("lastname")).length() > 1) {
-                if(validtaeString(req.getParameter("lastname"))){
+        if (req.getParameter("lastname") != null) {
+            if ((req.getParameter("lastname")).length() > 1) {
+                if (validtaeString(req.getParameter("lastname"))) {
                     u.setLastname(req.getParameter("lastname"));
-                }
-                else{
+                } else {
                     writer.println("Invalid first name");
                     return;
                 }
-            }
-            else{
+            } else {
                 writer.println("Invalid last name");
                 return;
             }
@@ -220,21 +214,19 @@ public class UserServlet extends HttpServlet {
 
         //credit http://emailregex.com/ for the regex used below
         if (req.getParameter("email") == null || (req.getParameter("email")).length() < 1
-                || !( req.getParameter("email")).matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@" +
+                || !(req.getParameter("email")).matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@" +
                 "(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:" +
                 "(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")) {
             writer.println("Invalid email");
             return;
-        }
-        else{
-            if(req.getParameter("email") != null){
+        } else {
+            if (req.getParameter("email") != null) {
                 u.setEmail(req.getParameter("email"));
                 // I'm putting this here because i think if they got this far that means all the other input was valid
                 // And therefore we can set the user as active
                 u.setActive(true);
-            }
-            else{
-                writer.println("Invalid email");
+            } else {
+                writer.println("Email Required");
                 return;
             }
         }
@@ -260,13 +252,12 @@ public class UserServlet extends HttpServlet {
         if (req.getParameter("username") == null || req.getParameter("password") == null) {
             writer.println("Invalid user credentials");
             return;
-        }
-        else{
+        } else {
             User u = UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password"));
-            if(u == null){
+            if (u == null) {
                 writer.println("Invalid user credentials");
                 return;
-            }else{
+            } else {
                 u.setActive(false);
                 UserService.getInstance().updateUser(u);
             }
