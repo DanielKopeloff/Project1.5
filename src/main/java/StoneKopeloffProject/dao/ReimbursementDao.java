@@ -2,6 +2,7 @@ package StoneKopeloffProject.dao;
 
 import StoneKopeloffProject.model.Reimbursement;
 import StoneKopeloffProject.model.User;
+import StoneKopeloffProject.model.numgenerator;
 import StoneKopeloffProject.service.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -79,8 +80,6 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 	@Override
 	public List<Reimbursement> getByUserId(int id) {
 
-
-
 		Session session = sessionFactory.openSession();
 		session.getTransaction().begin();
 
@@ -96,9 +95,25 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 
 	}
 
+	@Override
 	public Reimbursement getByUsername(String username) {
-		//Empty. Reason - No use.
 		return null;
+	}
+
+	public Reimbursement getByReimbursementID(int id) {
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+
+		String hql = "from Reimbursement where ReimbursementID = " + id;
+
+		Reimbursement hqlResult = session.createQuery(
+				hql,
+				Reimbursement.class
+		).getSingleResult();
+
+		session.getTransaction().commit();
+		return hqlResult;
+
 	}
 
 	/**
@@ -113,6 +128,10 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 		Session session = sessionFactory.openSession();
 		session.getTransaction().begin();
 
+		int temp = getCurrID();
+		r.setReimbursementID(temp+5);
+
+
 		session.saveOrUpdate(r);
 		session.flush();
 		session.getTransaction().commit();
@@ -120,6 +139,27 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 
 	}
 
+	private int getCurrID(){
+
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+
+		String hql = "SELECT max(ReimbursementID) from Reimbursement";
+
+		 Integer r = session.createQuery(
+				hql,
+				 Integer.class
+		).getSingleResult();
+
+		session.getTransaction().commit();
+
+		if(r == null)
+			return 0;
+		else{
+			return r;
+		}
+
+	}
 
 	/**
 	 * Update a reimbursement
@@ -154,8 +194,34 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 
 	}
 
-	public void createReimbursement(Reimbursement r){
+	public List<Reimbursement> getReimbursementByStatus(int i ,int uid ){
 
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+
+		String hql = "from Reimbursement where status_id = " + i + " AND " +
+				"author_id  = " +  uid;
+
+		List<Reimbursement> hqlResult = session.createQuery(
+				hql,
+				Reimbursement.class
+		).list();
+
+		session.getTransaction().commit();
+		return hqlResult;
+
+
+	}
+
+	public void update(Reimbursement r){
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+
+		session.saveOrUpdate(r);
+
+		session.flush();
+
+		session.getTransaction().commit();
 	}
 
 	/**

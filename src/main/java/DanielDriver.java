@@ -3,6 +3,8 @@ import StoneKopeloffProject.model.Reimbursement;
 import StoneKopeloffProject.model.User;
 import StoneKopeloffProject.service.ReimbursementService;
 import StoneKopeloffProject.service.UserService;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -30,13 +32,16 @@ public class DanielDriver {
         Reimbursement r5 = new Reimbursement(100f, "Wanted to impress the cilent", u4, Reimbursement.expenseType.GIFT);
 
 
+        */
+
+
         //ReimbursementService reimbursementService = new ReimbursementService();
 //        reimbursementService.addReimbursement(r2);
 //        reimbursementService.addReimbursement(r3);
 //        reimbursementService.addReimbursement(r4);
 //        reimbursementService.addReimbursement(r5);
-        reimbursementService.updateReimbursement(r5 ,u3 , Reimbursement.Status.ACCEPTED);
-        System.out.println(r5.getId());
+//        reimbursementService.updateReimbursement(r5 ,u3 , Reimbursement.Status.ACCEPTED);
+//        System.out.println(r5.getId());
 
         //UserService userService = new UserService();
 //        userService.createNewUser(u1);

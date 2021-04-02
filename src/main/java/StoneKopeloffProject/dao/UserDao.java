@@ -44,7 +44,13 @@ public class UserDao implements GenericDao<User> {
 		//if (hqlResult.size() == 0) {
 		//	return null;
 		//}
-		return hqlResult.get(0);
+		if(hqlResult.isEmpty()){
+			return null;
+		}
+		else{
+			return hqlResult.get(0);
+		}
+
 	}
 
 	@Override
@@ -132,4 +138,16 @@ public class UserDao implements GenericDao<User> {
 		}
 		return u;*/
 	}
-    }
+
+	public void update(User u) {
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+
+		session.saveOrUpdate(u);
+
+		session.flush();
+		session.getTransaction().commit();
+
+
+	}
+}

@@ -12,6 +12,8 @@ public class Reimbursement {
     @GeneratedValue
     @Id
     private int id;
+    @Column(unique = true ,nullable = false)
+    private int ReimbursementID;
     @Column
     private float amount;
     private Timestamp submitted;
@@ -48,6 +50,14 @@ public class Reimbursement {
         this.author = author;
         this.status_id = Status.PENDING.ordinal();
         this.type_id = type_id.ordinal();
+    }
+
+    public int getReimbursementID() {
+        return ReimbursementID;
+    }
+
+    public void setReimbursementID(int reimbursementID) {
+        ReimbursementID = reimbursementID;
     }
 
     public int getStatus_id() {
@@ -123,23 +133,23 @@ public class Reimbursement {
     }
 
 
-    public int getExpense_Value(expenseType expenseType) {
-        switch (expenseType) {
-            case TRAVEL:
-                return expenseType.TRAVEL.ordinal();
-            case TRAINING:
-                return expenseType.TRAINING.ordinal();
-            case ENTERTAINMENT:
-                return expenseType.ENTERTAINMENT.ordinal();
-            case GIFT:
-                return expenseType.GIFT.ordinal();
-            case CAR:
-                return expenseType.CAR.ordinal();
-            case OTHER:
-                return expenseType.OTHER.ordinal();
+    public static expenseType getExpense_Value(int typeID) {
+        switch (typeID) {
+            case 0:
+                return expenseType.TRAVEL;
+            case 1:
+                return expenseType.TRAINING;
+            case 2:
+                return expenseType.ENTERTAINMENT;
+            case 3:
+                return expenseType.GIFT;
+            case 4:
+                return expenseType.CAR;
+            case 5:
+                return expenseType.OTHER;
             default:
                 System.out.println("Not a valid expense");
-                return -1;
+                return null;
         }
     }
 
