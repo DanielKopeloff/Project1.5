@@ -106,7 +106,7 @@ public class ManagerServlet extends HttpServlet {
             writer.flush();
             return;
         }
-        if (req.getParameter("email") != null && (Validation.validateEmail(req.getParameter("email")))) {
+        if (req.getParameter("email") == null || (!Validation.validateEmail(req.getParameter("email")))) {
             writer.println("Invalid email");
             writer.flush();
             return;
