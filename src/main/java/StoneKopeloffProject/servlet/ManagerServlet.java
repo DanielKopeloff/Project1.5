@@ -73,12 +73,12 @@ public class ManagerServlet extends HttpServlet {
             writer.println("Username already taken");
             return;
         }
-        if (req.getParameter("username") == null || req.getParameter("username").length() < 1) {
+        if (req.getParameter("newusername") == null || req.getParameter("newusername").length() < 1) {
             // If the get user by user name method returns null that means that the username does not exist
             writer.println("Invalid username");
             return;
         }
-        if (req.getParameter("password") == null || (req.getParameter("password")).length() < 1) {
+        if (req.getParameter("newpassword") == null || (req.getParameter("newpassword")).length() < 1) {
             writer.println("Invalid password");
             return;
         }
@@ -98,9 +98,9 @@ public class ManagerServlet extends HttpServlet {
             writer.println("Invalid email");
             return;
         }
-        UserService.getInstance().addManager(req.getParameter("username"), req.getParameter("password"),
+        UserService.getInstance().addManager(req.getParameter("newusername"), req.getParameter("newpassword"),
                 req.getParameter("firstname"), req.getParameter("lastname"), req.getParameter("email"));
-        writer.println("Successfully created user");
+        writer.println("Successfully created Manager");
         //}
         writer.flush();
     }
