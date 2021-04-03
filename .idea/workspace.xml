@@ -4,27 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="trying to get the float bug fixed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/utililty/Validation.java" afterDir="false" />
+    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="Refactores String and Email validation and fixes some minor bugs">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_1_15_2_R0_1_SNAPSHOT.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadME.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadME.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/ReimbursementDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/ReimbursementDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement$Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement$Status.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement$expenseType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement$expenseType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/User$Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/User$Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/HibernateUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/HibernateUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/ReimbursementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/ReimbursementService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerReimbursementServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerReimbursementServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementListServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StoneKopeloffProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StoneKopeloffProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserServlet.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,11 +60,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Cryo/Cryostasis" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="com.poratu.idea.plugins.tomcat.setting.TomcatSettingConfigurable" />
   </component>
   <component name="ReaderModeSettings">
     <option name="enabled" value="false" />
@@ -99,6 +83,12 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn build" />
+      <command value="mvn package" />
+    </option>
   </component>
   <component name="RunManager" selected="Smart Tomcat.Unnamed">
     <configuration name="DanielDriver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -306,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617422686998</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Refactores String and Email validation and fixes some minor bugs">
+      <created>1617469424276</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1617469424276</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -337,7 +334,8 @@
     <MESSAGE value="Added More ReadME&#10;Fixed not catching NullPointer Exceptions in the data validation" />
     <MESSAGE value="fixed UserReimbursementServlet put where the wrong type was getting caught" />
     <MESSAGE value="trying to get the float bug fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to get the float bug fixed" />
+    <MESSAGE value="Refactores String and Email validation and fixes some minor bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactores String and Email validation and fixes some minor bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -364,5 +362,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

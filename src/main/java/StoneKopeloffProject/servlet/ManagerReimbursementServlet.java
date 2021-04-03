@@ -104,6 +104,18 @@ public class ManagerReimbursementServlet extends HttpServlet {
             return;
         }
         User u = UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password"));
+
+        if (req.getParameter("reimId") != null) {
+            try {
+                Integer.parseInt(req.getParameter("reimId"));
+            } catch (NullPointerException e) {
+            } catch (NumberFormatException e) {
+                writer.println("Invalid reimbursement Id");
+                return;
+            }
+
+        }
+
         Reimbursement r = ReimbursementService.getInstance().getbyReimbursementID(Integer.parseInt(req.getParameter("reimId")));
         if (u == null) {
             writer.println("Invalid user credentials");
