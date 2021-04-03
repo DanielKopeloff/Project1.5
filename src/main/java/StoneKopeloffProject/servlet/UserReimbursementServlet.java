@@ -176,11 +176,10 @@ public class UserReimbursementServlet extends HttpServlet {
      *
      * @param req
      * @param resp
-     * @throws ServletException
      * @throws IOException
      */
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();
         if (req.getParameter("username") == null || req.getParameter("password") == null) {
             writer.println("Invalid user credentials");
@@ -206,7 +205,7 @@ public class UserReimbursementServlet extends HttpServlet {
         try {
             Integer.parseInt(req.getParameter("type_id"));
         } catch (NumberFormatException e) {
-            writer.println("Invalid type ");
+            writer.println("Invalid type");
             return;
         }
 

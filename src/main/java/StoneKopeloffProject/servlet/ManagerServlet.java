@@ -59,7 +59,11 @@ public class ManagerServlet extends HttpServlet {
             writer.println("Invalid user credentials");
             return;
         }
-        if (UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password")).getRole_id() != 1) {
+        if(UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password")) == null){
+            writer.println("Invalid user credentials");
+            return;
+        }
+        if ( UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password")).getRole_id() != 1) {
             writer.println("You do not have permission to perform this action");
             return;
         }

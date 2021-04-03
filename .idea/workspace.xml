@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="Add a read Me">
+    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="Add a /manager ReadME.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReadME.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadME.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserServlet.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617409109526</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add a /manager ReadME.md">
+      <created>1617409947695</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1617409947695</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,6 +252,7 @@
     <MESSAGE value="Added Data validation for input &#10;Added user's cant update other peoples reimbursement&#10;Added Managers cant update the status of their own Reimbursement&#10;Added users cant view other users reimbursement" />
     <MESSAGE value="Added so manager can view all Reimbursements" />
     <MESSAGE value="Add a read Me" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add a read Me" />
+    <MESSAGE value="Add a /manager ReadME.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a /manager ReadME.md" />
   </component>
 </project>
