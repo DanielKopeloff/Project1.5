@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="Refactores String and Email validation and fixes some minor bugs">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_1_15_2_R0_1_SNAPSHOT.xml" beforeDir="false" />
+    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="Fixes a bug with ManagerReimbursementServlet doput">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StoneKopeloffProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StoneKopeloffProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserServlet.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -303,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617469424276</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixes a bug with ManagerReimbursementServlet doput">
+      <created>1617482033024</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1617482033024</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -335,7 +341,8 @@
     <MESSAGE value="fixed UserReimbursementServlet put where the wrong type was getting caught" />
     <MESSAGE value="trying to get the float bug fixed" />
     <MESSAGE value="Refactores String and Email validation and fixes some minor bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactores String and Email validation and fixes some minor bugs" />
+    <MESSAGE value="Fixes a bug with ManagerReimbursementServlet doput" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes a bug with ManagerReimbursementServlet doput" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
