@@ -1,11 +1,7 @@
 package StoneKopeloffProject.service;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.List;
 
-import StoneKopeloffProject.dao.ReimbursementDao;
+import java.util.List;
 import StoneKopeloffProject.dao.UserDao;
 import StoneKopeloffProject.model.User;
 import org.apache.log4j.Logger;

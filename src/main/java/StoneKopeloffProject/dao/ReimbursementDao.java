@@ -18,233 +18,230 @@ import java.util.List;
  * to/from the database. It then returns the composed Reimbursement Object.
  */
 public class ReimbursementDao implements GenericDao<Reimbursement> {
-	private static final Logger LOGGER = Logger.getLogger(ReimbursementDao.class);
+    private static final Logger LOGGER = Logger.getLogger(ReimbursementDao.class);
 
-	private UserDao ud = new UserDao();
-	private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    private UserDao ud = new UserDao();
+    private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
-	//private Reimbursement objectConstructor(ResultSet rs) throws SQLException {
+    //private Reimbursement objectConstructor(ResultSet rs) throws SQLException {
 //		return new Reimbursement(rs.getInt(1), rs.getFloat(2), rs.getTimestamp(3), rs.getTimestamp(4),
 //				rs.getString(5), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10));
 //	}
 
-	/**
-	 * Get a list of all reimbursements
-	 * @return List
-	 */
-	@Override
-	public List<Reimbursement> getList() {
-		// start the transaction
+    /**
+     * Get a list of all reimbursements
+     *
+     * @return List
+     */
+    @Override
+    public List<Reimbursement> getList() {
+        // start the transaction
 
 
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
+        Session session = sessionFactory.openSession();
+        session.getTransaction().begin();
 
 
-		List<Reimbursement> hqlResult = session.createQuery(
-				"from Reimbursement",
-				Reimbursement.class
-		).list();
+        List<Reimbursement> hqlResult = session.createQuery(
+                "from Reimbursement",
+                Reimbursement.class
+        ).list();
 
-		session.getTransaction().commit();
-		return hqlResult;
-	}
+        session.getTransaction().commit();
+        return hqlResult;
+    }
 
 
-	/**
-	 * Get a Reimbursement by its ID
-	 * @param id
-	 * @return Reimbursement
-	 */
+    /**
+     * Get a Reimbursement by its ID
+     *
+     * @param id
+     * @return Reimbursement
+     */
 
-	@Override
-	public Reimbursement getById(int id) {
+    @Override
+    public Reimbursement getById(int id) {
 
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
+        Session session = sessionFactory.openSession();
+        session.getTransaction().begin();
 
-		Reimbursement temp = session.find(Reimbursement.class, id);
-		session.getTransaction().commit();
+        Reimbursement temp = session.find(Reimbursement.class, id);
+        session.getTransaction().commit();
 
-		return temp;
+        return temp;
 
-	}
+    }
 
 
-	/**
-	 *Method that goes through the table looking up all the records that have the authorID
-	 * @param id
-	 * @return List<Reimbursement>
-	 */
+    /**
+     * Method that goes through the table looking up all the records that have the authorID
+     *
+     * @param id
+     * @return List<Reimbursement>
+     */
 
-	@Override
-	public List<Reimbursement> getByUserId(int id) {
+    @Override
+    public List<Reimbursement> getByUserId(int id) {
 
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
+        Session session = sessionFactory.openSession();
+        session.getTransaction().begin();
 
-		String hql = "from Reimbursement where author = " + id;
+        String hql = "from Reimbursement where author = " + id;
 
-		List<Reimbursement> hqlResult = session.createQuery(
-				hql,
-				Reimbursement.class
-		).list();
+        List<Reimbursement> hqlResult = session.createQuery(
+                hql,
+                Reimbursement.class
+        ).list();
 
-		session.getTransaction().commit();
-		return hqlResult;
+        session.getTransaction().commit();
+        return hqlResult;
 
-	}
+    }
 
-	@Override
-	public Reimbursement getByUsername(String username) {
-		return null;
-	}
+    @Override
+    public Reimbursement getByUsername(String username) {
+        return null;
+    }
 
-	public Reimbursement getByReimbursementID(int id) {
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
+    public Reimbursement getByReimbursementID(int id) {
+        Session session = sessionFactory.openSession();
+        session.getTransaction().begin();
 
-		String hql = "from Reimbursement where ReimbursementID = " + id;
+        String hql = "from Reimbursement where ReimbursementID = " + id;
 
-		Reimbursement hqlResult;
-		try{
-			 hqlResult = session.createQuery(
-					hql,
-					Reimbursement.class
-			).getSingleResult();
-		}catch (NoResultException e){
-			return null;
-		}
+        Reimbursement hqlResult;
+        try {
+            hqlResult = session.createQuery(
+                    hql,
+                    Reimbursement.class
+            ).getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
 
 
-		session.getTransaction().commit();
-		return hqlResult;
+        session.getTransaction().commit();
+        return hqlResult;
 
-	}
+    }
 
-	/**
-	 * Insert a new Reimbursement
-	 * @param r
-	 */
-	@Override
-	public void insert(Reimbursement r) {
+    /**
+     * Insert a new Reimbursement
+     *
+     * @param r
+     */
+    @Override
+    public void insert(Reimbursement r) {
 
-		//Inserting a reimbursement into the DB
+        //Inserting a reimbursement into the DB
 
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
+        Session session = sessionFactory.openSession();
+        session.getTransaction().begin();
 
-		int temp = getCurrID();
-		r.setReimbursementID(temp+5);
+        int temp = getCurrID();
+        r.setReimbursementID(temp + 5);
 
 
-		session.saveOrUpdate(r);
-		session.flush();
-		session.getTransaction().commit();
+        session.saveOrUpdate(r);
+        session.flush();
+        session.getTransaction().commit();
 
 
-	}
+    }
 
-	private int getCurrID(){
+    private int getCurrID() {
 
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
+        Session session = sessionFactory.openSession();
+        session.getTransaction().begin();
 
-		String hql = "SELECT max(ReimbursementID) from Reimbursement";
+        String hql = "SELECT max(ReimbursementID) from Reimbursement";
 
-		 Integer r = session.createQuery(
-				hql,
-				 Integer.class
-		).getSingleResult();
+        Integer r = session.createQuery(
+                hql,
+                Integer.class
+        ).getSingleResult();
 
-		session.getTransaction().commit();
+        session.getTransaction().commit();
 
-		if(r == null)
-			return 0;
-		else{
-			return r;
-		}
+        if (r == null)
+            return 0;
+        else {
+            return r;
+        }
 
-	}
+    }
 
-	/**
-	 * Update a reimbursement
-	 * @param id
-	 * @param userIDPK
-	 * @param newstatus
-	 */
-	public void update(int id, int userIDPK, int newstatus){
+    /**
+     * Update a reimbursement
+     *
+     * @param id
+     * @param userIDPK
+     * @param newstatus
+     */
+    public void update(int id, int userIDPK, int newstatus) {
 
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
+        Session session = sessionFactory.openSession();
+        session.getTransaction().begin();
 
-//		session.close();
-//
-//		session = sessionFactory.openSession();
-//		session.getTransaction().begin();
-		Reimbursement r1 = session.get(Reimbursement.class ,id);
-		r1.setResolver(session.get(User.class ,userIDPK));
-		r1.setStatus_id(newstatus);
-		r1.setResolved(Timestamp.from(Instant.now()));
-		session.saveOrUpdate(r1);
+        Reimbursement r1 = session.get(Reimbursement.class, id);
+        r1.setResolver(session.get(User.class, userIDPK));
+        r1.setStatus_id(newstatus);
+        r1.setResolved(Timestamp.from(Instant.now()));
+        session.saveOrUpdate(r1);
 
-//		String hql = "from Reimbursement where author = " + Integer.toString(id);
-//
-//		List<Reimbursement> hqlResult = session.createQuery(
-//				hql,
-//				Reimbursement.class
-//		).list();
 
-		session.flush();
-		session.getTransaction().commit();
 
-	}
+        session.flush();
+        session.getTransaction().commit();
 
-	public List<Reimbursement> getReimbursementByStatus(int i ,int uid ){
+    }
 
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
+    public List<Reimbursement> getReimbursementByStatus(int i, int uid) {
 
-		String hql = "from Reimbursement where status_id = " + i + " AND " +
-				"author_id  = " +  uid;
+        Session session = sessionFactory.openSession();
+        session.getTransaction().begin();
 
-		List<Reimbursement> hqlResult = session.createQuery(
-				hql,
-				Reimbursement.class
-		).list();
+        String hql = "from Reimbursement where status_id = " + i + " AND " +
+                "author_id  = " + uid;
 
-		session.getTransaction().commit();
-		return hqlResult;
+        List<Reimbursement> hqlResult = session.createQuery(
+                hql,
+                Reimbursement.class
+        ).list();
 
+        session.getTransaction().commit();
+        return hqlResult;
 
-	}
 
-	public void update(Reimbursement r){
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
+    }
 
-		session.saveOrUpdate(r);
+    public void update(Reimbursement r) {
+        Session session = sessionFactory.openSession();
+        session.getTransaction().begin();
 
-		session.flush();
+        session.saveOrUpdate(r);
 
-		session.getTransaction().commit();
-	}
+        session.flush();
 
-	/**
-	 * Delete a Reimbursement
-	 * @param r
-	 */
-	@Override
-	public void delete(Reimbursement r) {
+        session.getTransaction().commit();
+    }
 
-		Session session = sessionFactory.openSession();
-		session.getTransaction().begin();
+    /**
+     * Delete a Reimbursement
+     *
+     * @param r
+     */
+    @Override
+    public void delete(Reimbursement r) {
 
-		session.delete(r);
+        Session session = sessionFactory.openSession();
+        session.getTransaction().begin();
 
-		session.getTransaction().commit();
+        session.delete(r);
 
+        session.getTransaction().commit();
 
-	}
+
+    }
 
 }

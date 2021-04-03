@@ -32,35 +32,69 @@ public class UserReimbursementListServlet extends HttpServlet {
             return;
         }
 
-        if (req.getParameter("statusId") == null){
+        if (req.getParameter("statusId") == null) {
             List<Reimbursement> returnList = ReimbursementService.getInstance().getReimbursementsByUserID(u.getUserIDPK());
             ObjectMapper objectMapper = new ObjectMapper();
             String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(returnList);
             resp.setContentType("application/json");
             resp.setCharacterEncoding("UTF-8");
             writer.print(json);
-        }
-        else{
+        } else {
             int id = -1;
-            try{
+            try {
                 id = Integer.parseInt(req.getParameter("statusId"));
-            }catch (NumberFormatException e){
-                writer.println("Invalid id");
+            } catch (NumberFormatException e) {
+                writer.println("Invalid status");
                 return;
             }
-            if(id == -1){
-                writer.println("Id was not parsed ");
-                return;
-            }
+            if (id == -1) {
+                if (u.getRole_id() == 1) {
+                    writer.println("need to use manager URL ");
+                    return;
+                } else {
+                    writer.println("Invalid status");
+                    return;
+                }
 
-            List<Reimbursement> r = ReimbursementService.getInstance().getReimbursementsByStatus(id, u.getUserIDPK());
-            ObjectMapper objectMapper = new ObjectMapper();
-            String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
-            resp.setContentType("application/json");
-            resp.setCharacterEncoding("UTF-8");
-            writer.print(json);
+            } else if (id >= 0 && id <= 2) {
+                List<Reimbursement> r = ReimbursementService.getInstance().getReimbursementsByStatus(id, u.getUserIDPK());
+                ObjectMapper objectMapper = new ObjectMapper();
+                String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
+                resp.setContentType("application/json");
+                resp.setCharacterEncoding("UTF-8");
+                writer.print(json);
+            } else {
+                writer.println("Invalid status");
+                return;
+            }
 
         }
+        writer.flush();
+    }
+
+    @Override
+    protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doOptions(req, resp);
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter writer = resp.getWriter();
+        writer.println("Unsupported Operation");
+        writer.flush();
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter writer = resp.getWriter();
+        writer.println("Unsupported Operation");
+        writer.flush();
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter writer = resp.getWriter();
+        writer.println("Unsupported Operation");
         writer.flush();
     }
 }

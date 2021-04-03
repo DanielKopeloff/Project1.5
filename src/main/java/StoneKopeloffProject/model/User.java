@@ -1,7 +1,7 @@
 package StoneKopeloffProject.model;
 
 
-import javax.management.relation.Role;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,16 +13,6 @@ public class User {
     @GeneratedValue
     @Column(name = "id")
     private int userIDPK;
-    /**
-     * Right now this is not being used but i would like to abstract this in the future but for right now
-     * it works by using the Pk of the object since it is a One to One relationship
-     * In hibernate it always uses the Pk so it makes this field irrelevant
-     */
-    // This will be the user Name given to the user if they want to look themselves up by the ID
-    // Will have the properties of a Pk but not actually be the PK
-
-//	@Column(nullable = false,columnDefinition="serial")
-//	private int user_id;
 
     @Column(name = "username", unique = true)
     private String username;

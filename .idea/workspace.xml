@@ -4,15 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="fixed UserReimbursementServlet put where the wrong type was getting caught">
+    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="trying to get the float bug fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReadME.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadME.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DanielDriver.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/dao/ReimbursementDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/dao/ReimbursementDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/model/Reimbursement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/model/Reimbursement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/HibernateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/ReimbursementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/ReimbursementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementListServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/ReimbursementDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/ReimbursementDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerReimbursementServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerReimbursementServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementListServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserServlet.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617417231374</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="trying to get the float bug fixed">
+      <created>1617422686998</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1617422686998</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -295,6 +315,7 @@
     <MESSAGE value="Added More ReadME&#10;Fix bug with REGEx in ManagerServlet" />
     <MESSAGE value="Added More ReadME&#10;Fixed not catching NullPointer Exceptions in the data validation" />
     <MESSAGE value="fixed UserReimbursementServlet put where the wrong type was getting caught" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed UserReimbursementServlet put where the wrong type was getting caught" />
+    <MESSAGE value="trying to get the float bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to get the float bug fixed" />
   </component>
 </project>

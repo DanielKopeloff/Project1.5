@@ -1,23 +1,25 @@
 # John Stone and Daniel Kopeloff User and Reimbursement API
 
-Basic Rules for the API<br />
-The User can not access other users information
-Managers can not resolve their own Reimbursements 
-If a manager wants to see all the reimbursements he can input -1 in the manager/reimbursements/list URL
+####Basic Rules for the API<br />
+The User can not access other users information <br />
+Managers can not resolve their own Reimbursements <br />
+If a manager wants to see all the reimbursements he can input -1 in the manager/reimbursements/list URL <br >
+If a reimbursement has been either ACCEPTED or REJECTED it can no longer be edited by anyone <br >
 
-----
+---------
+---------
 ###  **User**
 
 * **URL**
+  <br /><br />
 
-  /user
+  /user<br /><br />
 
-  * **Method:**
-    
+    * **Method:**
 
-    `GET` 
-    
-  *  **URL Params**
+      `GET` 
+
+    *  **URL Params**
 
     **Required:**
   
@@ -25,7 +27,8 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
     2. `password=[string]`
 
 
-    **Optional:**
+    
+* **Optional:**
   
 
 
@@ -54,13 +57,11 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
   This method gets the user information based on the login parameters passed in from the URL
 
 
-   
-   * **Method:**
-    
+ * **Method:**
 
-    `Post` 
-    
-  *  **URL Params**
+      `POST` 
+
+    *  **URL Params**
   
     **Required:**
   
@@ -83,8 +84,7 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
 
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
-
-
+      
     * **Reason:** If username is already taken <br />
       **Content:** `Username already taken`
 
@@ -101,24 +101,23 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
 
   * **Notes:**
 
-  This method updates a user
+  This method creates a user
 
 
   
    * **Method:**
-    
 
-    `Put` 
+      `Put` 
     
   *  **URL Params**
   
-    **Required:**
-  
+**Required:**
+
     1. `username=[string]`
     2. `password=[string]`
-   
 
-    **Optional:**
+**Optional:**
+  
     1. `newusername=[string]`
     2.  `newpassword=[string] ` 
     3. `firstname=[string]`
@@ -135,8 +134,7 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
 
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
-
-
+      
     * **Reason:** If username is already taken <br />
       **Content:** `Username already taken`
 
@@ -150,25 +148,22 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
 
 
   * **Notes:**
+This method is how you can update the user
 
-  This method doesn't actually delete the user.
-  It actually just set their isActive flag to false to indicate
-  that they are no longer active
 
    * **Method:**
-    
 
-    `Delete` 
+        `Delete` 
     
   *  **URL Params**
   
-    **Required:**
+**Required:**
   
     1. `username=[string]`
     2. `password=[string]`
    
 
-    **Optional:**
+**Optional:**
 
 
   * **Success Response:**
@@ -187,7 +182,9 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
 
   * **Notes:**
 
-  This method updates a user's isActive flag to false;
+This method doesn't actually delete the user.
+It actually just set their isActive flag to false to indicate
+that they are no longer active
 
   ###  **Manager**
 
@@ -203,11 +200,12 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
 
     **Required:**
   
+
     1. `username=[string]`
     2. `password=[string]`
 
 
-    **Optional:**
+**Optional:**
   
 
 
@@ -226,11 +224,11 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
   }`*This is just an example user's data will vary
   
   * **Error Response:**
-
+    
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
-
-        * **Reason:** Trying to login when you are not a manager  <br />
+        
+    * **Reason:** Trying to login when you are not a manager  <br />
       **Content:** `You do not have permission to perform this action`
 
 
@@ -241,11 +239,11 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
    
    * **Method:**
     
-    `Post` 
+        `Post` 
     
   *  **URL Params**
   
-    **Required:**
+**Required:**
   
     1. `username=[string]`
     2. `password=[string]`
@@ -253,7 +251,7 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
     4. `newusername=[string]`
     5. `newpassword=[string]`
 
-    **Optional:**
+**Optional:**
   
     1. `firstname=[string]`
     2. `lastname=[string]`
@@ -268,19 +266,16 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
 
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
-
-
+      
     * **Reason:** If username is already taken <br />
       **Content:** `Username already taken`
-
-        * **Reason:** Not a valid username<br />
+        
+    * **Reason:** Not a valid username<br />
       **Content:** `Invalid Username`
-
-
-  * **Reason:** Not a valid password <br />
+      
+    * **Reason:** Not a valid password <br />
       **Content:** `Invalid Password`
-
-
+        
      * **Reason:** Not a valid first name<br />
       **Content:** `Invalid first name`
 
@@ -300,17 +295,18 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
   
    * **Method:**
     
-    `Put` 
+        `Put` 
     
   *  **URL Params**
   
-    **Required:**
+**Required:**
   
     1. `username=[string]`
     2. `password=[string]`
    
 
-    **Optional:**
+**Optional:**
+
     1. `newusername=[string]`
     2.  `newpassword=[string] ` 
     3. `firstname=[string]`
@@ -327,8 +323,7 @@ If a manager wants to see all the reimbursements he can input -1 in the manager/
 
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
-
-
+      
     * **Reason:** If username is already taken <br />
       **Content:** `Username already taken`
 
@@ -351,13 +346,13 @@ This method updates a manager account
     
   *  **URL Params**
   
-    **Required:**
+**Required:**
   
     1. `username=[string]`
     2. `password=[string]`
    
 
-    **Optional:**
+**Optional:**
 
 
   * **Success Response:**
@@ -391,11 +386,12 @@ This method updates a manager account
 
     **Required:**
   
+
     1. `username=[string]`
     2. `password=[string]`
 
 
-    **Optional:**
+**Optional:**
 
     1. `reimID=[integer]`
   
@@ -434,11 +430,11 @@ This method updates a manager account
 
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
-
-        * **Reason:** Trying to access another user's reimbursement  <br />
+        
+    * **Reason:** Trying to access another user's reimbursement  <br />
       **Content:** `You do not have permission to perform this action`
 
-       * **Reason:** Invalid Id number  <br />
+    * **Reason:** Invalid Id number  <br />
       **Content:** `Invalid Id`
 
 
@@ -449,11 +445,11 @@ This method updates a manager account
    
    * **Method:**
     
-    `Post` 
+        `Post` 
     
   *  **URL Params**
   
-    **Required:**
+**Required:**
   
     1. `username=[string]`
     2. `password=[string]`
@@ -461,7 +457,7 @@ This method updates a manager account
     4. `type_id=[integer]`
     5. `description=[string]`
 
-    **Optional:**
+**Optional:**
   
   * **Success Response:**
     
@@ -472,17 +468,20 @@ This method updates a manager account
 
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
-
-
+      
     * **Reason:** Not a valid amount <br />
       **Content:** `Invalid amount`
 
      * **Reason:** Not a valid type ID<br />
       **Content:** `Invalid type`
-
-       * **Reason:** No Description provided<br />
+         
+    * **Reason:** No Description provided<br />
       **Content:** `Invalid Description`
+       
+    * **Reason:** Reimbursment already settled<br />
+      **Content:** `Reimbursement has already been settled`
 
+      
 
   * **Notes:**
 
@@ -492,18 +491,19 @@ This method updates a manager account
   
    * **Method:**
     
-    `Put` 
+        `Put` 
     
   *  **URL Params**
   
-    **Required:**
+**Required:**
   
     1. `username=[string]`
     2. `password=[string]`
     3. `reimId=[integer]`
    
 
-    **Optional:**
+**Optional:**
+
     1. `amount=[float]`
     2.  `type_id=[int] ` 
     3. `description=[string]`
@@ -520,8 +520,7 @@ This method updates a manager account
 
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
-
-
+      
     * **Reason:** Not a valid type<br />
       **Content:** `Invalid type`
 
@@ -531,12 +530,10 @@ This method updates a manager account
      * **Reason:** Do not have access<br />
       **Content:** `Do not have access to this`
 
-
-  * **Reason:** Not a valid Reimbursement ID<br />
+    * **Reason:** Not a valid Reimbursement ID<br />
       **Content:** `Invalid reimbursement number`
-
       
-  * **Reason:** Not a valid Description<br />
+    * **Reason:** Not a valid Description<br />
       **Content:** `Invalid Description`
 
 
@@ -546,7 +543,7 @@ This method updates a reimbursement
 
    * **Method:**
     
-    `Delete` 
+        `Delete` 
     
   *  **NOT IMPLEMENTED**
 
@@ -562,13 +559,14 @@ This method updates a reimbursement
     
   *  **URL Params**
 
-    **Required:**
+
+  **Required:**
   
+
     1. `username=[string]`
     2. `password=[string]`
-
-
-    **Optional:**
+    <br />
+ **Optional:**
 
     1. `reimID=[integer]`
   
@@ -607,11 +605,11 @@ This method updates a reimbursement
 
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
-
-        * **Reason:** Trying to login when you are not a manager  <br />
+        
+    * **Reason:** Trying to login when you are not a manager  <br />
       **Content:** `You do not have permission to perform this action`
-
-       * **Reason:** Invalid Id number  <br />
+      
+    * **Reason:** Invalid Id number  <br />
       **Content:** `Invalid Id`
 
 
@@ -622,11 +620,11 @@ This method updates a reimbursement
    
    * **Method:**
     
-    `Post` 
+        `Post` 
     
   *  **URL Params**
-  
-    **Required:**
+     
+**Required:**
   
     1. `username=[string]`
     2. `password=[string]`
@@ -634,7 +632,8 @@ This method updates a reimbursement
     4. `type_id=[integer]`
     5. `description=[string]`
 
-    **Optional:**
+    
+**Optional:**
   
   * **Success Response:**
     
@@ -645,15 +644,14 @@ This method updates a reimbursement
 
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
-
-
+      
     * **Reason:** Not a valid amount <br />
       **Content:** `Invalid amount`
 
      * **Reason:** Not a valid type ID<br />
       **Content:** `Invalid type`
-
-       * **Reason:** No Description provided<br />
+       
+    * **Reason:** No Description provided<br />
       **Content:** `Invalid Description`
 
 
@@ -666,18 +664,21 @@ This method updates a reimbursement
   
    * **Method:**
     
-    `Put` 
+        `Put` 
     
   *  **URL Params**
   
-    **Required:**
+    
+**Required:**
   
     1. `username=[string]`
     2. `password=[string]`
     3. `reimId=[integer]`
    
 
-    **Optional:**
+    
+**Optional:**
+
     1. `amount=[float]`
     2.  `type_id=[int] ` 
     3. `description=[string]`
@@ -694,8 +695,7 @@ This method updates a reimbursement
 
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
-
-
+      
     * **Reason:** Not a valid type<br />
       **Content:** `Invalid type`
 
@@ -704,21 +704,21 @@ This method updates a reimbursement
 
      * **Reason:** Do not have access<br />
       **Content:** `Do not have access to this`
-
-
-  * **Reason:** Not a valid Reimbursement ID<br />
+       
+    * **Reason:** Not a valid Reimbursement ID<br />
       **Content:** `Invalid reimbursement number`
-
       
-  * **Reason:** Not a valid Description<br />
+    * **Reason:** Not a valid Description<br />
       **Content:** `Invalid Description`
 
-          * **Reason:** Not a valid status<br />
+    * **Reason:** Not a valid status<br />
       **Content:** `Invalid status`    
 
-      
     * **Reason:** Same author and resolver<br />
       **Content:** `Not allowed to edit your own reimbursements`  
+      
+    * **Reason:** Reimbursment already settled<br />
+      **Content:** `Reimbursement has already been settled`
 
       
 
@@ -728,7 +728,7 @@ This method updates a manager account
 
    * **Method:**
     
-    `Delete` 
+        `Delete` 
     
   *  **NOT IMPLEMENTED**
   
@@ -743,17 +743,17 @@ This method updates a manager account
     `GET` 
     
   *  **URL Params**
-
-    **Required:**
+  
+**Required:**
   
     1. `username=[string]`
     2. `password=[string]`
  
 
 
-    **Optional:**
+**Optional:**
 
-   1. `statusId=[integer]`
+     1. `statusId=[integer]`
   
 
 
@@ -790,8 +790,8 @@ This method updates a manager account
 
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
-
-       * **Reason:** Invalid Id number  <br />
+        
+    * **Reason:** Invalid Id number  <br />
       **Content:** `Invalid Id`
 
 
@@ -811,17 +811,18 @@ This method updates a manager account
     `GET` 
     
   *  **URL Params**
-
-    **Required:**
+   
+**Required:**
   
     1. `username=[string]`
     2. `password=[string]`
  
 
 
-    **Optional:**
-
-   1. `statusId=[integer]`
+    
+**Optional:**
+        
+    1. `statusId=[integer]`
   
 
 
@@ -858,17 +859,17 @@ This method updates a manager account
 
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
-
-       * **Reason:** Invalid Id number  <br />
+        
+    * **Reason:** Invalid Id number  <br />
       **Content:** `Invalid Id`
-
-      * **Reason** No access <br />
+      
+    * **Reason** No access <br />
       **Content:**`You do not have permission to perform this action`
 
 
   * **Notes:**
 
   This method gets either all the reimbursements linked to this user and their current status either PENDING , ACCEPTED , REJECTED
-  If the manager wants to all the reimbursments they would input a -1 as the statusId
+  If the manager wants to all the reimbursements they would input a -1 as the statusId
 
    

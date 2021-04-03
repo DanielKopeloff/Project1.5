@@ -11,12 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * A custom servlet to deal with all the logic behind the user endpoint
+ */
 @WebServlet(urlPatterns = "/user")
 public class UserServlet extends HttpServlet {
 
     /**
      * This method should be how the user can see their current account details
-     * TODO:Make it not display PK
      *
      * @param req
      * @param resp
@@ -35,7 +37,7 @@ public class UserServlet extends HttpServlet {
             return;
         } else {
             ObjectMapper objectMapper = new ObjectMapper();
-            String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(u);
+            String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(u.toString());
             resp.setContentType("application/json");
             resp.setCharacterEncoding("UTF-8");
             writer.print(json);
@@ -50,8 +52,6 @@ public class UserServlet extends HttpServlet {
      * @param resp
      * @throws IOException
      */
-    //TODO: Question if the user enters invalid information do we want to keep going through the input and tell them what else they did wrong or
-    // if we find an invalid entry then we immediately leave
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();

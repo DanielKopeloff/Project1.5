@@ -5,8 +5,6 @@ import StoneKopeloffProject.model.User;
 import StoneKopeloffProject.service.ReimbursementService;
 import StoneKopeloffProject.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +13,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-
+/**
+ * A custom servlet to handle all the managers reimbursements
+ * This end point is sole purpose to be able to see the data based on its status
+ * Managerrs can also see all of the reimbursments by entering the speical Id value;
+ */
 @WebServlet(urlPatterns = "/manager/reimbursement/list")
 public class ManagerReimbursementsListServlet extends HttpServlet {
 
@@ -55,23 +57,29 @@ public class ManagerReimbursementsListServlet extends HttpServlet {
                 return;
             }catch (NullPointerException e){}
 
-            if (id == -1) {
+            String json;
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            if(id == -1) {
                 List<Reimbursement> r = ReimbursementService.getInstance().fetchAllReimbursements();
-                ObjectMapper objectMapper = new ObjectMapper();
-                String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
-                resp.setContentType("application/json");
-                resp.setCharacterEncoding("UTF-8");
-                writer.print(json);
+
+                 json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
+
 
             }else {
+                if(id >=0 && id <=2){
+                    List<Reimbursement> r = ReimbursementService.getInstance().getReimbursementsByStatus(id, u.getUserIDPK());
+                    json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
+                }
+                else{
+                    writer.println("Invalid status");
+                    return;
+                }
 
-                List<Reimbursement> r = ReimbursementService.getInstance().getReimbursementsByStatus(id, u.getUserIDPK());
-                ObjectMapper objectMapper = new ObjectMapper();
-                String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
-                resp.setContentType("application/json");
-                resp.setCharacterEncoding("UTF-8");
-                writer.print(json);
             }
+            resp.setContentType("application/json");
+            resp.setCharacterEncoding("UTF-8");
+            writer.print(json);
         }
         writer.flush();
     }

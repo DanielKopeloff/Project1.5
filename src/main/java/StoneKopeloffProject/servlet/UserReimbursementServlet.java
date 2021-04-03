@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -125,6 +126,10 @@ public class UserReimbursementServlet extends HttpServlet {
             writer.println("Invalid reimbursement ID number");
             return;
         }
+        else if(r.getStatus_id() >0){
+            writer.println("Reimbursement has already been settled");
+            return;
+        }
         if (u == null) {
             writer.println("Invalid user credentials");
             return;
@@ -150,15 +155,14 @@ public class UserReimbursementServlet extends HttpServlet {
         } catch (NumberFormatException e) {
             writer.println("Invalid type ");
             return;
-        } catch (NullPointerException e) {
-        }
+        } catch (NullPointerException e) {}
 
 
         if (!(req.getParameter("amount") == null)) {
             if (Float.parseFloat(req.getParameter("amount")) >= 0.0) {
-//                r.setAmount(round(Float.parseFloat(req.getParameter("amount"))));
-                double temp = Double.parseDouble(req.getParameter("amount"));
-                r.setAmount((float)(Math.floor(temp*100)/100 ));
+                DecimalFormat df = new DecimalFormat("#.00");
+                df.setRoundingMode(RoundingMode.DOWN);
+                r.setAmount(Float.parseFloat(df.format(Float.parseFloat(req.getParameter("amount")))));
             } else {
                 writer.println("Invalid reimbursement amount");
                 return;
@@ -182,8 +186,7 @@ public class UserReimbursementServlet extends HttpServlet {
             }
 
         }
-//        ReimbursementService.getInstance().createReimbursement(Float.parseFloat(req.getParameter("amount")), req.getParameter("description"), u.getUserIDPK() ,
-//                Reimbursement.getExpense_Value(Integer.parseInt(req.getParameter("type_id"))));
+
         ReimbursementService.getInstance().updateReimbursement(r);
         writer.println("Updated submitted");
         writer.flush();
@@ -246,7 +249,13 @@ public class UserReimbursementServlet extends HttpServlet {
             writer.println("Invalid reimbursement description");
             return;
         }
-        ReimbursementService.getInstance().createReimbursement(Float.parseFloat(req.getParameter("amount")), req.getParameter("description"), u.getUserIDPK(),
+
+        float temp;
+        DecimalFormat df = new DecimalFormat("#.00");
+        df.setRoundingMode(RoundingMode.DOWN);
+        temp = (Float.parseFloat(df.format(Float.parseFloat(req.getParameter("amount")))));
+
+        ReimbursementService.getInstance().createReimbursement(temp, req.getParameter("description"), u.getUserIDPK(),
                 Reimbursement.getExpense_Value(Integer.parseInt(req.getParameter("type_id"))));
         writer.println("Successfully submitted");
         writer.flush();
@@ -268,18 +277,5 @@ public class UserReimbursementServlet extends HttpServlet {
         writer.flush();
     }
 
-    //credit to https://stackoverflow.com/questions/8911356/whats-the-best-practice-to-round-a-float-to-2-decimals
-    /**
-     * Round to certain number of decimals
-     *
-     * @param d
-     * @return
-     */
-    private static float round(float d) {
-        int decimalPlace = 2;
-        BigDecimal bd = new BigDecimal(Float.toString(d));
-        bd = bd.setScale(1, BigDecimal.ROUND_CEILING);
-        return bd.floatValue();
-    }
 
 }

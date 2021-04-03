@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
+/**
+ * A custom servlet to deal with all the logic behind the manager endpoint
+ */
 @WebServlet(urlPatterns = "/manager")
 public class ManagerServlet extends HttpServlet {
     /**
@@ -37,7 +41,7 @@ public class ManagerServlet extends HttpServlet {
 
         } else {
             ObjectMapper objectMapper = new ObjectMapper();
-            String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(u);
+            String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(u.toString());
             resp.setContentType("application/json");
             resp.setCharacterEncoding("UTF-8");
             writer.print(json);
@@ -46,7 +50,7 @@ public class ManagerServlet extends HttpServlet {
     }
 
     /**
-     * Create a new user
+     * Create a new manager
      *
      * @param req
      * @param resp
@@ -112,8 +116,6 @@ public class ManagerServlet extends HttpServlet {
      * @param resp
      * @throws IOException
      */
-    //TODO: Question if the user enters invalid information do we want to keep going through the input and tell them what else they did wrong or
-    // if we find an invalid entry then we immediately leave
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();
@@ -219,11 +221,7 @@ public class ManagerServlet extends HttpServlet {
 
     /**
      * Should delete a user
-     * Manager has power to either de activate himself or a user
-     * <p>
-     * <p>
-     * TODO: Decide if just to deactivate the user or actually casscade delete everything related to the user
-     * TODO: Personally up to me id rather deactive the user this way we cant lose track of any reimbursements
+     * Manager has power to either de-activate himself or a user
      *
      * @param req
      * @param resp
@@ -269,7 +267,7 @@ public class ManagerServlet extends HttpServlet {
     }
 
 
-    public boolean validateString(String str) {
+    private boolean validateString(String str) {
         str = str.toLowerCase();
         char[] charArray = str.toCharArray();
         for (int i = 0; i < charArray.length; i++) {

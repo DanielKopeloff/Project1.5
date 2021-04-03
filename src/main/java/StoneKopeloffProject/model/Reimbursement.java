@@ -3,7 +3,6 @@ package StoneKopeloffProject.model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.Set;
 
 
 @Entity
