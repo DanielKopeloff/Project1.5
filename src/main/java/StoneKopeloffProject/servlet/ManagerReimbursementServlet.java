@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.HashMap;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/manager/reimbursement")
@@ -66,10 +67,19 @@ public class ManagerReimbursementServlet extends HttpServlet {
 
             Reimbursement r = ReimbursementService.getInstance().getbyReimbursementID(id);
             ObjectMapper objectMapper = new ObjectMapper();
-            String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
+            String json;
+            if(r == null){
+
+                json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(new HashMap<>());
+
+            }
+            else{
+                json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
+            }
             resp.setContentType("application/json");
             resp.setCharacterEncoding("UTF-8");
             writer.print(json);
+
 
         }
         writer.flush();

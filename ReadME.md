@@ -800,7 +800,7 @@ This method updates a manager account
   This method gets either all the reimbursements linked to this user and their current status either PENDING , ACCEPTED , REJECTED
 
 
-   ###  **User and Reimbursements List**
+   ###  **Manager and Reimbursements List**
 
 * **URL**
 

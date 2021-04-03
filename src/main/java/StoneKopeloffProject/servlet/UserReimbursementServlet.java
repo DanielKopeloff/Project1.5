@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -65,15 +68,25 @@ public class UserReimbursementServlet extends HttpServlet {
             }
 
             Reimbursement r = ReimbursementService.getInstance().getbyReimbursementID(id);
-            if(!r.getAuthor().equals(u)){
-                writer.println("Do not have access to this reimbursement ");
-                return;
+            if (r == null) {
+
+                ObjectMapper objectMapper = new ObjectMapper();
+                String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(new HashMap<>());
+                resp.setContentType("application/json");
+                resp.setCharacterEncoding("UTF-8");
+                writer.print(json);
+            } else {
+                if (!r.getAuthor().equals(u)) {
+                    writer.println("Do not have access to this reimbursement ");
+                    return;
+                }
+                ObjectMapper objectMapper = new ObjectMapper();
+                String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
+                resp.setContentType("application/json");
+                resp.setCharacterEncoding("UTF-8");
+                writer.print(json);
             }
-            ObjectMapper objectMapper = new ObjectMapper();
-            String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
-            resp.setContentType("application/json");
-            resp.setCharacterEncoding("UTF-8");
-            writer.print(json);
+
 
         }
         writer.flush();
@@ -101,25 +114,27 @@ public class UserReimbursementServlet extends HttpServlet {
             writer.println("Not a valid id");
             return;
         }
-        if(id == -1){
+        if (id == -1) {
             writer.println("Not a valid id");
             writer.println("Id not parsed");
             return;
         }
 
         Reimbursement r = ReimbursementService.getInstance().getbyReimbursementID(id);
-        if(r.getAuthor() != u){
-            writer.println("Do not have access to this ");
+        if (r == null) {
+            writer.println("Invalid reimbursement ID number");
             return;
         }
         if (u == null) {
             writer.println("Invalid user credentials");
             return;
         }
-        if (r == null) {
-            writer.println("Invalid reimbursement number");
+        if (!r.getAuthor().equals(u)) {
+            writer.println("Do not have access to this ");
             return;
         }
+
+
 
 
         try {
@@ -127,19 +142,23 @@ public class UserReimbursementServlet extends HttpServlet {
         } catch (NumberFormatException e) {
             writer.println("Invalid amount");
             return;
-        }catch (NullPointerException e){}
+        } catch (NullPointerException e) {
+        }
 
         try {
             Integer.parseInt(req.getParameter("type_id"));
         } catch (NumberFormatException e) {
             writer.println("Invalid type ");
             return;
-        }catch (NullPointerException e){}
+        } catch (NullPointerException e) {
+        }
 
 
         if (!(req.getParameter("amount") == null)) {
             if (Float.parseFloat(req.getParameter("amount")) >= 0.0) {
-                r.setAmount(Float.parseFloat(req.getParameter("amount")));
+//                r.setAmount(round(Float.parseFloat(req.getParameter("amount"))));
+                double temp = Double.parseDouble(req.getParameter("amount"));
+                r.setAmount((float)(Math.floor(temp*100)/100 ));
             } else {
                 writer.println("Invalid reimbursement amount");
                 return;
@@ -198,9 +217,9 @@ public class UserReimbursementServlet extends HttpServlet {
         try {
             Float.parseFloat(req.getParameter("amount"));
         } catch (NumberFormatException e) {
-            writer.println("Invalid amount");
+            writer.println("Invalid reimbursement amount");
             return;
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             writer.println("No amount provided");
             return;
         }
@@ -208,9 +227,9 @@ public class UserReimbursementServlet extends HttpServlet {
         try {
             Integer.parseInt(req.getParameter("type_id"));
         } catch (NumberFormatException e) {
-            writer.println("Invalid type");
+            writer.println("Invalid reimbursement type");
             return;
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             writer.println("No type provided");
             return;
         }
@@ -235,7 +254,7 @@ public class UserReimbursementServlet extends HttpServlet {
     }
 
     /**
-     * TODO : Implement the method that will only delete if the reimbursement is still pending
+     *
      *
      * @param req
      * @param resp
@@ -247,6 +266,20 @@ public class UserReimbursementServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         writer.println("Unsupported Operation");
         writer.flush();
+    }
+
+    //credit to https://stackoverflow.com/questions/8911356/whats-the-best-practice-to-round-a-float-to-2-decimals
+    /**
+     * Round to certain number of decimals
+     *
+     * @param d
+     * @return
+     */
+    private static float round(float d) {
+        int decimalPlace = 2;
+        BigDecimal bd = new BigDecimal(Float.toString(d));
+        bd = bd.setScale(1, BigDecimal.ROUND_CEILING);
+        return bd.floatValue();
     }
 
 }

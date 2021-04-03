@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import javax.persistence.NoResultException;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
@@ -105,10 +106,16 @@ public class ReimbursementDao implements GenericDao<Reimbursement> {
 
 		String hql = "from Reimbursement where ReimbursementID = " + id;
 
-		Reimbursement hqlResult = session.createQuery(
-				hql,
-				Reimbursement.class
-		).getSingleResult();
+		Reimbursement hqlResult;
+		try{
+			 hqlResult = session.createQuery(
+					hql,
+					Reimbursement.class
+			).getSingleResult();
+		}catch (NoResultException e){
+			return null;
+		}
+
 
 		session.getTransaction().commit();
 		return hqlResult;
