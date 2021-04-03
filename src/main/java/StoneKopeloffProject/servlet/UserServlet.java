@@ -163,7 +163,7 @@ public class UserServlet extends HttpServlet {
 
         if (req.getParameter("lastname") != null && req.getParameter("lastname").length() > 0
                 && Validation.validateString(req.getParameter("lastname"))) {
-            u.setFirstname(req.getParameter("lastname"));
+            u.setLastname(req.getParameter("lastname"));
         } else {
             writer.println("Invalid last name");
             writer.flush();

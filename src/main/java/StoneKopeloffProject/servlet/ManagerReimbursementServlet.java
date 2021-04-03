@@ -6,7 +6,6 @@ import StoneKopeloffProject.service.ReimbursementService;
 import StoneKopeloffProject.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -58,7 +57,7 @@ public class ManagerReimbursementServlet extends HttpServlet {
             resp.setCharacterEncoding("UTF-8");
             writer.print(json);
         } else {
-            int id = 0;
+            int id;
             try {
                 id = Integer.parseInt(req.getParameter("reimId"));
             } catch (NumberFormatException e) {
@@ -104,6 +103,17 @@ public class ManagerReimbursementServlet extends HttpServlet {
             return;
         }
         User u = UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password"));
+
+        if (req.getParameter("reimId") != null) {
+            try {
+                Integer.parseInt(req.getParameter("reimId"));
+            } catch (NullPointerException | NumberFormatException e) {
+                writer.println("Invalid reimbursement Id");
+                return;
+            }
+
+        }
+
         Reimbursement r = ReimbursementService.getInstance().getbyReimbursementID(Integer.parseInt(req.getParameter("reimId")));
         if (u == null) {
             writer.println("Invalid user credentials");
@@ -119,8 +129,7 @@ public class ManagerReimbursementServlet extends HttpServlet {
             if (req.getParameter("type_id") != null) {
                 try {
                     Integer.parseInt(req.getParameter("type_id"));
-                } catch (NullPointerException e) {
-                } catch (NumberFormatException e) {
+                } catch (NullPointerException | NumberFormatException e) {
                     writer.println("Invalid reimbursement type");
                     return;
                 }
@@ -133,7 +142,7 @@ public class ManagerReimbursementServlet extends HttpServlet {
                 } catch (NumberFormatException e) {
                     writer.println("Invalid new status");
                     return;
-                } catch (NullPointerException e) {}
+                }
 
             }
 
@@ -198,11 +207,10 @@ public class ManagerReimbursementServlet extends HttpServlet {
      *
      * @param req
      * @param resp
-     * @throws ServletException
      * @throws IOException
      */
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();
         if (req.getParameter("username") == null || req.getParameter("password") == null) {
             writer.println("Invalid user credentials");
@@ -225,7 +233,6 @@ public class ManagerReimbursementServlet extends HttpServlet {
         } catch (NumberFormatException e) {
             writer.println("Invalid reimbursement amount");
             return;
-        } catch (NullPointerException e) {
         }
 
         try {
@@ -233,7 +240,6 @@ public class ManagerReimbursementServlet extends HttpServlet {
         } catch (NumberFormatException e) {
             writer.println("Invalid reimbursement type");
             return;
-        } catch (NullPointerException e) {
         }
 
 
