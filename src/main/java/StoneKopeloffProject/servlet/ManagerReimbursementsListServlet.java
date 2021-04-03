@@ -53,7 +53,7 @@ public class ManagerReimbursementsListServlet extends HttpServlet {
             } catch (NumberFormatException e) {
                 writer.println("Invalid id");
                 return;
-            }
+            }catch (NullPointerException e){}
 
             if (id == -1) {
                 List<Reimbursement> r = ReimbursementService.getInstance().fetchAllReimbursements();
@@ -63,15 +63,15 @@ public class ManagerReimbursementsListServlet extends HttpServlet {
                 resp.setCharacterEncoding("UTF-8");
                 writer.print(json);
 
+            }else {
+
+                List<Reimbursement> r = ReimbursementService.getInstance().getReimbursementsByStatus(id, u.getUserIDPK());
+                ObjectMapper objectMapper = new ObjectMapper();
+                String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
+                resp.setContentType("application/json");
+                resp.setCharacterEncoding("UTF-8");
+                writer.print(json);
             }
-
-            List<Reimbursement> r = ReimbursementService.getInstance().getReimbursementsByStatus(id, u.getUserIDPK());
-            ObjectMapper objectMapper = new ObjectMapper();
-            String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
-            resp.setContentType("application/json");
-            resp.setCharacterEncoding("UTF-8");
-            writer.print(json);
-
         }
         writer.flush();
     }

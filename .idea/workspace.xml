@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="Fix bug with creating a new manager">
+    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="Added More ReadME&#10;Fix bug with REGEx in ManagerServlet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReadME.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadME.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementListSumServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementListSumServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617412427175</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added More ReadME&#10;Fix bug with REGEx in ManagerServlet">
+      <created>1617414525790</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1617414525790</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,6 +277,7 @@
     <MESSAGE value="Add a /manager ReadME.md" />
     <MESSAGE value="Fix bug on line 62 in ManagerServlet where the user could be null" />
     <MESSAGE value="Fix bug with creating a new manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug with creating a new manager" />
+    <MESSAGE value="Added More ReadME&#10;Fix bug with REGEx in ManagerServlet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added More ReadME&#10;Fix bug with REGEx in ManagerServlet" />
   </component>
 </project>

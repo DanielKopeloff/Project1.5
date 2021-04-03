@@ -6,7 +6,6 @@ import StoneKopeloffProject.service.ReimbursementService;
 import StoneKopeloffProject.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,6 +27,7 @@ public class ManagerReimbursementServlet extends HttpServlet {
      * @param resp
      * @throws IOException
      */
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();
         if (req.getParameter("username") == null || req.getParameter("password") == null) {
@@ -101,13 +101,15 @@ public class ManagerReimbursementServlet extends HttpServlet {
                 Integer.parseInt(req.getParameter("newstatus"));
             }catch (NumberFormatException e){
                 writer.println("Invalid new status");
-            }
+                return;
+            }catch (NullPointerException e){}
 
             try{
                 Integer.parseInt(req.getParameter("type_id"));
             }catch (NumberFormatException e){
                 writer.println("Invalid new status");
-            }
+                return;
+            }catch (NullPointerException e){}
 
 
             if (!(req.getParameter("amount") == null ) ) {
@@ -195,14 +197,14 @@ public class ManagerReimbursementServlet extends HttpServlet {
         }catch (NumberFormatException e){
             writer.println("Invalid amount");
             return;
-        }
+        }catch (NullPointerException e){}
 
         try{
             Integer.parseInt(req.getParameter("type_id"));
         }catch (NumberFormatException e){
             writer.println("Invalid amount");
             return;
-        }
+        }catch (NullPointerException e){}
 
 
 

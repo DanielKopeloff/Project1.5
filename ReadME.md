@@ -1,4 +1,8 @@
 # John Stone and Daniel Kopeloff User and Reimbursement API
+
+Basic Rules for the API<br />
+The 
+
 ----
 ###  **User**
 
@@ -244,6 +248,8 @@
     1. `username=[string]`
     2. `password=[string]`
     3. `email=[string]`
+    4. `newusername=[string]`
+    5. `newpassword=[string]`
 
     **Optional:**
   
@@ -264,6 +270,14 @@
 
     * **Reason:** If username is already taken <br />
       **Content:** `Username already taken`
+
+        * **Reason:** Not a valid username<br />
+      **Content:** `Invalid Username`
+
+
+  * **Reason:** Not a valid password <br />
+      **Content:** `Invalid Password`
+
 
      * **Reason:** Not a valid first name<br />
       **Content:** `Invalid first name`
@@ -419,7 +433,7 @@ This method updates a manager account
     * **Reason:** Wrong input of login credentials  <br />
       **Content:** `Invalid user credentials`
 
-        * **Reason:** Trying to login when you are not a manager  <br />
+        * **Reason:** Trying to access another user's reimbursement  <br />
       **Content:** `You do not have permission to perform this action`
 
        * **Reason:** Invalid Id number  <br />
@@ -466,10 +480,6 @@ This method updates a manager account
 
        * **Reason:** No Description provided<br />
       **Content:** `Invalid Description`
-
-
-
-
 
 
   * **Notes:**
@@ -526,11 +536,6 @@ This method updates a manager account
       
   * **Reason:** Not a valid Description<br />
       **Content:** `Invalid Description`
-
-
-
-      
-
 
 
   * **Notes:**
@@ -715,8 +720,6 @@ This method updates a reimbursement
 
       
 
-
-
   * **Notes:**
 This method updates a manager account
  
@@ -727,5 +730,143 @@ This method updates a manager account
     
   *  **NOT IMPLEMENTED**
   
+   ###  **User and Reimbursements List**
+
+* **URL**
+
+  /user/reimbursement/list
+
+  * **Method:**
+    
+    `GET` 
+    
+  *  **URL Params**
+
+    **Required:**
   
+    1. `username=[string]`
+    2. `password=[string]`
+ 
+
+
+    **Optional:**
+
+   1. `statusId=[integer]`
+  
+
+
+  * **Success Response:**
+    
+    * **Reason:** Success <br />
+      **Content:** `{
+      [
+    {
+        "id": 33,
+        "amount": 23423.0,
+        "submitted": 1617410399607,
+        "resolved": null,
+        "description": "Dress To impress",
+        "author": {
+            "userIDPK": 32,
+            "username": "Mario",
+            "password": "Password1",
+            "firstname": null,
+            "lastname": null,
+            "email": "weekend@friday.com",
+            "role_id": 0,
+            "active": true
+        },
+        "resolver": null,
+        "status_id": 0,
+        "type_id": 2,
+        "reimbursementID": 5
+    }
+]
+  }`*This is just an example user's data will vary
+  
+  * **Error Response:**
+
+    * **Reason:** Wrong input of login credentials  <br />
+      **Content:** `Invalid user credentials`
+
+       * **Reason:** Invalid Id number  <br />
+      **Content:** `Invalid Id`
+
+
+  * **Notes:**
+
+  This method gets either all the reimbursements linked to this user and their current status either PENDING , ACCEPTED , REJECTED
+
+
+   ###  **User and Reimbursements List**
+
+* **URL**
+
+  /manager/reimbursement/list
+
+  * **Method:**
+    
+    `GET` 
+    
+  *  **URL Params**
+
+    **Required:**
+  
+    1. `username=[string]`
+    2. `password=[string]`
+ 
+
+
+    **Optional:**
+
+   1. `statusId=[integer]`
+  
+
+
+  * **Success Response:**
+    
+    * **Reason:** Success <br />
+      **Content:** `{
+      [
+    {
+        "id": 33,
+        "amount": 23423.0,
+        "submitted": 1617410399607,
+        "resolved": null,
+        "description": "Dress To impress",
+        "author": {
+            "userIDPK": 32,
+            "username": "Mario",
+            "password": "Password1",
+            "firstname": null,
+            "lastname": null,
+            "email": "weekend@friday.com",
+            "role_id": 0,
+            "active": true
+        },
+        "resolver": null,
+        "status_id": 0,
+        "type_id": 2,
+        "reimbursementID": 5
+    }
+]
+  }`*This is just an example user's data will vary
+  
+  * **Error Response:**
+
+    * **Reason:** Wrong input of login credentials  <br />
+      **Content:** `Invalid user credentials`
+
+       * **Reason:** Invalid Id number  <br />
+      **Content:** `Invalid Id`
+
+      * **Reason** No access <br />
+      **Content:**`You do not have permission to perform this action`
+
+
+  * **Notes:**
+
+  This method gets either all the reimbursements linked to this user and their current status either PENDING , ACCEPTED , REJECTED
+  If the manager wants to all the reimbursments they would input a -1 as the statusId
+
    

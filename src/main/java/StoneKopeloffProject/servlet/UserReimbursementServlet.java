@@ -127,14 +127,14 @@ public class UserReimbursementServlet extends HttpServlet {
         } catch (NumberFormatException e) {
             writer.println("Invalid amount");
             return;
-        }
+        }catch (NullPointerException e){}
 
         try {
             Integer.parseInt(req.getParameter("type_id"));
         } catch (NumberFormatException e) {
             writer.println("Invalid type ");
             return;
-        }
+        }catch (NullPointerException e){}
 
 
         if (!(req.getParameter("amount") == null)) {
@@ -200,12 +200,18 @@ public class UserReimbursementServlet extends HttpServlet {
         } catch (NumberFormatException e) {
             writer.println("Invalid amount");
             return;
+        }catch (NullPointerException e){
+            writer.println("No amount provided");
+            return;
         }
 
         try {
             Integer.parseInt(req.getParameter("type_id"));
         } catch (NumberFormatException e) {
             writer.println("Invalid type");
+            return;
+        }catch (NullPointerException e){
+            writer.println("No type provided");
             return;
         }
 
