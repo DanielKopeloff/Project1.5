@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="Added so manager can view all Reimbursements">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/049e784a64de43570dd75aecb900aeeddca9ecd0" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/049e784a64de43570dd75aecb900aeeddca9ecd0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/217c0f1fff43dca33b8bf37e847c9e205688738e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/217c0f1fff43dca33b8bf37e847c9e205688738e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3fe2c309229a8293dcad1a38cd59851b14989163" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3fe2c309229a8293dcad1a38cd59851b14989163" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/a/7aa4d920b66961b2ddbfead2eb40ab559dcba0ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/9/d9a62d656cfa791cd74051c58ef6322fabeca294" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/9/d9a62d656cfa791cd74051c58ef6322fabeca294" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/c/dc9f0e67c5b5ecd3a476871e01d7c146de1033ca" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/c/dc9f0e67c5b5ecd3a476871e01d7c146de1033ca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="Add a read Me">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementServletList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementListServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadME.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadME.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +203,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617407486970</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add a read Me">
+      <created>1617409058456</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617409058456</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add a read Me">
+      <created>1617409109526</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1617409109526</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -237,6 +240,7 @@
     <MESSAGE value="Added Data validation for input &#10;Added user's cant update other peoples reimbursement&#10;Added Managers cant update the status of their own Reimbursement" />
     <MESSAGE value="Added Data validation for input &#10;Added user's cant update other peoples reimbursement&#10;Added Managers cant update the status of their own Reimbursement&#10;Added users cant view other users reimbursement" />
     <MESSAGE value="Added so manager can view all Reimbursements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added so manager can view all Reimbursements" />
+    <MESSAGE value="Add a read Me" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a read Me" />
   </component>
 </project>
