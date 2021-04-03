@@ -17,7 +17,7 @@ import java.util.List;
 
 
 @WebServlet(urlPatterns = "/user/reimbursement/list")
-public class UserReimbursementServletList  extends HttpServlet {
+public class UserReimbursementListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

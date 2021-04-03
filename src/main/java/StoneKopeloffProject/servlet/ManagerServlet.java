@@ -1,8 +1,6 @@
 package StoneKopeloffProject.servlet;
 
-import StoneKopeloffProject.model.Reimbursement;
 import StoneKopeloffProject.model.User;
-import StoneKopeloffProject.service.ReimbursementService;
 import StoneKopeloffProject.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -12,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import java.util.Map;
 
 @WebServlet(urlPatterns = "/manager")
 public class ManagerServlet extends HttpServlet {
@@ -82,11 +78,11 @@ public class ManagerServlet extends HttpServlet {
             writer.println("Invalid password");
             return;
         }
-        if (req.getParameter("firstname") == null || (req.getParameter("firstname")).length() < 1 || !(validtaeString(req.getParameter("firstname")))) {
+        if (req.getParameter("firstname") == null || (req.getParameter("firstname")).length() < 1 || !(validateString(req.getParameter("firstname")))) {
             writer.println("Invalid first name");
             return;
         }
-        if (req.getParameter("lastname") == null || (req.getParameter("lastname")).length() < 1 || !(validtaeString(req.getParameter("lastname")))) {
+        if (req.getParameter("lastname") == null || (req.getParameter("lastname")).length() < 1 || !(validateString(req.getParameter("lastname")))) {
             writer.println("Invalid last name");
             return;
         }
@@ -154,7 +150,7 @@ public class ManagerServlet extends HttpServlet {
         if (!(req.getParameter("firstname") == null)) {
 
             if ((req.getParameter("firstname")).length() > 1) {
-                if(validtaeString(req.getParameter("firstname"))){
+                if(validateString(req.getParameter("firstname"))){
                     u.setLastname(req.getParameter("firstname"));
                 }
                 else{
@@ -169,7 +165,7 @@ public class ManagerServlet extends HttpServlet {
         if (!(req.getParameter("lastname") == null)) {
 
             if ((req.getParameter("lastname")).length() > 1) {
-                if(validtaeString(req.getParameter("lastname"))){
+                if(validateString(req.getParameter("lastname"))){
                     u.setLastname(req.getParameter("lastname"));
                 }
                 else{
@@ -269,7 +265,7 @@ public class ManagerServlet extends HttpServlet {
     }
 
 
-    public boolean validtaeString(String str) {
+    public boolean validateString(String str) {
         str = str.toLowerCase();
         char[] charArray = str.toCharArray();
         for (int i = 0; i < charArray.length; i++) {

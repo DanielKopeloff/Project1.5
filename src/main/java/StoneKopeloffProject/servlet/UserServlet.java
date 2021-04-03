@@ -1,9 +1,6 @@
 package StoneKopeloffProject.servlet;
 
-import StoneKopeloffProject.dao.UserDao;
-import StoneKopeloffProject.model.Reimbursement;
 import StoneKopeloffProject.model.User;
-import StoneKopeloffProject.service.ReimbursementService;
 import StoneKopeloffProject.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -13,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import java.util.Map;
 
 @WebServlet(urlPatterns = "/user")
 public class UserServlet extends HttpServlet {
@@ -92,7 +87,7 @@ public class UserServlet extends HttpServlet {
         if (!(req.getParameter("firstname") == null)) {
 
             if ((req.getParameter("firstname")).length() > 1) {
-                if (validtaeString(req.getParameter("firstname"))) {
+                if (validateString(req.getParameter("firstname"))) {
                     u.setFirstname(req.getParameter("firstname"));
                 } else {
                     writer.println("Invalid first name");
@@ -107,7 +102,7 @@ public class UserServlet extends HttpServlet {
         if (!(req.getParameter("lastname") == null)) {
 
             if ((req.getParameter("lastname")).length() > 1) {
-                if (validtaeString(req.getParameter("lastname"))) {
+                if (validateString(req.getParameter("lastname"))) {
                     u.setFirstname(req.getParameter("lastname"));
                 } else {
                     writer.println("Invalid last name");
@@ -184,7 +179,7 @@ public class UserServlet extends HttpServlet {
 
         if (req.getParameter("firstname") != null) {
             if ((req.getParameter("firstname")).length() > 1) {
-                if (validtaeString(req.getParameter("firstname"))) {
+                if (validateString(req.getParameter("firstname"))) {
                     u.setFirstname(req.getParameter("firstname"));
                 } else {
                     writer.println("Invalid first name");
@@ -200,10 +195,10 @@ public class UserServlet extends HttpServlet {
         }
         if (req.getParameter("lastname") != null) {
             if ((req.getParameter("lastname")).length() > 1) {
-                if (validtaeString(req.getParameter("lastname"))) {
+                if (validateString(req.getParameter("lastname"))) {
                     u.setLastname(req.getParameter("lastname"));
                 } else {
-                    writer.println("Invalid first name");
+                    writer.println("Invalid last name");
                     return;
                 }
             } else {
@@ -262,10 +257,11 @@ public class UserServlet extends HttpServlet {
                 UserService.getInstance().updateUser(u);
             }
         }
+        writer.println("User deleted");
         writer.flush();
     }
 
-    public boolean validtaeString(String str) {
+    public boolean validateString(String str) {
         str = str.toLowerCase();
         char[] charArray = str.toCharArray();
         for (int i = 0; i < charArray.length; i++) {

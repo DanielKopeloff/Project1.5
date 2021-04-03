@@ -4,16 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="fixed duplicate username bug">
+    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="Added so manager can view all Reimbursements">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/049e784a64de43570dd75aecb900aeeddca9ecd0" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/049e784a64de43570dd75aecb900aeeddca9ecd0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/217c0f1fff43dca33b8bf37e847c9e205688738e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/217c0f1fff43dca33b8bf37e847c9e205688738e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3fe2c309229a8293dcad1a38cd59851b14989163" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3fe2c309229a8293dcad1a38cd59851b14989163" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/a/7aa4d920b66961b2ddbfead2eb40ab559dcba0ec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/9/d9a62d656cfa791cd74051c58ef6322fabeca294" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/9/d9a62d656cfa791cd74051c58ef6322fabeca294" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/c/dc9f0e67c5b5ecd3a476871e01d7c146de1033ca" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/c/dc9f0e67c5b5ecd3a476871e01d7c146de1033ca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/ReimbursementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/ReimbursementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/ReimbursementDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/ReimbursementDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/ConnectionUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/ReimbursementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/ReimbursementService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementServletList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserReimbursementListServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +50,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1-sources.jar!/javax/servlet/http/HttpServlet.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1qSJhNirdxap628sYEw73m4b53W" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -61,11 +68,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Cryo/Cryostasis" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -169,7 +179,42 @@
       <option name="project" value="LOCAL" />
       <updated>1617297559743</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Spacing changes">
+      <created>1617298185648</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617298185648</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added CRU (Create , Insert ,Update ,Get) functionality for User , Mangers , users+Reimbursements , Managers+reimbursments , Getting a list of either all approved , pending , and rejected &#10;To Sum it up i made more endpoints">
+      <created>1617347466605</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1617347466605</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added Data validation for input &#10;Added user's cant update other peoples reimbursement&#10;Added Managers cant update the status of their own Reimbursement">
+      <created>1617396339492</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617396339492</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added Data validation for input &#10;Added user's cant update other peoples reimbursement&#10;Added Managers cant update the status of their own Reimbursement&#10;Added users cant view other users reimbursement">
+      <created>1617396554585</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1617396554585</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added so manager can view all Reimbursements">
+      <created>1617407486970</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617407486970</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,17 +232,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add functionality to POST , PUT For manager &#10;Add functionality to PUT for user" />
     <MESSAGE value="fixed duplicate username bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed duplicate username bug" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/UserService.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Spacing changes" />
+    <MESSAGE value="Added CRU (Create , Insert ,Update ,Get) functionality for User , Mangers , users+Reimbursements , Managers+reimbursments , Getting a list of either all approved , pending , and rejected &#10;To Sum it up i made more endpoints" />
+    <MESSAGE value="Added Data validation for input &#10;Added user's cant update other peoples reimbursement&#10;Added Managers cant update the status of their own Reimbursement" />
+    <MESSAGE value="Added Data validation for input &#10;Added user's cant update other peoples reimbursement&#10;Added Managers cant update the status of their own Reimbursement&#10;Added users cant view other users reimbursement" />
+    <MESSAGE value="Added so manager can view all Reimbursements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added so manager can view all Reimbursements" />
   </component>
 </project>

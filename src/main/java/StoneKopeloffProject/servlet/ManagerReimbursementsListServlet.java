@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 
-@WebServlet(urlPatterns = "manager/reimbursement/list")
+@WebServlet(urlPatterns = "/manager/reimbursement/list")
 public class ManagerReimbursementsListServlet extends HttpServlet {
 
     @Override

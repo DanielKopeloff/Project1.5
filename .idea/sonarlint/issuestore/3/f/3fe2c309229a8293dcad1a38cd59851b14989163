@@ -1,28 +1,26 @@
 
-O
-java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8Û´‰Öˆ/
-M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¡ÜÑˆ/
-g
-java:S2095B"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8úàÔˆ/
-e
-java:S1128"HRemove this unused import 'StoneKopeloffProject.service.ConnectionUtil'.(µ’˜8Û´‰Öˆ/
-g
-java:S2095u"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8úàÔˆ/
-g
-java:S2095+"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8úàÔˆ/
+L
+java:S1068"*Remove this unused "LOGGER" private field.(ï•Íúÿÿÿÿ8¡ÜÑˆ/
+h
+java:S2095Æ"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8‡¬éŠ‰/
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(†éÂ³øÿÿÿÿ
-¤
-java:S1186£"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦ï‰Òıÿÿÿÿ8¡ÜÑˆ/
-L
-java:S1068"*Remove this unused "LOGGER" private field.(ï•Íúÿÿÿÿ8¡ÜÑˆ/
-H
-java:S1068"&Remove this unused "ud" private field.(ï‘åÕøÿÿÿÿ8‘åøÖˆ/
 g
-java:S2095X"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8úàÔˆ/
+java:S2095>"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8úàÔˆ/
 h
-java:S2095Š"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8Óè˜Öˆ/
-L
-java:S1128"/Remove this unused import 'java.util.Calendar'.(ÿÛö´8¡ÜÑˆ/
+java:S2095Ø"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8™“´ˆ‰/
+g
+java:S2095R"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8úàÔˆ/
 h
-java:S2095®"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8úàÔˆ/
+java:S2095é"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8úàÔˆ/
+H
+java:S1068"&Remove this unused "ud" private field.(ï‘åÕøÿÿÿÿ8‘åøÖˆ/
+g
+java:S2095g"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8èŠ‹†‰/
+g
+java:S2095"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8úàÔˆ/
+h
+java:S2095"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8º²Ù‡‰/
+g
+java:S2095'"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8úàÔˆ/
+h
+java:S2095«"EUse try-with-resources or close this "Session" in a "finally" clause.(´Ï‚‘ùÿÿÿÿ8Óè˜Öˆ/
