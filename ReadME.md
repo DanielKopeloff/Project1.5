@@ -1,7 +1,9 @@
 # John Stone and Daniel Kopeloff User and Reimbursement API
 
 Basic Rules for the API<br />
-The 
+The User can not access other users information
+Managers can not resolve their own Reimbursements 
+If a manager wants to see all the reimbursements he can input -1 in the manager/reimbursements/list URL
 
 ----
 ###  **User**

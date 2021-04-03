@@ -219,7 +219,7 @@ public class UserReimbursementServlet extends HttpServlet {
             writer.println("Invalid reimbursement amount");
             return;
         }
-        if (req.getParameter("type_id") == null || Integer.parseInt(req.getParameter("type_id")) <= 0 || Integer.parseInt(req.getParameter("type_id")) >= 5) {
+        if (req.getParameter("type_id") == null || (Integer.parseInt(req.getParameter("type_id")) < 0 || Integer.parseInt(req.getParameter("type_id")) > 5)) {
             writer.println("Invalid reimbursement type");
             return;
         }
