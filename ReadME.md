@@ -1,22 +1,22 @@
 #  User and Reimbursement API
 ##### BY John Stone and Daniel Kopeloff
 
-Basic Rules for the API<br />
+Basic Rules for the API
 -----------------
 
-The User can not access other users information <br />
-Managers can not resolve their own Reimbursements <br />
-If a manager wants to see all the reimbursements he can input -1 in the manager/reimbursements/list URL <br >
-If a reimbursement has been either ACCEPTED or REJECTED it can no longer be edited by anyone <br >
+The User can not access other user's information 
+Managers can not resolve their own Reimbursements 
+If a manager wants to see all the reimbursements he can input -1 in the manager/reimbursements/list URL 
+If a reimbursement has been either ACCEPTED or REJECTED it can no longer be edited by anyone 
 
 ---------
 ---------
 ###  **User**
 
 * **URL**
-  <br /><br />
+  
 
-  /user<br /><br />
+  /user
 
     * **Method:**
 
@@ -37,7 +37,7 @@ If a reimbursement has been either ACCEPTED or REJECTED it can no longer be edit
 
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `{
       "userIDPK": 99,
       "username": "Mario",
@@ -51,7 +51,7 @@ If a reimbursement has been either ACCEPTED or REJECTED it can no longer be edit
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
 
 
@@ -71,33 +71,30 @@ If a reimbursement has been either ACCEPTED or REJECTED it can no longer be edit
     1. `username=[string]`
     2. `password=[string]`
     3. `email=[string]`
-
-    **Optional:**
-  
-    1. `firstname=[string]`
-    2. `lastname=[string]`
+    4. `firstname=[string]`
+    5. `lastname=[string]`
 
 
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `Successfully created user`
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
       
-    * **Reason:** If username is already taken <br />
+    * **Reason:** If username is already taken 
       **Content:** `Username already taken`
 
-     * **Reason:** Not a valid first name<br />
+     * **Reason:** Not a valid first name
       **Content:** `Invalid first name`
 
-     * **Reason:** Not a valid last name<br />
+     * **Reason:** Not a valid last name
       **Content:** `Invalid last name`
 
-     * **Reason:** Not a valid email<br />
+     * **Reason:** Not a valid email
       **Content:** `Invalid email`
 
 
@@ -118,33 +115,30 @@ If a reimbursement has been either ACCEPTED or REJECTED it can no longer be edit
 
     1. `username=[string]`
     2. `password=[string]`
-
-**Optional:**
-  
-    1. `newusername=[string]`
-    2.  `newpassword=[string] ` 
-    3. `firstname=[string]`
-    4. `lastname=[string]`
-    5. `email=[string]`
+    3. `newusername=[string]`
+    4.  `newpassword=[string] ` 
+    5. `firstname=[string]`
+    6. `lastname=[string]`
+    7. `email=[string]`
 
 
   * **Success Response:**
     
-    * **Reason:** success <br />
+    * **Reason:** success 
       **Content:** `Successfully updated user`
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
       
-    * **Reason:** If username is already taken <br />
+    * **Reason:** If username is already taken 
       **Content:** `Username already taken`
 
-     * **Reason:** Not a valid first name<br />
+     * **Reason:** Not a valid first name
       **Content:** `Invalid first name`
 
-     * **Reason:** Not a valid last name<br />
+     * **Reason:** Not a valid last name
       **Content:** `Invalid last name`
 
 
@@ -171,12 +165,12 @@ This method is how you can update the user
 
   * **Success Response:**
     
-    * **Code:** Success <br />
+    * **Code:** Success 
       **Content:** `User deleted`
   
   * **Error Response:**
 
-    * **Code:** Wrong input of login credentials  <br />
+    * **Code:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
 
 
@@ -214,7 +208,7 @@ that they are no longer active
 
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `{
       "userIDPK": 99,
       "username": "Mario",
@@ -228,10 +222,10 @@ that they are no longer active
   
   * **Error Response:**
     
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
         
-    * **Reason:** Trying to login when you are not a manager  <br />
+    * **Reason:** Trying to login when you are not a manager  
       **Content:** `You do not have permission to perform this action`
 
 
@@ -253,39 +247,36 @@ that they are no longer active
     3. `email=[string]`
     4. `newusername=[string]`
     5. `newpassword=[string]`
-
-**Optional:**
-  
-    1. `firstname=[string]`
-    2. `lastname=[string]`
+    6. `firstname=[string]`
+    7. `lastname=[string]`
 
 
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `Successfully created user`
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
       
-    * **Reason:** If username is already taken <br />
+    * **Reason:** If username is already taken 
       **Content:** `Username already taken`
         
-    * **Reason:** Not a valid username<br />
+    * **Reason:** Not a valid username
       **Content:** `Invalid Username`
       
-    * **Reason:** Not a valid password <br />
+    * **Reason:** Not a valid password 
       **Content:** `Invalid Password`
         
-     * **Reason:** Not a valid first name<br />
+     * **Reason:** Not a valid first name
       **Content:** `Invalid first name`
 
-     * **Reason:** Not a valid last name<br />
+     * **Reason:** Not a valid last name
       **Content:** `Invalid last name`
 
-     * **Reason:** Not a valid email<br />
+     * **Reason:** Not a valid email
       **Content:** `Invalid email`
 
 
@@ -306,34 +297,30 @@ that they are no longer active
   
     1. `username=[string]`
     2. `password=[string]`
-   
-
-**Optional:**
-
-    1. `newusername=[string]`
-    2.  `newpassword=[string] ` 
-    3. `firstname=[string]`
-    4. `lastname=[string]`
-    5. `email=[string]`
+    3. `newusername=[string]`
+    4.  `newpassword=[string] ` 
+    5. `firstname=[string]`
+    6. `lastname=[string]`
+    7. `email=[string]`
 
 
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `Successfully updated user`
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
       
-    * **Reason:** If username is already taken <br />
+    * **Reason:** If username is already taken 
       **Content:** `Username already taken`
 
-     * **Reason:** Not a valid first name<br />
+     * **Reason:** Not a valid first name
       **Content:** `Invalid first name`
 
-     * **Reason:** Not a valid last name<br />
+     * **Reason:** Not a valid last name
       **Content:** `Invalid last name`
 
 
@@ -360,12 +347,12 @@ This method updates a manager account
 
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `User deleted`
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
 
 
@@ -402,7 +389,7 @@ This method updates a manager account
 
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `{
       [
     {
@@ -431,13 +418,13 @@ This method updates a manager account
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
         
-    * **Reason:** Trying to access another user's reimbursement  <br />
+    * **Reason:** Trying to access another user's reimbursement  
       **Content:** `You do not have permission to perform this action`
 
-    * **Reason:** Invalid Id number  <br />
+    * **Reason:** Invalid Id number  
       **Content:** `Invalid Id`
 
 
@@ -464,24 +451,24 @@ This method updates a manager account
   
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `Successfully created reimbursement`
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
       
-    * **Reason:** Not a valid amount <br />
+    * **Reason:** Not a valid amount 
       **Content:** `Invalid amount`
 
-     * **Reason:** Not a valid type ID<br />
+     * **Reason:** Not a valid type ID
       **Content:** `Invalid type`
          
-    * **Reason:** No Description provided<br />
+    * **Reason:** No Description provided
       **Content:** `Invalid Description`
        
-    * **Reason:** Reimbursment already settled<br />
+    * **Reason:** Reimbursment already settled
       **Content:** `Reimbursement has already been settled`
 
       
@@ -516,27 +503,27 @@ This method updates a manager account
 
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `Successfully updated reimbursement`
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
       
-    * **Reason:** Not a valid type<br />
+    * **Reason:** Not a valid type
       **Content:** `Invalid type`
 
-     * **Reason:** Not a valid amount<br />
+     * **Reason:** Not a valid amount
       **Content:** `Invalid Amount`
 
-     * **Reason:** Do not have access<br />
+     * **Reason:** Do not have access
       **Content:** `Do not have access to this`
 
-    * **Reason:** Not a valid Reimbursement ID<br />
+    * **Reason:** Not a valid Reimbursement ID
       **Content:** `Invalid reimbursement number`
       
-    * **Reason:** Not a valid Description<br />
+    * **Reason:** Not a valid Description
       **Content:** `Invalid Description`
 
 
@@ -568,7 +555,7 @@ This method updates a reimbursement
 
     1. `username=[string]`
     2. `password=[string]`
-    <br />
+    
  **Optional:**
 
     1. `reimID=[integer]`
@@ -577,7 +564,7 @@ This method updates a reimbursement
 
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `{
       [
     {
@@ -606,13 +593,13 @@ This method updates a reimbursement
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
         
-    * **Reason:** Trying to login when you are not a manager  <br />
+    * **Reason:** Trying to login when you are not a manager  
       **Content:** `You do not have permission to perform this action`
       
-    * **Reason:** Invalid Id number  <br />
+    * **Reason:** Invalid Id number  
       **Content:** `Invalid Id`
 
 
@@ -640,21 +627,21 @@ This method updates a reimbursement
   
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `Successfully created reimbursement`
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
       
-    * **Reason:** Not a valid amount <br />
+    * **Reason:** Not a valid amount 
       **Content:** `Invalid amount`
 
-     * **Reason:** Not a valid type ID<br />
+     * **Reason:** Not a valid type ID
       **Content:** `Invalid type`
        
-    * **Reason:** No Description provided<br />
+    * **Reason:** No Description provided
       **Content:** `Invalid Description`
 
 
@@ -691,36 +678,36 @@ This method updates a reimbursement
 
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `Successfully updated reimbursement`
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
       
-    * **Reason:** Not a valid type<br />
+    * **Reason:** Not a valid type
       **Content:** `Invalid type`
 
-     * **Reason:** Not a valid amount<br />
+     * **Reason:** Not a valid amount
       **Content:** `Invalid Amount`
 
-     * **Reason:** Do not have access<br />
+     * **Reason:** Do not have access
       **Content:** `Do not have access to this`
        
-    * **Reason:** Not a valid Reimbursement ID<br />
+    * **Reason:** Not a valid Reimbursement ID
       **Content:** `Invalid reimbursement number`
       
-    * **Reason:** Not a valid Description<br />
+    * **Reason:** Not a valid Description
       **Content:** `Invalid Description`
 
-    * **Reason:** Not a valid status<br />
+    * **Reason:** Not a valid status
       **Content:** `Invalid status`    
 
-    * **Reason:** Same author and resolver<br />
+    * **Reason:** Same author and resolver
       **Content:** `Not allowed to edit your own reimbursements`  
       
-    * **Reason:** Reimbursment already settled<br />
+    * **Reason:** Reimbursment already settled
       **Content:** `Reimbursement has already been settled`
 
       
@@ -762,7 +749,7 @@ This method updates a manager account
 
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `{
       [
     {
@@ -791,10 +778,10 @@ This method updates a manager account
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
         
-    * **Reason:** Invalid Id number  <br />
+    * **Reason:** Invalid Id number  
       **Content:** `Invalid Id`
 
 
@@ -831,7 +818,7 @@ This method updates a manager account
 
   * **Success Response:**
     
-    * **Reason:** Success <br />
+    * **Reason:** Success 
       **Content:** `{
       [
     {
@@ -860,13 +847,13 @@ This method updates a manager account
   
   * **Error Response:**
 
-    * **Reason:** Wrong input of login credentials  <br />
+    * **Reason:** Wrong input of login credentials  
       **Content:** `Invalid user credentials`
         
-    * **Reason:** Invalid Id number  <br />
+    * **Reason:** Invalid Id number  
       **Content:** `Invalid Id`
       
-    * **Reason** No access <br />
+    * **Reason** No access 
       **Content:**`You do not have permission to perform this action`
 
 

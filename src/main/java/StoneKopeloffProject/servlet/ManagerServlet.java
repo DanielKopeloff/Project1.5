@@ -2,6 +2,7 @@ package StoneKopeloffProject.servlet;
 
 import StoneKopeloffProject.model.User;
 import StoneKopeloffProject.service.UserService;
+import StoneKopeloffProject.utililty.Validation;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.annotation.WebServlet;
@@ -29,14 +30,17 @@ public class ManagerServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         if (req.getParameter("username") == null || req.getParameter("password") == null) {
             writer.println("Invalid user credentials");
+            writer.flush();
             return;
         }
         User u = UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password"));
         if (u == null) {
             writer.println("Invalid user credentials");
+            writer.flush();
             return;
         } else if (u.getRole_id() == 0) {
             writer.println("You do not have permission to perform this action");
+            writer.flush();
             return;
 
         } else {
@@ -61,51 +65,55 @@ public class ManagerServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         if (req.getParameter("username") == null || req.getParameter("password") == null) {
             writer.println("Invalid user credentials");
+            writer.flush();
             return;
         }
         if(UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password")) == null){
             writer.println("Invalid user credentials");
+            writer.flush();
             return;
         }
         if ( UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password")).getRole_id() != 1) {
             writer.println("You do not have permission to perform this action");
+            writer.flush();
             return;
         }
 
         // If the username is already linked to a user name then it is not unique and therefore can not be used
-        if (!(UserService.getInstance().getUserByUsername(req.getParameter("username")) == null)) {
+        if (UserService.getInstance().getUserByUsername(req.getParameter("newusername")) != null) {
             writer.println("Username already taken");
+            writer.flush();
             return;
         }
         if (req.getParameter("newusername") == null || req.getParameter("newusername").length() < 1) {
             // If the get user by user name method returns null that means that the username does not exist
             writer.println("Invalid username");
+            writer.flush();
             return;
         }
         if (req.getParameter("newpassword") == null || (req.getParameter("newpassword")).length() < 1) {
             writer.println("Invalid password");
+            writer.flush();
             return;
         }
-        if (req.getParameter("firstname") == null || (req.getParameter("firstname")).length() < 1 || !(validateString(req.getParameter("firstname")))) {
+        if (req.getParameter("firstname") == null || (req.getParameter("firstname")).length() < 1 || !(Validation.validateString(req.getParameter("firstname")))) {
             writer.println("Invalid first name");
+            writer.flush();
             return;
         }
-        if (req.getParameter("lastname") == null || (req.getParameter("lastname")).length() < 1 || !(validateString(req.getParameter("lastname")))) {
+        if (req.getParameter("lastname") == null || (req.getParameter("lastname")).length() < 1 || !(Validation.validateString(req.getParameter("lastname")))) {
             writer.println("Invalid last name");
+            writer.flush();
             return;
         }
-        //credit http://emailregex.com/ for the regex used below
-        if (req.getParameter("email") == null || (req.getParameter("email")).length() < 1
-                || !((String) req.getParameter("email")).matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@" +
-                "(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:" +
-                "(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")) {
+        if (req.getParameter("email") != null && (Validation.validateEmail(req.getParameter("email")))) {
             writer.println("Invalid email");
+            writer.flush();
             return;
         }
         UserService.getInstance().addManager(req.getParameter("newusername"), req.getParameter("newpassword"),
                 req.getParameter("firstname"), req.getParameter("lastname"), req.getParameter("email"));
         writer.println("Successfully created Manager");
-        //}
         writer.flush();
     }
 
@@ -121,66 +129,77 @@ public class ManagerServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         if (req.getParameter("username") == null || req.getParameter("password") == null) {
             writer.println("Invalid user credentials");
+            writer.flush();
             return;
         }
         User u = UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password"));
         if (u == null) {
             writer.println("Unable to login");
+            writer.flush();
             return;
         } else if (u.getRole_id() != 1) {
             writer.println("You do not have permission to perform this action");
+            writer.flush();
             return;
         }
 
 
 
-        if (!(UserService.getInstance().getUserByUsername(req.getParameter("newusername")) == null)) {
+        if (UserService.getInstance().getUserByUsername(req.getParameter("newusername")) != null) {
             writer.println("Username already taken");
+            writer.flush();
             return;
         }
-        if (!(req.getParameter("newusername") == null)) {
+        if (req.getParameter("newusername") != null) {
             if (req.getParameter("newusername").length() > 1) {
                 u.setUsername(req.getParameter("newusername"));
             } else {
                 writer.println("Invalid username");
+                writer.flush();
+                return;
             }
         }
-        if (!(req.getParameter("newuserpassword") == null)) {
+        if (req.getParameter("newuserpassword") != null) {
             if ((req.getParameter("newuserpassword")).length() > 1) {
                 u.setPassword(req.getParameter("newuserpassword"));
             } else {
                 writer.println("Invalid password");
+                writer.flush();
                 return;
             }
         }
         if (!(req.getParameter("firstname") == null)) {
 
             if ((req.getParameter("firstname")).length() > 1) {
-                if(validateString(req.getParameter("firstname"))){
+                if(Validation.validateString(req.getParameter("firstname"))){
                     u.setLastname(req.getParameter("firstname"));
                 }
                 else{
                     writer.println("Invalid first name");
+                    writer.flush();
                     return;
                 }
             } else {
                 writer.println("Invalid first name");
+                writer.flush();
                 return;
             }
         }
         if (!(req.getParameter("lastname") == null)) {
 
             if ((req.getParameter("lastname")).length() > 1) {
-                if(validateString(req.getParameter("lastname"))){
+                if(Validation.validateString(req.getParameter("lastname"))){
                     u.setLastname(req.getParameter("lastname"));
                 }
                 else{
                     writer.println("Invalid Last name");
+                    writer.flush();
                     return;
                 }
 
             } else {
                 writer.println("Invalid Last name");
+                writer.flush();
                 return;
             }
         }
@@ -189,6 +208,7 @@ public class ManagerServlet extends HttpServlet {
                 Integer.parseInt(req.getParameter("role"));
             } catch (NumberFormatException e) {
                 writer.println("Invalid role");
+                writer.flush();
                 return;
             }
 
@@ -196,22 +216,18 @@ public class ManagerServlet extends HttpServlet {
                 u.setRole_id(Integer.parseInt(req.getParameter("role")));
             } else {
                 writer.println("Invalid role");
+                writer.flush();
                 return;
             }
         }
-        //credit http://emailregex.com/ for the regex used below
-        if (!(req.getParameter("email") == null)) {
-            if ((req.getParameter("email")).length() > 1
-                    && !(req.getParameter("email")).matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@" +
-                    "(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:" +
-                    "(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")) {
-
+        if (req.getParameter("email") != null) {
+            if (Validation.validateEmail(req.getParameter("email"))) {
                 u.setEmail(req.getParameter("email"));
             } else {
                 writer.println("Invalid email");
+                writer.flush();
                 return;
             }
-
         }
         UserService.getInstance().updateUser(u);
         writer.println("Successfully updated");
@@ -234,15 +250,17 @@ public class ManagerServlet extends HttpServlet {
             writer.println("Invalid user credentials");
             return;
         } else {
-            // If the manager does input someone to deactivate then he will de activate himself
             if (req.getParameter("userID") == null) {
                 User u = UserService.getInstance().getUserByLogin(req.getParameter("username"), req.getParameter("password"));
                 if (u == null) {
                     writer.println("Invalid user credentials");
+                    writer.flush();
                     return;
                 } else {
                     u.setActive(false);
                     UserService.getInstance().updateUser(u);
+                    writer.println("User deleted");
+                    writer.flush();
                 }
             } else {
                 int id = -1;
@@ -250,33 +268,21 @@ public class ManagerServlet extends HttpServlet {
                     id = Integer.parseInt(req.getParameter("userID"));
                 } catch (NumberFormatException e) {
                     writer.println("Invalid ID");
+                    writer.flush();
                     return;
                 }
                 if (id == -1) {
                     writer.println("Invalid ID");
-                    writer.println("ID was not parsed");
+                    writer.flush();
                     return;
                 } else {
                     User u = UserService.getInstance().getUserById(id);
                     u.setActive(false);
                     UserService.getInstance().updateUser(u);
+                    writer.println("Successfully deleted user");
                 }
             }
         }
         writer.flush();
     }
-
-
-    private boolean validateString(String str) {
-        str = str.toLowerCase();
-        char[] charArray = str.toCharArray();
-        for (int i = 0; i < charArray.length; i++) {
-            char ch = charArray[i];
-            if (!(ch >= 'a' && ch <= 'z')) {
-                return false;
-            }
-        }
-        return true;
-    }
-
 }
