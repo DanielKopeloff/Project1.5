@@ -1,6 +1,9 @@
-# John Stone and Daniel Kopeloff User and Reimbursement API
+#  User and Reimbursement API
+##### BY John Stone and Daniel Kopeloff
 
-####Basic Rules for the API<br />
+Basic Rules for the API<br />
+-----------------
+
 The User can not access other users information <br />
 Managers can not resolve their own Reimbursements <br />
 If a manager wants to see all the reimbursements he can input -1 in the manager/reimbursements/list URL <br >
