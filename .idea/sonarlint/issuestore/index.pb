@@ -3,8 +3,6 @@ H
 StoneKopeloffProject.iml,1\f\1f604348592c700a6cad8bd847ab86b6c18d6bf8
 t
 Dsrc/main/java/StoneKopeloffProject/service/ReimbursementService.java,d\c\dc9f0e67c5b5ecd3a476871e01d7c146de1033ca
-n
->src/main/java/StoneKopeloffProject/service/ConnectionUtil.java,7\a\7aa4d920b66961b2ddbfead2eb40ab559dcba0ec
 m
 =src/main/java/StoneKopeloffProject/service/HibernateUtil.java,1\d\1d0392a3a3b846494dcf79be93db7287e132387a
 b
@@ -31,3 +29,15 @@ L
 src/main/webapp/welcome.html,1\f\1f4d3da39e8792c51e85dd003bdfd0c65f9857b0
 n
 >src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java,8\d\8d04d53b352c18e2e22ec505c89d8c266bd115b3
+
+Osrc/main/java/StoneKopeloffProject/servlet/UserReimbursementListSumServlet.java,d\f\dfc8fed3df37520619b5c8757dc6473df6558234
+€
+Psrc/main/java/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.java,2\d\2dc2c1a15e86b461a0b5b39ff9b24404209c3578
+‚
+Rsrc/main/java/StoneKopeloffProject/servlet/ManagerReimbursementListSumServlet.java,4\3\43914b638d327d0ac333aefbe276cc8539d71ae6
+|
+Lsrc/main/java/StoneKopeloffProject/servlet/UserReimbursementServletList.java,e\5\e561f6b04b0b7cc469e8bb274d8867b1e9c4a404
+x
+Hsrc/main/java/StoneKopeloffProject/servlet/UserReimbursementServlet.java,9\0\901969d6e96d8eaa5d726a20e5ecdd2a97476d7c
+{
+Ksrc/main/java/StoneKopeloffProject/servlet/ManagerReimbursementServlet.java,c\9\c974477b5b227f77bb52afad4e9eb7b3372a6493

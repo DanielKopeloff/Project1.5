@@ -13,7 +13,6 @@ import java.util.Properties;
 
 public class HibernateUtil {
 
-    //jdbc:postgres://project1-5.cbo6usfmqg0y.us-east-2.rds.amazonaws.com:5432/Project1-5?user=postgres&password=Project1.5
 
     private static SessionFactory sessionFactory;
 

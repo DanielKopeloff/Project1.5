@@ -3,7 +3,6 @@ package StoneKopeloffProject.model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.Set;
 
 
 @Entity
@@ -12,6 +11,8 @@ public class Reimbursement {
     @GeneratedValue
     @Id
     private int id;
+    @Column(unique = true ,nullable = false)
+    private int ReimbursementID;
     @Column
     private float amount;
     private Timestamp submitted;
@@ -48,6 +49,14 @@ public class Reimbursement {
         this.author = author;
         this.status_id = Status.PENDING.ordinal();
         this.type_id = type_id.ordinal();
+    }
+
+    public int getReimbursementID() {
+        return ReimbursementID;
+    }
+
+    public void setReimbursementID(int reimbursementID) {
+        ReimbursementID = reimbursementID;
     }
 
     public int getStatus_id() {
@@ -123,23 +132,23 @@ public class Reimbursement {
     }
 
 
-    public int getExpense_Value(expenseType expenseType) {
-        switch (expenseType) {
-            case TRAVEL:
-                return expenseType.TRAVEL.ordinal();
-            case TRAINING:
-                return expenseType.TRAINING.ordinal();
-            case ENTERTAINMENT:
-                return expenseType.ENTERTAINMENT.ordinal();
-            case GIFT:
-                return expenseType.GIFT.ordinal();
-            case CAR:
-                return expenseType.CAR.ordinal();
-            case OTHER:
-                return expenseType.OTHER.ordinal();
+    public static expenseType getExpense_Value(int typeID) {
+        switch (typeID) {
+            case 0:
+                return expenseType.TRAVEL;
+            case 1:
+                return expenseType.TRAINING;
+            case 2:
+                return expenseType.ENTERTAINMENT;
+            case 3:
+                return expenseType.GIFT;
+            case 4:
+                return expenseType.CAR;
+            case 5:
+                return expenseType.OTHER;
             default:
                 System.out.println("Not a valid expense");
-                return -1;
+                return null;
         }
     }
 
@@ -154,17 +163,17 @@ public class Reimbursement {
     }
 
 
-    public int getStatus(Status status) {
+    public Status getStatus(int status) {
         switch (status) {
-            case PENDING:
-                return Status.PENDING.ordinal();
-            case ACCEPTED:
-                return Status.ACCEPTED.ordinal();
-            case REJECTED:
-                return Status.REJECTED.ordinal();
+            case 0:
+                return Status.PENDING;
+            case 1:
+                return Status.ACCEPTED;
+            case 2:
+                return Status.REJECTED;
             default:
                 System.out.println("Not a valid Status");
-                return -1;
+                return null;
         }
     }
 
@@ -177,15 +186,15 @@ public class Reimbursement {
     @Override
     public String toString() {
         return "Reimbursement{" +
-                "id=" + id +
+                " ReimbursementID=" + ReimbursementID +
                 ", amount=" + amount +
                 ", submitted=" + submitted +
                 ", resolved=" + resolved +
                 ", description='" + description + '\'' +
                 ", author=" + author +
                 ", resolver=" + resolver +
-                ", status_id=" + status_id +
-                ", type_id=" + type_id +
+                ", status_id=" + getStatus(status_id) +
+                ", type_id=" + getExpense_Value(type_id) +
                 '}';
     }
 }

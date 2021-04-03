@@ -4,16 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="fixed duplicate username bug">
+    <list default="true" id="8f24121d-b8b2-434a-8ab5-1f733f359b57" name="Default Changelist" comment="trying to get the float bug fixed">
+      <change afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/utililty/Validation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/ReimbursementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/ReimbursementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadME.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadME.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/ReimbursementDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/ReimbursementDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement$Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement$Status.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement$expenseType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement$expenseType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/Reimbursement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/User$Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/User$Role.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/ConnectionUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/HibernateUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/HibernateUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/ReimbursementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/ReimbursementService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerReimbursementServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerReimbursementServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerReimbursementsListServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/ManagerServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementListServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserReimbursementServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoneKopeloffProject/servlet/UserServlet.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +58,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/UserServlet.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1qSJhNirdxap628sYEw73m4b53W" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -61,11 +76,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Cryo/Cryostasis" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -82,7 +100,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Smart Tomcat.Smart Tomcat">
+  <component name="RunManager" selected="Smart Tomcat.Unnamed">
     <configuration name="DanielDriver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DanielDriver" />
       <module name="StoneKopeloffProject" />
@@ -116,6 +134,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Unnamed" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY" nameIsGenerated="true">
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" value="/StoneKopeloffProject" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions" />
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.44" />
+          <option name="number" value="0" />
+          <option name="path" value="C:\d drive\data\revature documents\tomcat\apache-tomcat-9.0.44" />
+          <option name="version" value="9.0.44.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
       <option name="adminPort" value="8005" />
       <option name="contextPath" value="/StoneKopeloffProject" />
@@ -138,6 +176,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.DanielDriver" />
+      <item itemvalue="Smart Tomcat.Unnamed" />
       <item itemvalue="Smart Tomcat.Smart Tomcat" />
     </list>
     <recent_temporary>
@@ -169,7 +208,105 @@
       <option name="project" value="LOCAL" />
       <updated>1617297559743</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Spacing changes">
+      <created>1617298185648</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617298185648</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added CRU (Create , Insert ,Update ,Get) functionality for User , Mangers , users+Reimbursements , Managers+reimbursments , Getting a list of either all approved , pending , and rejected &#10;To Sum it up i made more endpoints">
+      <created>1617347466605</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1617347466605</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added Data validation for input &#10;Added user's cant update other peoples reimbursement&#10;Added Managers cant update the status of their own Reimbursement">
+      <created>1617396339492</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617396339492</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added Data validation for input &#10;Added user's cant update other peoples reimbursement&#10;Added Managers cant update the status of their own Reimbursement&#10;Added users cant view other users reimbursement">
+      <created>1617396554585</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1617396554585</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added so manager can view all Reimbursements">
+      <created>1617407486970</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617407486970</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add a read Me">
+      <created>1617409058456</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617409058456</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add a read Me">
+      <created>1617409109526</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1617409109526</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add a /manager ReadME.md">
+      <created>1617409947695</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1617409947695</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fix bug on line 62 in ManagerServlet where the user could be null">
+      <created>1617411744916</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1617411744916</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fix bug with creating a new manager">
+      <created>1617412427175</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1617412427175</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added More ReadME&#10;Fix bug with REGEx in ManagerServlet">
+      <created>1617414525790</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1617414525790</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added More ReadME&#10;Fixed not catching NullPointer Exceptions in the data validation">
+      <created>1617416100553</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1617416100553</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fixed UserReimbursementServlet put where the wrong type was getting caught">
+      <created>1617417231374</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1617417231374</updated>
+    </task>
+    <task id="LOCAL-00016" summary="trying to get the float bug fixed">
+      <created>1617422686998</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1617422686998</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,15 +324,43 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add functionality to POST , PUT For manager &#10;Add functionality to PUT for user" />
     <MESSAGE value="fixed duplicate username bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed duplicate username bug" />
+    <MESSAGE value="Spacing changes" />
+    <MESSAGE value="Added CRU (Create , Insert ,Update ,Get) functionality for User , Mangers , users+Reimbursements , Managers+reimbursments , Getting a list of either all approved , pending , and rejected &#10;To Sum it up i made more endpoints" />
+    <MESSAGE value="Added Data validation for input &#10;Added user's cant update other peoples reimbursement&#10;Added Managers cant update the status of their own Reimbursement" />
+    <MESSAGE value="Added Data validation for input &#10;Added user's cant update other peoples reimbursement&#10;Added Managers cant update the status of their own Reimbursement&#10;Added users cant view other users reimbursement" />
+    <MESSAGE value="Added so manager can view all Reimbursements" />
+    <MESSAGE value="Add a read Me" />
+    <MESSAGE value="Add a /manager ReadME.md" />
+    <MESSAGE value="Fix bug on line 62 in ManagerServlet where the user could be null" />
+    <MESSAGE value="Fix bug with creating a new manager" />
+    <MESSAGE value="Added More ReadME&#10;Fix bug with REGEx in ManagerServlet" />
+    <MESSAGE value="Added More ReadME&#10;Fixed not catching NullPointer Exceptions in the data validation" />
+    <MESSAGE value="fixed UserReimbursementServlet put where the wrong type was getting caught" />
+    <MESSAGE value="trying to get the float bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to get the float bug fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StoneKopeloffProject/service/UserService.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/main/java/StoneKopeloffProject/servlet/ManagerServlet.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StoneKopeloffProject/utililty/Validation.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StoneKopeloffProject/utililty/Validation.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StoneKopeloffProject/utililty/Validation.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
